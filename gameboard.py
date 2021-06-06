@@ -19,16 +19,11 @@ class Gameboard:
     def create_grid(self):
         for x in range(grid_width):
             for y in range(grid_height):
-                pos = position.Position()
-                self.grid.append(pos)
-                # print(position.Position())
-                # numpy.insert(y, position.Position())
-                # numpy.insert(self.grid, y, position.Position())
-                # self.grid.insert(y, position.Position())
-                # self.grid.append(position.Position())
-                # self.grid[x][y].position.add_card()
-                test1 = self.grid[x][y]
-                test1.add_card()
+                self.grid.append(position.Position())
+
+                pos = self.grid[x][y]
+                pos.add_card()
+
                 print(pos.get_card_name())
 
     def get_position(self, x, y):
