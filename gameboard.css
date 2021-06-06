@@ -3,7 +3,7 @@
 }
 
 .game_area{
-    width: 100%;
+    width: available;
     display: flex;
     flex-direction: row;
 }
@@ -29,31 +29,32 @@ img {
 body, html {
     overflow-x: hidden;
     overflow-y: hidden;
+    width: available;
 }
 
 .game_info{
     border: solid;
     position: relative;
-    width: 99%;
+    width: available;
     height: 100px;
-    margin-bottom: 10px;
     top: 0;
     left: 0;
 }
 
 .hand{
-    height: 450px;
-    width: 450px;
+    margin-top: 5px;
+    height: 452px;
+    width: 50%;
     border: solid;
     position: relative;
 }
 
 #player_hand{
-    left: 1%;
+    left: 0;
     border-color: green;
 }
 
 #opponent_hand{
-    right: 1%;
+    right: 0;
     border-color: red;
 }
