@@ -12,8 +12,8 @@ class Position:
     def __getitem__(self, item):
         return self
 
-    def add_card(self):
-        self.card_obj = card.Card()
+    def add_card(self, card_name):
+        self.card_obj = card.Card(card_name)
         # random.choice(card_names))
 
     def remove_card(self):
