@@ -64,6 +64,7 @@ body, html {
 
 #player_hand{
     float: left;
+    left: 0;
 }
 
 #opponent_hand {
@@ -71,7 +72,49 @@ body, html {
 }
 
 .hand_position{
+    display: flex;
+    position: absolute;
     margin: 0;
     top: 0;
-    height: 17.2%;
+    height: 134px;
+}
+
+#pl_hand_pos_1 {
+    top: 0;
+}
+
+#pl_hand_pos_2 {
+    top: 74px;
+}
+
+#pl_hand_pos_3 {
+    top: 148px;
+}
+
+#pl_hand_pos_4 {
+    top: 222px;
+}
+
+#pl_hand_pos_5 {
+    top: 296px;
+}
+
+#op_hand_pos_1 {
+    top: 0;
+}
+
+#op_hand_pos_2 {
+    top: 74px;
+}
+
+#op_hand_pos_3 {
+    top: 148px;
+}
+
+#op_hand_pos_4 {
+    top: 222px;
+}
+
+#op_hand_pos_5 {
+    top: 296px;
 }
