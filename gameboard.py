@@ -1,14 +1,12 @@
-# import numpy
 import position
-# import array
+
+
+grid_width = 3
+grid_height = 3
 
 
 class Gameboard:
     def __init__(self):
-        # self.grid = numpy.array([[position.Position(), position.Position(), position.Position()], [position.Position(), position.Position(), position.Position()], [position.Position(), position.Position(), position.Position()]])
-        # self.grid = numpy.empty((3, 3), numpy.object)
-        # self.grid = numpy.ndarray((3, 3), numpy.object)
-        # self.grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
         self.grid = []
         self.create_grid()
 
@@ -19,8 +17,8 @@ class Gameboard:
             print()
 
     def create_grid(self):
-        for x in range(3):
-            for y in range(3):
+        for x in range(grid_width):
+            for y in range(grid_height):
                 pos = position.Position()
                 self.grid.append(pos)
                 # print(position.Position())
