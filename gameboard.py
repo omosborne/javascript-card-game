@@ -11,9 +11,10 @@ class Gameboard:
         self.create_grid()
 
     def display_grid(self):
-        for x in self.grid:
-            for y in x:
-                print(y, end=" ")
+        for x in range(grid_width):
+            for y in range(grid_height):
+                pos = self.get_position(x, y)
+                print(pos.get_card_name(), end=" ")
             print()
 
     def create_grid(self):
@@ -23,8 +24,6 @@ class Gameboard:
 
                 pos = self.grid[x][y]
                 pos.add_card()
-
-                print(pos.get_card_name())
 
     def get_position(self, x, y):
         return self.grid[x][y]
