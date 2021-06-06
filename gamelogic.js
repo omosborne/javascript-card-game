@@ -2,10 +2,11 @@ function choose_card() {
 
 }
 
-function highlight_card(){
-    document.getElementById("pl_hand_pos_1").style.borderColor = "red";
+function highlight_card(selected_card){
+    selected_card.style.border = "solid";
+    selected_card.style.borderColor = "red";
 }
 
-function unhighlight_card(){
-    document.getElementById("pl_hand_pos_1").style.borderColor = "black";
+function unhighlight_card(selected_card){
+    selected_card.style.removeProperty("border")
 }

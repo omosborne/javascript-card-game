@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="gameboard.css" rel="stylesheet">
+    <script src="gamelogic.js"></script>
 </head>
 <body>
     <div class="game_info">
@@ -12,27 +13,27 @@
     <div class="game_area">
         <div class="area" id="player_area">
             <div class="hand" id="player_hand">
-                <div class="hand_position" id="pl_hand_pos_1" onmouseenter="highlight_card()" onmouseleave="unhighlight_card()">
+                <div class="hand_position" id="pl_hand_pos_1" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
                     <div class="card">
                         <img onmousedown="choose_card(this)" src="example_card.png" alt="example" ondragstart="return false;">
                     </div>
                 </div>
-                <div class="hand_position" id="pl_hand_pos_2">
+                <div class="hand_position" id="pl_hand_pos_2" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
                     <div class="card">
                         <img onmousedown="choose_card(this)" src="example_card.png" alt="example" ondragstart="return false;">
                     </div>
                 </div>
-                <div class="hand_position" id="pl_hand_pos_3">
+                <div class="hand_position" id="pl_hand_pos_3" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
                     <div class="card">
                         <img onmousedown="choose_card(this)" src="example_card.png" alt="example" ondragstart="return false;">
                     </div>
                 </div>
-                <div class="hand_position" id="pl_hand_pos_4">
+                <div class="hand_position" id="pl_hand_pos_4" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
                     <div class="card">
                         <img onmousedown="choose_card(this)" src="example_card.png" alt="example" ondragstart="return false;">
                     </div>
                 </div>
-                <div class="hand_position" id="pl_hand_pos_5">
+                <div class="hand_position" id="pl_hand_pos_5" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
                     <div class="card">
                         <img onmousedown="choose_card(this)" src="example_card.png" alt="example" ondragstart="return false;">
                     </div>
