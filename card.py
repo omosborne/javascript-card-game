@@ -1,6 +1,3 @@
-# import random
-
-
 class Card:
     def __init__(self, card_name):
         self.name = card_name

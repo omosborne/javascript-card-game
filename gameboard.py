@@ -1,10 +1,6 @@
 import position
 
 
-grid_width = 3
-grid_height = 3
-
-
 class Gameboard:
     def __init__(self):
         self.grid = {

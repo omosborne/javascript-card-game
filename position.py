@@ -1,8 +1,4 @@
 import card
-# import random
-
-
-# card_names = ["Card 1", "Card 2", "Card 3", "Card 4"]
 
 
 class Position:
@@ -14,7 +10,6 @@ class Position:
 
     def add_card(self, card_name):
         self.card_obj = card.Card(card_name)
-        # random.choice(card_names))
 
     def remove_card(self):
         self.card_obj = None
