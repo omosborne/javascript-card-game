@@ -7,28 +7,26 @@ grid_height = 3
 
 class Gameboard:
     def __init__(self):
-        self.grid = []
-        self.create_grid()
+        self.grid = {
+            "1": position.Position(), "2": position.Position(), "3": position.Position(),
+            "4": position.Position(), "5": position.Position(), "6": position.Position(),
+            "7": position.Position(), "8": position.Position(), "9": position.Position(),
+        }
 
     def display_grid(self):
-        for x in range(grid_width):
-            for y in range(grid_height):
-                pos = self.get_position(x, y)
-                print(pos.get_card_name(), end=" ")
-            print()
+        for grid_position in self.grid:
+            pos = self.get_position(grid_position)
+            print(pos.get_card_name(), end=" ")
 
-    def create_grid(self):
-        for x in range(grid_width):
-            for y in range(grid_height):
-                self.grid.append(position.Position())
+            if grid_position == "3":
+                print()
 
-                # pos = self.grid[x][y]
-                # pos.add_card()
+            if grid_position == "6":
+                print()
 
-    def get_position(self, x, y):
-        return self.grid[x][y]
+    def get_position(self, index):
+        return self.grid.get(index)
 
-    def add_card_to_position(self, position_x, position_y, card_name):
-        # pos = self.get_position(position_x, position_y)
-        pos = self.grid[position_x][position_y]
+    def add_card_to_position(self, position_index, card_name):
+        pos = self.get_position(position_index)
         pos.add_card(card_name)
