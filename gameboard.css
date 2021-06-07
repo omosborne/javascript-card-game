@@ -88,46 +88,27 @@ body, html {
     width: 100px;
 }
 
-#pl_hand_pos_1 {
+#pl_hand_pos_1, #op_hand_pos_1 {
     top: 0;
 }
 
-#pl_hand_pos_2 {
+#pl_hand_pos_2, #op_hand_pos_2 {
     top: 74px;
 }
 
-#pl_hand_pos_3 {
+#pl_hand_pos_3, #op_hand_pos_3 {
     top: 148px;
 }
 
-#pl_hand_pos_4 {
+#pl_hand_pos_4, #op_hand_pos_4 {
     top: 222px;
 }
 
-#pl_hand_pos_5 {
-    top: 296px;
-}
-
-#op_hand_pos_1 {
-    top: 0;
-}
-
-#op_hand_pos_2 {
-    top: 74px;
-}
-
-#op_hand_pos_3 {
-    top: 148px;
-}
-
-#op_hand_pos_4 {
-    top: 222px;
-}
-
-#op_hand_pos_5 {
+#pl_hand_pos_5, #op_hand_pos_5 {
     top: 296px;
 }
 
 #move_card {
-     position: absolute;
+    position: absolute;
+    left: -150px;
 }
