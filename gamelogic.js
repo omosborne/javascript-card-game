@@ -108,13 +108,13 @@ function choose_card(selected_pos){
             chosen_card = null;
         }
     }
-
 }
 
 function summon(selected_pos){
     if (!(selected_pos.querySelectorAll(".card").length > 0)) {
-        chosen_card.style.removeProperty("border");
-        chosen_card.style.transform = "translateX(0px)";
+        chosen_card.parentElement.style.removeProperty("border");
+        chosen_card.parentElement.style.transform = "translateX(0px)";
+        chosen_card.parentElement.style.zIndex = "-1";
         card_chosen = false;
         selected_pos.appendChild(chosen_card);
     }
