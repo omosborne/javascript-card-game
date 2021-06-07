@@ -96,15 +96,17 @@ function choose_card(selected_pos){
             document.getElementById(hand_pos).style.transform = "translateX(0px)";
             document.getElementById(hand_pos).style.removeProperty("border");
     });
-    if (!(chosen_card === selected_pos.firstElementChild)){
-        card_chosen = true;
-        chosen_card = selected_pos.firstElementChild;
-        selected_pos.style.transform = "translateX(20px)";
-        selected_pos.style.border = "solid red";
-    }
-    else {
-        card_chosen = false;
-        chosen_card = null;
+    if (selected_pos.querySelectorAll(".card").length > 0) {
+        if (!(chosen_card === selected_pos.firstElementChild)){
+            card_chosen = true;
+            chosen_card = selected_pos.firstElementChild;
+            selected_pos.style.transform = "translateX(20px)";
+            selected_pos.style.border = "solid red";
+        }
+        else {
+            card_chosen = false;
+            chosen_card = null;
+        }
     }
 
 }
