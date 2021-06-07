@@ -38,6 +38,7 @@ body, html {
     overflow-x: hidden;
     overflow-y: hidden;
     width: available;
+    height: 99%;
 }
 
 .game_info{
