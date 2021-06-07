@@ -15,6 +15,22 @@
             //document.getElementById("pl_hand_pos_1").innerHTML = selected_pos.firstElementChild.innerHTML;
             //const myNode = document.getElementById("foo");
             selected_pos.innerHTML = '';
+            const move_card_div = document.createElement("div");
+            move_card_div.className = "card";
+            move_card_div.id = "move_card"
+            const move_card_img = document.createElement("img");
+            move_card_img.setAttribute('src', 'example_card.png');
+            move_card_img.setAttribute('alt', 'example');
+            move_card_img.setAttribute('width', '100');
+            move_card_div.appendChild(move_card_img);
+            document.body.appendChild(move_card_div);
+
+            const onMouseMove = (e) =>{
+                move_card_div.style.left = e.pageX + 'px';
+                move_card_div.style.top = e.pageY + 'px';
+            }
+            document.addEventListener('mousemove', onMouseMove);
+
         }
 
         function highlight_card(selected_pos){
@@ -25,6 +41,11 @@
             selected_pos.style.transform = "translateX(0px)";
         }
     </script>
+    <style>
+        #move_card {
+            position: absolute;
+        }
+    </style>
 </head>
 <body>
     <div class="game_info">
