@@ -92,14 +92,14 @@ let chosen_card = null;
 }*/
 
 function choose_card(selected_pos){
-
-    if (!card_chosen) {
-        card_chosen = true;
-        chosen_card = selected_pos.firstElementChild;
-        selected_pos.style.transform = "translateX(20px)";
-        selected_pos.style.border = "solid red";
-    }
-
+    [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5' ].forEach(function( hand_pos ) {
+            document.getElementById(hand_pos).style.transform = "translateX(0px)";
+            document.getElementById(hand_pos).style.removeProperty("border");
+    });
+    card_chosen = true;
+    chosen_card = selected_pos.firstElementChild;
+    selected_pos.style.transform = "translateX(20px)";
+    selected_pos.style.border = "solid red";
 }
 
 function summon(selected_pos){
@@ -123,10 +123,9 @@ function highlight_card(selected_pos){
 }
 
 function unhighlight_card(selected_pos){
-    if (!(chosen_card.parentNode === selected_pos))
+    if (chosen_card === null || !(chosen_card.parentNode === selected_pos))
     {
         selected_pos.style.transform = "translateX(0px)";
 
     }
-
 }
