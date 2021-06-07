@@ -4,7 +4,27 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="gameboard.css" rel="stylesheet">
-    <script src="gamelogic.js"></script>
+    <!--<script src="gamelogic.js"></script>-->
+    <script>
+        function choose_card(selected_pos) {
+            //let selected_card = document.getElementsByClassName(child_class)
+            //selected_card.style.visibility = "hidden";
+            // selected_pos.closest(".card").remove();
+            //let child_class = selected_pos.firstChild;
+            //selected_pos.removeChild(child_class);
+            //document.getElementById("pl_hand_pos_1").innerHTML = selected_pos.firstElementChild.innerHTML;
+            //const myNode = document.getElementById("foo");
+            selected_pos.innerHTML = '';
+        }
+
+        function highlight_card(selected_pos){
+            selected_pos.style.transform = "translateX(20px)";
+        }
+
+        function unhighlight_card(selected_pos){
+            selected_pos.style.transform = "translateX(0px)";
+        }
+    </script>
 </head>
 <body>
     <div class="game_info">
@@ -13,9 +33,9 @@
     <div class="game_area">
         <div class="area" id="player_area">
             <div class="hand" id="player_hand">
-                <div class="hand_position" id="pl_hand_pos_1" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
+                <div style="background-color: green; width: 100px" class="hand_position" id="pl_hand_pos_1" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
                     <div class="card">
-                        <img onmousedown="choose_card(this)" src="example_card.png" alt="example" ondragstart="return false;">
+                        <img src="example_card.png" alt="example" ondragstart="return false;">
                     </div>
                 </div>
                 <div class="hand_position" id="pl_hand_pos_2" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
