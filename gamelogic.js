@@ -1,6 +1,7 @@
 let is_droppable = false;
 let chosen_position = null;
-let card_collected = false;
+let card_chosen = false;
+let chosen_card = null;
 
 /*function choose_card(selected_pos) {
     //let selected_card = document.getElementsByClassName(child_class)
@@ -92,21 +93,19 @@ let card_collected = false;
 
 function choose_card(selected_pos){
 
-    let chosen_card = selected_pos.firstElementChild;
-
-    if (!card_collected) {
-        card_collected = true;
-        chosen_card.id = "move_card";
-
-        //chosen_card.style.position = "fixed";
-        document.body.appendChild(chosen_card);
-        document.addEventListener('mousemove', function(ev){
-            chosen_card.style.transform = 'translateY('+(ev.clientY-630)+'px)';
-            chosen_card.style.transform += 'translateX('+(ev.clientX+110)+'px)';
-        },false);
+    if (!card_chosen) {
+        card_chosen = true;
+        chosen_card = selected_pos.firstElementChild;
+        selected_pos.style.transform = "translateX(20px)";
+        selected_pos.style.border = "solid red";
     }
+
 }
 
+function summon(selected_pos){
+    card_chosen = false;
+    selected_pos.appendChild(chosen_card);
+}
 
 function droppable(mouseOver, chosen_pos){
     if (chosen_pos.querySelectorAll(".card").length > 0) {
@@ -124,5 +123,10 @@ function highlight_card(selected_pos){
 }
 
 function unhighlight_card(selected_pos){
-    selected_pos.style.transform = "translateX(0px)";
+    if (!(chosen_card.parentNode === selected_pos))
+    {
+        selected_pos.style.transform = "translateX(0px)";
+
+    }
+
 }
