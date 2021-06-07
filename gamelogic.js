@@ -117,6 +117,7 @@ function summon(selected_pos){
         chosen_card.parentElement.style.zIndex = "-1";
         card_chosen = false;
         selected_pos.appendChild(chosen_card);
+        chosen_card = null;
     }
 }
 
