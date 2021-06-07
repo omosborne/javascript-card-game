@@ -96,15 +96,26 @@ function choose_card(selected_pos){
             document.getElementById(hand_pos).style.transform = "translateX(0px)";
             document.getElementById(hand_pos).style.removeProperty("border");
     });
-    card_chosen = true;
-    chosen_card = selected_pos.firstElementChild;
-    selected_pos.style.transform = "translateX(20px)";
-    selected_pos.style.border = "solid red";
+    if (!(chosen_card === selected_pos.firstElementChild)){
+        card_chosen = true;
+        chosen_card = selected_pos.firstElementChild;
+        selected_pos.style.transform = "translateX(20px)";
+        selected_pos.style.border = "solid red";
+    }
+    else {
+        card_chosen = false;
+        chosen_card = null;
+    }
+
 }
 
 function summon(selected_pos){
-    card_chosen = false;
-    selected_pos.appendChild(chosen_card);
+    if (!(selected_pos.querySelectorAll(".card").length > 0)) {
+        chosen_card.style.removeProperty("border");
+        chosen_card.style.transform = "translateX(0px)";
+        card_chosen = false;
+        selected_pos.appendChild(chosen_card);
+    }
 }
 
 function droppable(mouseOver, chosen_pos){
