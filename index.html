@@ -12,8 +12,8 @@
     </div>
     <div class="game_area">
         <div class="area" id="player_area">
-            <div style="background: green" class="hand" id="player_hand">
-                <div style="background: red" class="hand_position" id="pl_hand_pos_1" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
+            <div class="hand" id="player_hand">
+                <div class="hand_position" id="pl_hand_pos_1" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
                     <div class="card"></div>
                 </div>
                 <div class="hand_position" id="pl_hand_pos_2" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
@@ -35,27 +35,27 @@
             <div class="row" id="row_1">
                 <div class="position" id="position_1" onmousedown="summon(this)" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
                 </div>
-                <div class="position" id="position_2" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
+                <div class="position" id="position_2" onmousedown="summon(this)" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
                 </div>
-                <div class="position" id="position_3" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
+                <div class="position" id="position_3" onmousedown="summon(this)" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
                 </div>
             </div>
 
             <div class="row" id="row_2">
-                <div class="position" id="position_4" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
+                <div class="position" id="position_4" onmousedown="summon(this)" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
                 </div>
-                <div class="position" id="position_5" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
+                <div class="position" id="position_5" onmousedown="summon(this)" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
                 </div>
-                <div class="position" id="position_6" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
+                <div class="position" id="position_6" onmousedown="summon(this)" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
                 </div>
             </div>
 
             <div class="row" id="row_3">
-                <div class="position" id="position_7" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
+                <div class="position" id="position_7" onmousedown="summon(this)" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
                 </div>
-                <div class="position" id="position_8" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
+                <div class="position" id="position_8" onmousedown="summon(this)" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
                 </div>
-                <div class="position" id="position_9" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
+                <div class="position" id="position_9" onmousedown="summon(this)" onmouseenter="droppable(true, this)" onmouseleave="droppable(false, this)">
                 </div>
             </div>
         </div>
