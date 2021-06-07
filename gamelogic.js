@@ -93,16 +93,17 @@ let card_collected = false;
 function choose_card(selected_pos){
 
     let chosen_card = selected_pos.firstElementChild;
+
     if (!card_collected) {
         card_collected = true;
-        chosen_card.hidden = true;
+        chosen_card.id = "move_card";
+
         //chosen_card.style.position = "fixed";
         document.body.appendChild(chosen_card);
         document.addEventListener('mousemove', function(ev){
             chosen_card.style.transform = 'translateY('+(ev.clientY-630)+'px)';
-            chosen_card.style.transform += 'translateX('+(ev.clientX-50)+'px)';
+            chosen_card.style.transform += 'translateX('+(ev.clientX+110)+'px)';
         },false);
-        chosen_card.hidden = false;
     }
 }
 
