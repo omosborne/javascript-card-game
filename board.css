@@ -25,34 +25,37 @@
 }
 
 .card_stats {
-    background-color: aqua;
-    width: 50%;
-    height: 40%;
+    width: 25%;
+    height: 20%;
     text-align: center;
+    font-size: 10px;
+    color: white;
+    margin-top: 5px;
+    margin-left: 5px;
 }
 
 #card_stat_north {
     float: left;
     width: 100%;
-    background-color: red;
+    height: 33.33%;
 }
 
 #card_stat_west {
     float: left;
     width: 50%;
-    background-color: green;
+    height: 33.33%;
 }
 
 #card_stat_east {
     float: right;
     width: 50%;
-    background-color: blue;
+    height: 33.33%;
 }
 
 #card_stat_south {
     float: left;
     width: 100%;
-    background-color: yellow;
+    height: 33.33%;
 }
 
 
