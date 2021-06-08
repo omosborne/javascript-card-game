@@ -8,6 +8,7 @@ function choose_card(selected_pos){
                 document.getElementById(hand_pos).firstElementChild.style.left = "0px";
                 document.getElementById(hand_pos).firstElementChild.style.top = "0px";
                 document.getElementById(hand_pos).firstElementChild.style.removeProperty("border");
+                document.getElementById(hand_pos).firstElementChild.style.removeProperty("box-shadow");
             }
     });
 
@@ -18,6 +19,8 @@ function choose_card(selected_pos){
             chosen_card.style.left = "17px";
             chosen_card.style.top = "-3px";
             chosen_card.style.border = "solid red";
+            chosen_card.style.borderRadius = "10px";
+            chosen_card.style.boxShadow = "-2px -2px 15px #303030";
         }
         else {
             card_chosen = false;
