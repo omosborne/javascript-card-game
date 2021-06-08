@@ -32,6 +32,7 @@ function choose_card(selected_pos){
 function summon(selected_pos){
     if (!(selected_pos.querySelectorAll(".card").length > 0)) {
         chosen_card.style.removeProperty("border");
+        chosen_card.style.removeProperty("box-shadow");
         chosen_card.style.left = "0px";
         chosen_card.style.top = "0px";
         chosen_card.parentElement.style.zIndex = "-1";
