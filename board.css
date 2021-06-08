@@ -20,6 +20,10 @@
     height: 140px;
 }
 
+.card_back {
+    background-image: url("example_card_back.png");
+}
+
 .position {
     margin: 5px 7px 5px 7px;
     height: 140px;
