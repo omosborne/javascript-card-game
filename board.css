@@ -79,7 +79,7 @@ body, html {
 }
 
 #op_score {
-    float: right;
+    float: left;
     height: 100%;
     line-height: 200%;
     width: 45%;
