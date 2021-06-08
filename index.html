@@ -46,7 +46,14 @@
         <div class="area" id="player_area">
             <div class="hand" id="player_hand">
                 <div class="hand_position" id="pl_hand_pos_1" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
-                    <div class="card"></div>
+                    <div class="card">
+                        <div class="card_stats">
+                            <div id="card_stat_north">1</div>
+                            <div id="card_stat_west">2</div>
+                            <div id="card_stat_east">3</div>
+                            <div id="card_stat_south">4</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="hand_position" id="pl_hand_pos_2" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
                     <div class="card"></div>

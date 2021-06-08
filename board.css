@@ -24,6 +24,39 @@
     background-image: url("example_card_back.png");
 }
 
+.card_stats {
+    background-color: aqua;
+    width: 50%;
+    height: 40%;
+
+}
+
+#card_stat_north {
+    float: left;
+    width: 100%;
+    background-color: red;
+}
+
+#card_stat_west {
+    float: left;
+    width: 50%;
+    background-color: green;
+}
+
+#card_stat_east {
+    float: right;
+    width: 50%;
+    background-color: blue;
+}
+
+#card_stat_south {
+    float: left;
+    width: 100%;
+    background-color: yellow;
+}
+
+
+
 .position {
     margin: 5px 7px 5px 7px;
     height: 140px;
