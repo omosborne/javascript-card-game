@@ -52,16 +52,23 @@ body, html {
 #pl_info {
     float: left;
     background-color: blue;
-    width: 50%;
+    width: 40%;
     height: 100%;
 }
 
 #op_info {
     float: right;
     background-color: red;
-    width: 50%;
+    width: 40%;
     height: 100%;
     text-align: right;
+}
+
+#game_score {
+    float: left;
+    background: green;
+    width: 20%;
+    height: 100%;
 }
 
 .area {
