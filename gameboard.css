@@ -2,7 +2,7 @@
     position: relative;
 }
 
-.game_area{
+.game_area {
     width: available;
     display: flex;
     flex-direction: row;
@@ -13,7 +13,7 @@
     flex-direction: row;
 }
 
-.card{
+.card {
     width: 100px;
     background-image: url("example_card.png");
     background-size: cover;
@@ -41,7 +41,7 @@ body, html {
     height: 99%;
 }
 
-.game_info{
+.game_info {
     position: relative;
     width: available;
     height: 100px;
@@ -49,28 +49,43 @@ body, html {
     left: 0;
 }
 
-.area{
+#pl_info {
+    float: left;
+    background-color: blue;
+    width: 50%;
+    height: 100%;
+}
+
+#op_info {
+    float: right;
+    background-color: red;
+    width: 50%;
+    height: 100%;
+    text-align: right;
+}
+
+.area {
     margin-top: 5px;
     height: 450px;
     width: 50%;
     position: relative;
 }
 
-#player_area{
+#player_area {
     left: 0;
 }
 
-#opponent_area{
+#opponent_area {
     right: 0;
 }
 
-.hand{
+.hand {
     width: 100px;
     height: 444px;
     position: relative;
 }
 
-#player_hand{
+#player_hand {
     float: left;
     left: 0;
 }
@@ -79,7 +94,7 @@ body, html {
     float: right;
 }
 
-.hand_position{
+.hand_position {
     display: flex;
     position: absolute;
     margin: 0;
