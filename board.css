@@ -52,14 +52,12 @@ body, html {
 
 #pl_info {
     float: left;
-    background-color: blue;
     width: 40%;
     height: 100%;
 }
 
 #op_info {
     float: right;
-    background-color: red;
     width: 40%;
     height: 100%;
     text-align: right;
@@ -67,14 +65,12 @@ body, html {
 
 #game_score {
     float: left;
-    background: green;
     width: 20%;
     height: 100%;
     font-size: 300%;
 }
 
 #pl_score {
-    background: violet;
     float: left;
     height: 100%;
     line-height: 200%;
@@ -83,7 +79,6 @@ body, html {
 }
 
 #op_score {
-    background: violet;
     float: right;
     height: 100%;
     line-height: 200%;
@@ -91,7 +86,6 @@ body, html {
 }
 
 #dv_score {
-    background: aqua;
     float: left;
     width: 10%;
     height: 100%;
