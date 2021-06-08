@@ -62,3 +62,16 @@ function random_card() {
         document.getElementById(hand_pos).firstElementChild.style.backgroundImage = "url('" + player_cards[Math.floor(Math.random() * player_cards.length)] + "')";
     });
 }
+
+function random_stats() {
+    [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5' ].forEach(function( hand_pos ) {
+        let card_div = document.getElementById(hand_pos).children[0];
+        let stat_div = card_div.children[0];
+
+        stat_div.children[0].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
+        stat_div.children[1].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
+        stat_div.children[2].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
+        stat_div.children[3].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
+    });
+
+}
