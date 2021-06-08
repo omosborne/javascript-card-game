@@ -93,6 +93,11 @@ body, html {
     text-align: center;
 }
 
+.title {
+    font-size: 150%;
+    font-weight: bold;
+}
+
 .area {
     margin-top: 5px;
     height: 450px;
