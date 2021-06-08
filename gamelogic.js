@@ -57,10 +57,6 @@ function unhighlight_pos(selected_pos){
     selected_pos.style.removeProperty("border");
 }
 
-function test(test){
-    alert(test);
-}
-
 function random_card() {
     [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5' ].forEach(function( hand_pos ) {
         document.getElementById(hand_pos).firstElementChild.style.backgroundImage = "url('" + player_cards[Math.floor(Math.random() * player_cards.length)] + "')";
