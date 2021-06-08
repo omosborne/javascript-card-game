@@ -39,6 +39,7 @@ body, html {
     overflow-y: hidden;
     width: available;
     height: 99%;
+    font-family: Arial, serif;
 }
 
 .game_info {
