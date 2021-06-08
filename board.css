@@ -78,6 +78,8 @@ body, html {
     float: left;
     height: 100%;
     line-height: 200%;
+    width: 45%;
+    text-align: right;
 }
 
 #op_score {
@@ -85,6 +87,16 @@ body, html {
     float: right;
     height: 100%;
     line-height: 200%;
+    width: 45%;
+}
+
+#dv_score {
+    background: aqua;
+    float: left;
+    width: 10%;
+    height: 100%;
+    line-height: 200%;
+    text-align: center;
 }
 
 .area {
