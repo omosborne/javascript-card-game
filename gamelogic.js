@@ -8,6 +8,7 @@ function choose_card(selected_pos){
                 document.getElementById(hand_pos).firstElementChild.style.left = "0px";
                 document.getElementById(hand_pos).firstElementChild.style.top = "0px";
                 document.getElementById(hand_pos).firstElementChild.style.removeProperty("border");
+                document.getElementById(hand_pos).firstElementChild.style.removeProperty("border-radius");
                 document.getElementById(hand_pos).firstElementChild.style.removeProperty("box-shadow");
             }
     });
@@ -32,6 +33,7 @@ function choose_card(selected_pos){
 function summon(selected_pos){
     if (!(selected_pos.querySelectorAll(".card").length > 0)) {
         chosen_card.style.removeProperty("border");
+        chosen_card.style.removeProperty("border-radius");
         chosen_card.style.removeProperty("box-shadow");
         chosen_card.style.left = "0px";
         chosen_card.style.top = "0px";
