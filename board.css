@@ -66,6 +66,7 @@
     height: 140px;
     width: 100px;
     border: solid;
+    border-radius: 10px;
 }
 
 img {
