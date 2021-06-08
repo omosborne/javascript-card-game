@@ -5,7 +5,8 @@ let player_cards = ['example_card_1.png', 'example_card_2.png', 'example_card_3.
 function choose_card(selected_pos){
     [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5' ].forEach(function( hand_pos ) {
             if (document.getElementById(hand_pos).querySelectorAll(".card").length > 0) {
-                document.getElementById(hand_pos).firstElementChild.style.transform = "translateX(0px)";
+                document.getElementById(hand_pos).firstElementChild.style.left = "0px";
+                document.getElementById(hand_pos).firstElementChild.style.top = "0px";
                 document.getElementById(hand_pos).firstElementChild.style.removeProperty("border");
             }
     });
@@ -14,7 +15,8 @@ function choose_card(selected_pos){
         if (!(chosen_card === selected_pos.firstElementChild)){
             card_chosen = true;
             chosen_card = selected_pos.firstElementChild;
-            chosen_card.style.transform = "translateX(20px)";
+            chosen_card.style.left = "17px";
+            chosen_card.style.top = "-3px";
             chosen_card.style.border = "solid red";
         }
         else {
@@ -27,7 +29,8 @@ function choose_card(selected_pos){
 function summon(selected_pos){
     if (!(selected_pos.querySelectorAll(".card").length > 0)) {
         chosen_card.style.removeProperty("border");
-        chosen_card.style.transform = "translateX(0px)";
+        chosen_card.style.left = "0px";
+        chosen_card.style.top = "0px";
         chosen_card.parentElement.style.zIndex = "-1";
         card_chosen = false;
         selected_pos.appendChild(chosen_card);
@@ -36,13 +39,20 @@ function summon(selected_pos){
 }
 
 function highlight_card(selected_pos){
-    selected_pos.firstElementChild.style.transform = "translateX(20px)";
+    if (!(chosen_card === selected_pos.firstElementChild)){
+        selected_pos.firstElementChild.style.left = "20px";
+    }
+    else{
+        selected_pos.firstElementChild.style.left = "17px";
+    }
+    
 }
 
 function unhighlight_card(selected_pos){
     if (chosen_card === null || !(chosen_card.parentNode === selected_pos))
     {
-        selected_pos.firstElementChild.style.transform = "translateX(0px)";
+        selected_pos.firstElementChild.style.left = "0px";
+        selected_pos.firstElementChild.style.top = "0px";
 
     }
 }
