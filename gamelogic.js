@@ -42,3 +42,13 @@ function unhighlight_card(selected_pos){
 
     }
 }
+
+function highlight_pos(selected_pos){
+    if (!(chosen_card === null || selected_pos.querySelectorAll(".card").length > 0)){
+        selected_pos.style.border = "solid red";
+    }
+}
+
+function unhighlight_pos(selected_pos){
+    selected_pos.style.removeProperty("border");
+}
