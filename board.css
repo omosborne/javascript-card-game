@@ -5,7 +5,8 @@
 .game_area {
     width: available;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    background-color: green;
 }
 
 .row {
@@ -148,11 +149,13 @@ body, html {
 }
 
 #player_area {
-    left: 0;
+
+    background-color: red;
 }
 
 #opponent_area {
     right: 0;
+    background-color: blue;
 }
 
 .hand {
@@ -162,7 +165,7 @@ body, html {
 }
 
 #player_hand {
-    float: left;
+    float: right;
     left: 0;
 }
 
