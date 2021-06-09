@@ -165,7 +165,7 @@ body, html {
 }
 
 #player_hand {
-    float: right;
+    float: left;
     left: 0;
 }
 

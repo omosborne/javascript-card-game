@@ -46,10 +46,10 @@ function summon(selected_pos){
 
 function highlight_card(selected_pos){
     if (!(chosen_card === selected_pos.firstElementChild)){
-        selected_pos.firstElementChild.style.left = "20px";
+        selected_pos.firstElementChild.style.bottom = "20px";
     }
     else{
-        selected_pos.firstElementChild.style.left = "17px";
+        selected_pos.firstElementChild.style.bottom = "17px";
     }
     
 }
@@ -57,8 +57,7 @@ function highlight_card(selected_pos){
 function unhighlight_card(selected_pos){
     if (chosen_card === null || !(chosen_card.parentNode === selected_pos))
     {
-        selected_pos.firstElementChild.style.left = "0px";
-        selected_pos.firstElementChild.style.top = "0px";
+        selected_pos.firstElementChild.style.bottom = "0px";
 
     }
 }
