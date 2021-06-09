@@ -143,8 +143,8 @@ body, html {
 
 .area {
     margin-top: 5px;
-    height: 450px;
-    width: 50%;
+    height: 134px;
+    width: 100%;
     position: relative;
 }
 
@@ -154,12 +154,12 @@ body, html {
 }
 
 #opponent_area {
-    right: 0;
+
     background-color: blue;
 }
 
 .hand {
-    width: 100px;
+    width: 70%;
     height: 444px;
     position: relative;
 }
@@ -170,11 +170,11 @@ body, html {
 }
 
 #opponent_hand {
-    float: right;
+    float: left;
+    right: 0;
 }
 
 .hand_position {
-    display: flex;
     position: absolute;
     margin: 0;
     top: 0;
@@ -183,21 +183,21 @@ body, html {
 }
 
 #pl_hand_pos_1, #op_hand_pos_1 {
-    top: 0;
+    left: 0;
 }
 
 #pl_hand_pos_2, #op_hand_pos_2 {
-    top: 74px;
+    left: 74px;
 }
 
 #pl_hand_pos_3, #op_hand_pos_3 {
-    top: 148px;
+    left: 148px;
 }
 
 #pl_hand_pos_4, #op_hand_pos_4 {
-    top: 222px;
+    left: 222px;
 }
 
 #pl_hand_pos_5, #op_hand_pos_5 {
-    top: 296px;
+    left: 296px;
 }
