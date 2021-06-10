@@ -178,7 +178,7 @@ body, html {
 #opponent_area {
     margin-top: 5px;
     height: 134px;
-    width: 100%;
+    width: 30%;
     position: relative;
     background-color: blue;
 }
@@ -191,14 +191,14 @@ body, html {
 
 #pl_buffer_left {
     float: left;
-    width: 40%;
+    width: 30%;
     height: 100%;
     background-color: aqua;
 }
 
 #pl_buffer_right {
     float: right;
-    width: 40%;
+    width: 30%;
     height: 100%;
     background-color: orange;
 }
