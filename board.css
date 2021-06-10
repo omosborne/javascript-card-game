@@ -150,7 +150,9 @@ body, html {
 }
 
 #player_area {
-
+    bottom: 0;
+    float: bottom;
+    width: available;
     background-color: red;
 }
 
@@ -165,9 +167,25 @@ body, html {
     position: relative;
 }
 
+#pl_buffer_left {
+    float: left;
+    width: 40%;
+    height: 100%;
+    background-color: aqua;
+}
+
+#pl_buffer_right {
+    float: right;
+    width: 40%;
+    height: 100%;
+    background-color: orange;
+}
+
 #player_hand {
     float: left;
-    left: 0;
+    width: 20%;
+    height: 100%;
+    background-color: violet;
 }
 
 #opponent_hand {
