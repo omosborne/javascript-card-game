@@ -223,6 +223,7 @@ body, html {
     width: 110px;
 }
 
+/*pl hand*/
 #pl_hand_pos_1 {
     left: 0;
 }
@@ -243,6 +244,47 @@ body, html {
     left: 296px;
 }
 
+#pl_hand_pos_6 {
+    left: 370px;
+}
+
+#pl_hand_pos_7 {
+    left: 444px;
+}
+
+#pl_hand_pos_8 {
+    left: 518px;
+}
+
+#pl_hand_pos_9 {
+    left: 592px;
+}
+
+#pl_hand_pos_10 {
+    left: 666px;
+}
+
+#pl_hand_pos_11 {
+    left: 740px;
+}
+
+#pl_hand_pos_12 {
+    left: 814px;
+}
+
+#pl_hand_pos_13 {
+    left: 888px;
+}
+
+#pl_hand_pos_14 {
+    left: 962px;
+}
+
+#pl_hand_pos_15 {
+    left: 1036px;
+}
+
+/*op hand*/
 #op_hand_pos_1 {
     left: 0;
 }
