@@ -209,22 +209,42 @@ body, html {
     width: 110px;
 }
 
-#pl_hand_pos_1, #op_hand_pos_1 {
+#pl_hand_pos_1 {
     left: 0;
 }
 
-#pl_hand_pos_2, #op_hand_pos_2 {
+#pl_hand_pos_2 {
     left: 74px;
 }
 
-#pl_hand_pos_3, #op_hand_pos_3 {
+#pl_hand_pos_3 {
     left: 148px;
 }
 
-#pl_hand_pos_4, #op_hand_pos_4 {
+#pl_hand_pos_4 {
     left: 222px;
 }
 
-#pl_hand_pos_5, #op_hand_pos_5 {
+#pl_hand_pos_5 {
     left: 296px;
+}
+
+#op_hand_pos_1 {
+    left: 0;
+}
+
+#op_hand_pos_2 {
+    left: 14px;
+}
+
+#op_hand_pos_3 {
+    left: 28px;
+}
+
+#op_hand_pos_4 {
+    left: 42px;
+}
+
+#op_hand_pos_5 {
+    left: 56px;
 }
