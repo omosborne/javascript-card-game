@@ -47,7 +47,7 @@
 }
 
 .card {
-    width: 100px;
+    width: 100%;
     background-image: url("example_card.png");
     background-size: cover;
     height: 100%;
@@ -189,7 +189,7 @@ body, html {
     position: fixed;
     width: available;
     background-color: red;
-    height: 15%;
+    height: 20%;
 }
 
 #opponent_area {
@@ -201,8 +201,8 @@ body, html {
 }
 
 .hand {
-    width: 100%;
-    height: 444px;
+    width: 100vw;
+    height: 170px;
     position: relative;
 }
 
@@ -236,8 +236,8 @@ body, html {
 .hand_position {
     position: absolute;
     margin: 0;
-    height: 134px;
-    width: 110px;
+    height: 100%;
+    width: 11vw;
 }
 
 /*pl hand*/

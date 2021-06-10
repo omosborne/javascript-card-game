@@ -5,8 +5,8 @@ let screen_width = screen.width;
 let screen_height = screen.height;
 
 function screen_size(){
-    document.getElementById("game_area").style.height = ((screen_height) * 0.85).toString();
-    document.getElementById("player_area").style.height = ((screen_height) * 0.15).toString();
+    document.getElementById("game_area").style.height = ((screen_height) * 0.8).toString();
+    document.getElementById("player_area").style.height = ((screen_height) * 0.2).toString();
 }
 
 function choose_card(selected_pos){
