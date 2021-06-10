@@ -3,7 +3,9 @@ let chosen_card = null;
 let player_cards = ['example_card_1.png', 'example_card_2.png', 'example_card_3.png', 'example_card_4.png', 'example_card_5.png'];
 
 function choose_card(selected_pos){
-    [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5' ].forEach(function( hand_pos ) {
+    [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5',
+      'pl_hand_pos_6', 'pl_hand_pos_7', 'pl_hand_pos_8', 'pl_hand_pos_9', 'pl_hand_pos_10',
+      'pl_hand_pos_11', 'pl_hand_pos_12', 'pl_hand_pos_13', 'pl_hand_pos_14', 'pl_hand_pos_15'].forEach(function( hand_pos ) {
             if (document.getElementById(hand_pos).querySelectorAll(".card").length > 0) {
                 document.getElementById(hand_pos).firstElementChild.style.bottom = "0px";
                 document.getElementById(hand_pos).firstElementChild.style.left = "0px";
