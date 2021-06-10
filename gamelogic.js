@@ -2,6 +2,12 @@ let card_chosen = false;
 let chosen_card = null;
 let player_cards = ['example_card_1.png', 'example_card_2.png', 'example_card_3.png', 'example_card_4.png', 'example_card_5.png'];
 let screen_width = screen.width;
+let screen_height = screen.height;
+
+function screen_size(){
+    document.getElementById("game_area").style.height = ((screen_height) * 0.85).toString();
+    document.getElementById("player_area").style.height = ((screen_height) * 0.15).toString();
+}
 
 function choose_card(selected_pos){
     [ 'pl_hand_pos_6', 'pl_hand_pos_7', 'pl_hand_pos_8', 'pl_hand_pos_9', 'pl_hand_pos_10'].forEach(function( hand_pos ) {
@@ -13,6 +19,7 @@ function choose_card(selected_pos){
                 document.getElementById(hand_pos).firstElementChild.style.removeProperty("box-shadow");
             }
     });
+
 
     if (selected_pos.querySelectorAll(".card").length > 0) {
         if (!(chosen_card === selected_pos.firstElementChild)){
@@ -71,9 +78,11 @@ function unhighlight_pos(selected_pos){
 }
 
 function random_card() {
+     screen_size();
     [ 'pl_hand_pos_6', 'pl_hand_pos_7', 'pl_hand_pos_8', 'pl_hand_pos_9', 'pl_hand_pos_10'].forEach(function( hand_pos ) {
         document.getElementById(hand_pos).firstElementChild.style.backgroundImage = "url('" + player_cards[Math.floor(Math.random() * player_cards.length)] + "')";
     });
+
 }
 
 function random_stats() {
