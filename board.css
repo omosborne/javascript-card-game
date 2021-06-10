@@ -121,6 +121,10 @@ body, html {
     width: 20%;
     height: 100%;
     font-size: 300%;
+    display: flex;
+    flex-direction: row;
+    background-color: green;
+
 }
 
 #pl_score {
@@ -129,22 +133,26 @@ body, html {
     line-height: 200%;
     width: 43%;
     text-align: right;
+    background-color: crimson;
+    padding-right: 2px;
 }
 
 #op_score {
-    float: left;
+    float: right;
     height: 100%;
     line-height: 200%;
     width: 43%;
+    background-color: indigo;
+    padding-left: 2px;
 }
 
 #dv_score {
     float: left;
-    width: 10%;
+    width: 14%;
     height: 100%;
     line-height: 200%;
     text-align: center;
-    padding: 0 2px 2px;
+    background-color: sienna;
 }
 
 .title {
