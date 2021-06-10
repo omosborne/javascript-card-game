@@ -1,153 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Card Game</title>
-    <link href="board.css" rel="stylesheet">
-    <script src="gamelogic.js"></script>
-</head>
-<body onload="random_card(); random_stats()">
-    <div class="game_info">
-        <div id="pl_info">
-            <div class="title">
-                Player
-            </div>
-            <div class="username">
-                {username}
-            </div>
-            <div class="account_score">
-                {account score}
-            </div>
-        </div>
-        <div id="game_score">
-            <div id="pl_score">
-                0
-            </div>
-            <div id="dv_score">
-                -
-            </div>
-            <div id="op_score">
-                0
-            </div>
-        </div>
-        <div id="op_info">
-            <div class="title">
-                Opponent
-            </div>
-            <div class="username">
-                {username}
-            </div>
-            <div class="account_score">
-                {account score}
-            </div>
-        </div>
-    </div>
-    <div class="game_area">
+    <head>
+        <meta charset="UTF-8">
+        <title>Card Game</title>
+        <link href="board.css" rel="stylesheet">
+        <script src="gamelogic.js"></script>
+    </head>
+    <body onload="random_card(); random_stats()">
 
-        <div class="area" id="opponent_area">
-            <div class="hand" id="opponent_hand">
-                <div class="hand_position" id="op_hand_pos_1">
-                    <div class="card_back card"></div>
+        <div class="game_info">
+            <div id="pl_info">
+                <div class="title">
+                    Player
                 </div>
-                <div class="hand_position" id="op_hand_pos_2">
-                    <div class="card_back card"></div>
+                <div class="username">
+                    {username}
                 </div>
-                <div class="hand_position" id="op_hand_pos_3">
-                    <div class="card_back card"></div>
+                <div class="account_score">
+                    {account score}
                 </div>
-                <div class="hand_position" id="op_hand_pos_4">
-                    <div class="card_back card"></div>
+            </div>
+            <div id="game_score">
+                <div id="pl_score">
+                    0
                 </div>
-                <div class="hand_position" id="op_hand_pos_5">
-                    <div class="card_back card"></div>
+                <div id="dv_score">
+                    -
+                </div>
+                <div id="op_score">
+                    0
+                </div>
+            </div>
+            <div id="op_info">
+                <div class="title">
+                    Opponent
+                </div>
+                <div class="username">
+                    {username}
+                </div>
+                <div class="account_score">
+                    {account score}
                 </div>
             </div>
         </div>
 
-        <div class="board">
-            <div class="row" id="row_1">
-                <div class="position" id="position_1" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
-                </div>
-                <div class="position" id="position_2" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
-                </div>
-                <div class="position" id="position_3" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
-                </div>
-            </div>
+        <div class="game_area">
 
-            <div class="row" id="row_2">
-                <div class="position" id="position_4" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
-                </div>
-                <div class="position" id="position_5" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
-                </div>
-                <div class="position" id="position_6" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
-                </div>
-            </div>
-
-            <div class="row" id="row_3">
-                <div class="position" id="position_7" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
-                </div>
-                <div class="position" id="position_8" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
-                </div>
-                <div class="position" id="position_9" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
-                </div>
-            </div>
-        </div>
-
-        <div class="area" id="player_area">
-            <div class="hand" id="player_hand">
-                <div class="hand_position" id="pl_hand_pos_1" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
-                    <div class="card">
-                        <div class="card_stats">
-                            <div class="card_stat_north"></div>
-                            <div class="card_stat_west"></div>
-                            <div class="card_stat_east"></div>
-                            <div class="card_stat_south"></div>
-                        </div>
+            <div class="area" id="opponent_area">
+                <div class="hand" id="opponent_hand">
+                    <div class="hand_position" id="op_hand_pos_1">
+                        <div class="card_back card"></div>
                     </div>
-                </div>
-                <div class="hand_position" id="pl_hand_pos_2" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
-                    <div class="card">
-                        <div class="card_stats">
-                            <div class="card_stat_north"></div>
-                            <div class="card_stat_west"></div>
-                            <div class="card_stat_east"></div>
-                            <div class="card_stat_south"></div>
-                        </div>
+                    <div class="hand_position" id="op_hand_pos_2">
+                        <div class="card_back card"></div>
                     </div>
-                </div>
-                <div class="hand_position" id="pl_hand_pos_3" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
-                    <div class="card">
-                        <div class="card_stats">
-                            <div class="card_stat_north"></div>
-                            <div class="card_stat_west"></div>
-                            <div class="card_stat_east"></div>
-                            <div class="card_stat_south"></div>
-                        </div>
+                    <div class="hand_position" id="op_hand_pos_3">
+                        <div class="card_back card"></div>
                     </div>
-                </div>
-                <div class="hand_position" id="pl_hand_pos_4" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
-                    <div class="card">
-                        <div class="card_stats">
-                            <div class="card_stat_north"></div>
-                            <div class="card_stat_west"></div>
-                            <div class="card_stat_east"></div>
-                            <div class="card_stat_south"></div>
-                        </div>
+                    <div class="hand_position" id="op_hand_pos_4">
+                        <div class="card_back card"></div>
                     </div>
-                </div>
-                <div class="hand_position" id="pl_hand_pos_5" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
-                    <div class="card">
-                        <div class="card_stats">
-                            <div class="card_stat_north"></div>
-                            <div class="card_stat_west"></div>
-                            <div class="card_stat_east"></div>
-                            <div class="card_stat_south"></div>
-                        </div>
+                    <div class="hand_position" id="op_hand_pos_5">
+                        <div class="card_back card"></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-</body>
+            <div class="board">
+                <div class="row" id="row_1">
+                    <div class="position" id="position_1" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
+                    </div>
+                    <div class="position" id="position_2" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
+                    </div>
+                    <div class="position" id="position_3" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
+                    </div>
+                </div>
+                <div class="row" id="row_2">
+                    <div class="position" id="position_4" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
+                    </div>
+                    <div class="position" id="position_5" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
+                    </div>
+                    <div class="position" id="position_6" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
+                    </div>
+                </div>
+                <div class="row" id="row_3">
+                    <div class="position" id="position_7" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
+                    </div>
+                    <div class="position" id="position_8" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
+                    </div>
+                    <div class="position" id="position_9" onmousedown="summon(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="area" id="player_area">
+                <div class="hand" id="player_hand">
+                    <div class="hand_position" id="pl_hand_pos_1" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
+                        <div class="card">
+                            <div class="card_stats">
+                                <div class="card_stat_north"></div>
+                                <div class="card_stat_west"></div>
+                                <div class="card_stat_east"></div>
+                                <div class="card_stat_south"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hand_position" id="pl_hand_pos_2" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
+                        <div class="card">
+                            <div class="card_stats">
+                                <div class="card_stat_north"></div>
+                                <div class="card_stat_west"></div>
+                                <div class="card_stat_east"></div>
+                                <div class="card_stat_south"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hand_position" id="pl_hand_pos_3" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
+                        <div class="card">
+                            <div class="card_stats">
+                                <div class="card_stat_north"></div>
+                                <div class="card_stat_west"></div>
+                                <div class="card_stat_east"></div>
+                                <div class="card_stat_south"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hand_position" id="pl_hand_pos_4" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
+                        <div class="card">
+                            <div class="card_stats">
+                                <div class="card_stat_north"></div>
+                                <div class="card_stat_west"></div>
+                                <div class="card_stat_east"></div>
+                                <div class="card_stat_south"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hand_position" id="pl_hand_pos_5" onmousedown="choose_card(this)" onmouseenter="highlight_card(this)" onmouseleave="unhighlight_card(this)">
+                        <div class="card">
+                            <div class="card_stats">
+                                <div class="card_stat_north"></div>
+                                <div class="card_stat_west"></div>
+                                <div class="card_stat_east"></div>
+                                <div class="card_stat_south"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
 </html>

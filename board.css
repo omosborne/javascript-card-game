@@ -4,6 +4,7 @@
 
 .game_area {
     width: available;
+    height: 100%;
     display: flex;
     flex-direction: column;
     background-color: green;
