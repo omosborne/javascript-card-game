@@ -1,6 +1,7 @@
 let card_chosen = false;
 let chosen_card = null;
 let player_cards = ['example_card_1.png', 'example_card_2.png', 'example_card_3.png', 'example_card_4.png', 'example_card_5.png'];
+let screen_width = screen.width;
 
 function choose_card(selected_pos){
     [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5',
@@ -91,5 +92,9 @@ function random_stats() {
         stat_div.children[2].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
         stat_div.children[3].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
     });
+
+}
+
+function adjust_hand() {
 
 }

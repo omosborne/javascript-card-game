@@ -1,3 +1,7 @@
+/*:root {
+    --background-color: black;
+}*/
+
 .board {
     position: relative;
     background-color: darkcyan;
