@@ -115,6 +115,7 @@ body, html {
     width: 100%;
     height: 99%;
     font-family: Arial, serif;
+    position: fixed;
 }
 
 #pl_info {
