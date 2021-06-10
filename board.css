@@ -100,6 +100,7 @@ body, html {
     height: 100px;
     top: 0;
     left: 0;
+    background-color: purple;
 }
 
 #pl_info {
@@ -126,7 +127,7 @@ body, html {
     float: left;
     height: 100%;
     line-height: 200%;
-    width: 45%;
+    width: 43%;
     text-align: right;
 }
 
@@ -134,7 +135,7 @@ body, html {
     float: left;
     height: 100%;
     line-height: 200%;
-    width: 45%;
+    width: 43%;
 }
 
 #dv_score {
@@ -143,6 +144,7 @@ body, html {
     height: 100%;
     line-height: 200%;
     text-align: center;
+    padding: 0 2px 2px;
 }
 
 .title {
