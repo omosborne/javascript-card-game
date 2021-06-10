@@ -1,12 +1,12 @@
 .board {
     position: relative;
+    background-color: darkcyan;
 }
 
 .game_area {
     width: available;
-    height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: green;
 }
 
