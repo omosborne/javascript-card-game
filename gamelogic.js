@@ -4,9 +4,7 @@ let player_cards = ['example_card_1.png', 'example_card_2.png', 'example_card_3.
 let screen_width = screen.width;
 
 function choose_card(selected_pos){
-    [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5',
-      'pl_hand_pos_6', 'pl_hand_pos_7', 'pl_hand_pos_8', 'pl_hand_pos_9', 'pl_hand_pos_10',
-      'pl_hand_pos_11', 'pl_hand_pos_12', 'pl_hand_pos_13', 'pl_hand_pos_14', 'pl_hand_pos_15'].forEach(function( hand_pos ) {
+    [ 'pl_hand_pos_6', 'pl_hand_pos_7', 'pl_hand_pos_8', 'pl_hand_pos_9', 'pl_hand_pos_10'].forEach(function( hand_pos ) {
             if (document.getElementById(hand_pos).querySelectorAll(".card").length > 0) {
                 document.getElementById(hand_pos).firstElementChild.style.bottom = "0px";
                 document.getElementById(hand_pos).firstElementChild.style.left = "0px";
@@ -20,8 +18,6 @@ function choose_card(selected_pos){
         if (!(chosen_card === selected_pos.firstElementChild)){
             card_chosen = true;
             chosen_card = selected_pos.firstElementChild;
-            chosen_card.style.bottom = "23px";
-            chosen_card.style.left = "-3px";
             chosen_card.style.border = "solid red";
             chosen_card.style.borderRadius = "10px";
             chosen_card.style.boxShadow = "-2px -2px 15px #303030";
@@ -38,8 +34,6 @@ function summon(selected_pos){
         chosen_card.style.removeProperty("border");
         chosen_card.style.removeProperty("border-radius");
         chosen_card.style.removeProperty("box-shadow");
-        chosen_card.style.left = "0px";
-        chosen_card.style.top = "0px";
         chosen_card.parentElement.style.zIndex = "-1";
         card_chosen = false;
         selected_pos.appendChild(chosen_card);
@@ -49,10 +43,10 @@ function summon(selected_pos){
 
 function highlight_card(selected_pos){
     if (!(chosen_card === selected_pos.firstElementChild)){
-        selected_pos.firstElementChild.style.bottom = "20px";
+        selected_pos.firstElementChild.style.bottom = "";
     }
     else{
-        selected_pos.firstElementChild.style.bottom = "17px";
+        selected_pos.firstElementChild.style.bottom = "";
     }
     
 }
@@ -77,13 +71,13 @@ function unhighlight_pos(selected_pos){
 }
 
 function random_card() {
-    [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5' ].forEach(function( hand_pos ) {
+    [ 'pl_hand_pos_6', 'pl_hand_pos_7', 'pl_hand_pos_8', 'pl_hand_pos_9', 'pl_hand_pos_10'].forEach(function( hand_pos ) {
         document.getElementById(hand_pos).firstElementChild.style.backgroundImage = "url('" + player_cards[Math.floor(Math.random() * player_cards.length)] + "')";
     });
 }
 
 function random_stats() {
-    [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5' ].forEach(function( hand_pos ) {
+    [ 'pl_hand_pos_6', 'pl_hand_pos_7', 'pl_hand_pos_8', 'pl_hand_pos_9', 'pl_hand_pos_10'].forEach(function( hand_pos ) {
         let card_div = document.getElementById(hand_pos).children[0];
         let stat_div = card_div.children[0];
 

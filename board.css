@@ -8,11 +8,11 @@
 }
 
 .game_area {
+    margin-top: 100px;
     width: available;
     display: flex;
     flex-direction: row;
     background-color: green;
-    margin: 20px 0 20px 0;
 }
 
 .row {
@@ -32,7 +32,7 @@
     width: 100px;
     background-image: url("example_card.png");
     background-size: cover;
-    height: 140px;
+    height: 100%;
     position: relative;
 }
 
@@ -97,15 +97,6 @@ body, html {
     width: available;
     height: 99%;
     font-family: Arial, serif;
-}
-
-.game_info {
-    position: relative;
-    width: available;
-    height: 100px;
-    top: 0;
-    left: 0;
-    background-color: purple;
 }
 
 #pl_info {
@@ -174,9 +165,12 @@ body, html {
 
 #player_area {
     bottom: 0;
+    left: 0;
     float: bottom;
+    position: fixed;
     width: available;
     background-color: red;
+    height: 15%;
 }
 
 #opponent_area {
@@ -188,28 +182,29 @@ body, html {
 }
 
 .hand {
-    width: 70%;
+    width: 100%;
     height: 444px;
     position: relative;
 }
 
-#player_deck {
+#pl_buffer_left {
     float: left;
-    width: 30%;
+    width: 15%;
     height: 100%;
     background-color: aqua;
+    align-content: center;
 }
 
 #pl_buffer_right {
     float: right;
-    width: 30%;
+    width: 15%;
     height: 100%;
     background-color: orange;
 }
 
 #player_hand {
     float: left;
-    width: 20%;
+    width: 70%;
     height: 100%;
     background-color: violet;
 }
@@ -222,7 +217,6 @@ body, html {
 .hand_position {
     position: absolute;
     margin: 0;
-    top: 0;
     height: 134px;
     width: 110px;
 }
@@ -233,59 +227,19 @@ body, html {
 }
 
 #pl_hand_pos_2 {
-    left: 74px;
+    left: 0;
 }
 
 #pl_hand_pos_3 {
-    left: 148px;
+    left: 0;
 }
 
 #pl_hand_pos_4 {
-    left: 222px;
+    left: 0;
 }
 
 #pl_hand_pos_5 {
-    left: 296px;
-}
-
-#pl_hand_pos_6 {
-    left: 370px;
-}
-
-#pl_hand_pos_7 {
-    left: 444px;
-}
-
-#pl_hand_pos_8 {
-    left: 518px;
-}
-
-#pl_hand_pos_9 {
-    left: 592px;
-}
-
-#pl_hand_pos_10 {
-    left: 666px;
-}
-
-#pl_hand_pos_11 {
-    left: 740px;
-}
-
-#pl_hand_pos_12 {
-    left: 814px;
-}
-
-#pl_hand_pos_13 {
-    left: 888px;
-}
-
-#pl_hand_pos_14 {
-    left: 962px;
-}
-
-#pl_hand_pos_15 {
-    left: 1036px;
+    left: 0;
 }
 
 /*op hand*/
