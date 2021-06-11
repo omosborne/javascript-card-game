@@ -10,10 +10,10 @@ function screen_size(){
 }
 
 function choose_card(selected_pos){
-    [ 'pl_hand_pos_6', 'pl_hand_pos_7', 'pl_hand_pos_8', 'pl_hand_pos_9', 'pl_hand_pos_10'].forEach(function( hand_pos ) {
+    [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5'].forEach(function( hand_pos ) {
             if (document.getElementById(hand_pos).querySelectorAll(".card").length > 0) {
-                document.getElementById(hand_pos).firstElementChild.style.bottom = "0px";
-                document.getElementById(hand_pos).firstElementChild.style.left = "0px";
+                // document.getElementById(hand_pos).firstElementChild.style.bottom = "0px";
+                // document.getElementById(hand_pos).firstElementChild.style.left = "0px";
                 document.getElementById(hand_pos).firstElementChild.style.removeProperty("border");
                 document.getElementById(hand_pos).firstElementChild.style.removeProperty("border-radius");
                 document.getElementById(hand_pos).firstElementChild.style.removeProperty("box-shadow");
@@ -50,10 +50,10 @@ function summon(selected_pos){
 
 function highlight_card(selected_pos){
     if (!(chosen_card === selected_pos.firstElementChild)){
-        selected_pos.firstElementChild.style.bottom = "";
+        //selected_pos.firstElementChild.style.bottom = "";
     }
     else{
-        selected_pos.firstElementChild.style.bottom = "";
+        //selected_pos.firstElementChild.style.bottom = "";
     }
     
 }
@@ -61,8 +61,8 @@ function highlight_card(selected_pos){
 function unhighlight_card(selected_pos){
     if (chosen_card === null || !(chosen_card.parentNode === selected_pos))
     {
-        selected_pos.firstElementChild.style.bottom = "0px";
-        selected_pos.firstElementChild.style.left = "0px";
+        //selected_pos.firstElementChild.style.bottom = "0px";
+        //selected_pos.firstElementChild.style.left = "0px";
 
     }
 }
@@ -79,14 +79,14 @@ function unhighlight_pos(selected_pos){
 
 function random_card() {
      screen_size();
-    [ 'pl_hand_pos_6', 'pl_hand_pos_7', 'pl_hand_pos_8', 'pl_hand_pos_9', 'pl_hand_pos_10'].forEach(function( hand_pos ) {
+    [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5'].forEach(function( hand_pos ) {
         document.getElementById(hand_pos).firstElementChild.style.backgroundImage = "url('" + player_cards[Math.floor(Math.random() * player_cards.length)] + "')";
     });
 
 }
 
 function random_stats() {
-    [ 'pl_hand_pos_6', 'pl_hand_pos_7', 'pl_hand_pos_8', 'pl_hand_pos_9', 'pl_hand_pos_10'].forEach(function( hand_pos ) {
+    [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5'].forEach(function( hand_pos ) {
         let card_div = document.getElementById(hand_pos).children[0];
         let stat_div = card_div.children[0];
 
