@@ -97,10 +97,10 @@
 }
 
 .op_card {
-    width: 25px;
+    width: 23px;
     background-image: url("example_card.png");
     background-size: cover;
-    height: 35px;
+    height: 34px;
     position: relative;
 }
 
@@ -240,6 +240,7 @@ body, html {
     width: available;
     background-color: red;
     height: 20%;
+    max-height: 135px;
 }
 
 #opponent_area {
