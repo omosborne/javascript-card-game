@@ -8,14 +8,19 @@ let x = 1;
 function screen_size(){
     document.getElementById("game_area").style.height = ((screen_height) * 0.8).toString();
     document.getElementById("player_area").style.height = ((screen_height) * 0.2).toString();
-    /*while ((document.getElementById("position_4").getBoundingClientRect().top) > 15) && ((document.getElementById("position_4").getBoundingClientRect().top) < 17)) {
-        if ((document.getElementById("position_4").getBoundingClientRect().top) < 15){
-            document.getElementsByClassName("grid").zoom = 0.5;
+    //alert(document.getElementById("position_4").getBoundingClientRect().top);
+
+    while ((document.getElementById("position_4").getBoundingClientRect().top) < 175 && ((document.getElementById("position_4").getBoundingClientRect().top) > 185)) {
+        if ((document.getElementById("position_4").getBoundingClientRect().top) < 175){
+            document.getElementById("grid").style.scale = "0.5";
         }
-        else if ((document.getElementById("position_4").getBoundingClientRect().top) > 17){
-            document.getElementsByClassName("grid").zoom = 4;
+        else if ((document.getElementById("position_4").getBoundingClientRect().top) > 185){
+            document.getElementById("grid").style.scale = "4";
         }
-    }*/
+        else{
+            document.getElementById("grid").style.scale = "1";
+        }
+    }
 }
 
 function choose_card(selected_pos){
@@ -89,7 +94,8 @@ function unhighlight_pos(selected_pos){
 function random_card() {
      screen_size();
     [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5'].forEach(function( hand_pos ) {
-        document.getElementById(hand_pos).firstElementChild.style.backgroundImage = "url('" + player_cards[Math.floor(Math.random() * player_cards.length)] + "')";
+        document.getElementById(hand_pos).firstElementChild.style.backgroundImage = "url(card_size.png)";
+        //"url('" + player_cards[Math.floor(Math.random() * player_cards.length)] + "')";
     });
 
 }
