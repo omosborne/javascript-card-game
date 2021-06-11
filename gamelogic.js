@@ -3,10 +3,19 @@ let chosen_card = null;
 let player_cards = ['example_card_1.png', 'example_card_2.png', 'example_card_3.png', 'example_card_4.png', 'example_card_5.png'];
 let screen_width = screen.width;
 let screen_height = screen.height;
+let x = 1;
 
 function screen_size(){
     document.getElementById("game_area").style.height = ((screen_height) * 0.8).toString();
     document.getElementById("player_area").style.height = ((screen_height) * 0.2).toString();
+    /*while ((document.getElementById("position_4").getBoundingClientRect().top) > 15) && ((document.getElementById("position_4").getBoundingClientRect().top) < 17)) {
+        if ((document.getElementById("position_4").getBoundingClientRect().top) < 15){
+            document.getElementsByClassName("grid").zoom = 0.5;
+        }
+        else if ((document.getElementById("position_4").getBoundingClientRect().top) > 17){
+            document.getElementsByClassName("grid").zoom = 4;
+        }
+    }*/
 }
 
 function choose_card(selected_pos){
