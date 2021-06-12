@@ -6,7 +6,7 @@ function screen_size(){
     document.getElementById("game_area").style.height = ((window.innerHeight) * 0.8).toString();
     document.getElementById("player_area").style.height = ((window.innerHeight) * 0.2).toString();
     //let x = document.getElementById("position_4").getBoundingClientRect().top.toString();
-    let scale = 1.3;
+    let scale = 1;
     let x = (((window.innerWidth - (window.innerWidth * .5)) * .5));
     let y = (((window.innerHeight - (window.innerHeight * .2)) * .5));
     document.getElementById("grid").style.transformOrigin = x + "px " + y + "px";
