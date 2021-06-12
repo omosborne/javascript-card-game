@@ -115,7 +115,7 @@
     width: 90px;
     background-image: url("example_card.png");
     background-size: cover;
-    height: 135px;
+    height: 90%;
     position: absolute;
 }
 
@@ -292,9 +292,10 @@ body, html {
 .hand_position {
     position: absolute;
     margin: 0;
-    height: 100px;
+    height: 20vh;
     width: 11vw;
     padding-left: 1.5%;
+    background-color: greenyellow;
 }
 
 /*pl hand*/
