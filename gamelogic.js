@@ -60,7 +60,7 @@ function summon(selected_pos){
         chosen_card = null;
 
         selected_pos.style.border = "2px solid #9ecaed";
-        selected_pos.stack.boxShadow = "0 0 10px #9ecaed";
+        selected_pos.style.boxShadow = "0 0 10px #9ecaed";
     }
 }
 
