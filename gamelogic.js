@@ -6,19 +6,21 @@ function screen_size(){
     document.getElementById("game_area").style.height = ((window.innerHeight) * 0.8).toString();
     document.getElementById("player_area").style.height = ((window.innerHeight) * 0.2).toString();
     //let x = document.getElementById("position_4").getBoundingClientRect().top.toString();
-    let x = ((((window.innerWidth - ((window.innerWidth * .5))) * .5)) - 45);
-    let y = (((window.innerHeight - (window.innerHeight * .2)) * .5) - 67.5);
-    //alert(x)
-    document.getElementById("grid").style.transform = "scale(1) translate(" + x +"px, " + y + "px)";
+    let scale = 1;
+    let x = ((((window.innerWidth - (window.innerWidth * .5)) * .5)) - 45);
+    let y = ((((window.innerHeight - (window.innerHeight * .2)) * .5)) - 67.5);
+    document.getElementById("grid").style.transform = "scale(" + scale +") translate(" + x +"px, " + y + "px)";
     /*if (x < 175) {
-        document.getElementById("grid").style.transform = "scale(2) translateY(80vh)";
+        scale = 0.5;
     }
     else if (x > 185) {
-        document.getElementById("grid").style.transform = "scale(0.9) translateY(45vh)";
+        scale = 1.5;
     }
     else{
-        document.getElementById("grid").style.transform = "scale(1) translateY(80vh)";
-    }*/
+        scale = 1;
+    }
+    document.getElementById("grid").style.transform = "scale(" + scale +") translate(" + x +"px, " + y + "px)";
+    */
 }
 
 function choose_card(selected_pos){
@@ -31,8 +33,6 @@ function choose_card(selected_pos){
                 document.getElementById(hand_pos).firstElementChild.style.removeProperty("box-shadow");
             }
     });
-
-    alert(window.innerWidth);
 
     if (selected_pos.querySelectorAll(".card").length > 0) {
         if (!(chosen_card === selected_pos.firstElementChild)){
