@@ -60,7 +60,7 @@
 
 /* top left */
 #position_1 {
-
+    transform: translate(-125px, -165px);
 }
 
 /* top middle */
@@ -70,12 +70,12 @@
 
 /* top right */
 #position_3 {
-
+    transform: translate(125px, -165px);
 }
 
 /* middle left */
 #position_4 {
-
+    transform: translate(-125px, 0px);
 }
 
 /* middle */
@@ -85,12 +85,12 @@
 
 /* middle right */
 #position_6 {
-
+    transform: translate(125px, 0px);
 }
 
 /* bottom left */
 #position_7 {
-
+    transform: translate(-125px, 165px);
 }
 
 /* bottom middle */
@@ -100,7 +100,7 @@
 
 /* bottom right */
 #position_9 {
-
+    transform: translate(125px, 165px);
 }
 
 .op_card {
