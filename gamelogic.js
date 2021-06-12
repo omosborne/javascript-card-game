@@ -5,7 +5,7 @@ let player_cards = ['example_card_1.png', 'example_card_2.png', 'example_card_3.
 function screen_size(){
     document.getElementById("game_area").style.height = ((window.innerHeight) * 0.8).toString();
     document.getElementById("player_area").style.height = ((window.innerHeight) * 0.2).toString();
-    let scale = 0.5;
+    let scale = 0.01;
     let x = (((window.innerWidth - (window.innerWidth * .5)) * .5));
     let y = (((window.innerHeight - (window.innerHeight * .2)) * .5));
     document.getElementById("grid").style.transformOrigin = x + "px " + y + "px";
@@ -15,12 +15,13 @@ function screen_size(){
     let gap = document.getElementById("position_2").getBoundingClientRect().top.toString();
     if (parseInt(gap) > 30){
         while (parseInt(gap) > 30){
-            scale = scale + 0.1;
+            scale = scale + 0.01;
             document.getElementById("grid").style.transform = "scale(" + scale +") translate(" + x +"px, " + y + "px)";
             gap = document.getElementById("position_2").getBoundingClientRect().top.toString();
         }
     }
 }
+window.addEventListener('resize', screen_size);
 
 function choose_card(selected_pos){
     [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5'].forEach(function( hand_pos ) {
