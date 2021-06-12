@@ -1,16 +1,15 @@
 let card_chosen = false;
 let chosen_card = null;
 let player_cards = ['example_card_1.png', 'example_card_2.png', 'example_card_3.png', 'example_card_4.png', 'example_card_5.png'];
-let screen_width = screen.width;
-let screen_height = screen.height;
 
 function screen_size(){
-    document.getElementById("game_area").style.height = ((screen_height) * 0.8).toString();
-    document.getElementById("player_area").style.height = ((screen_height) * 0.2).toString();
+    document.getElementById("game_area").style.height = ((window.innerHeight) * 0.8).toString();
+    document.getElementById("player_area").style.height = ((window.innerHeight) * 0.2).toString();
     //let x = document.getElementById("position_4").getBoundingClientRect().top.toString();
-    let x = ((((screen_width - ((screen_width * .25)*2)) * .5)) - 90);
+    let x = ((((window.innerWidth - ((window.innerWidth * .5))) * .5)) - 45);
+    let y = (((window.innerHeight - (window.innerHeight * .2)) * .5) - 67.5);
     //alert(x)
-    document.getElementById("grid").style.transform = "scale(1) translate(" + x +"px, 0px)";
+    document.getElementById("grid").style.transform = "scale(1) translate(" + x +"px, " + y + "px)";
     /*if (x < 175) {
         document.getElementById("grid").style.transform = "scale(2) translateY(80vh)";
     }
@@ -20,7 +19,6 @@ function screen_size(){
     else{
         document.getElementById("grid").style.transform = "scale(1) translateY(80vh)";
     }*/
-    document.getElementById("position_4").getBoundingClientRect().top = 0;
 }
 
 function choose_card(selected_pos){
@@ -34,6 +32,7 @@ function choose_card(selected_pos){
             }
     });
 
+    alert(window.innerWidth);
 
     if (selected_pos.querySelectorAll(".card").length > 0) {
         if (!(chosen_card === selected_pos.firstElementChild)){
