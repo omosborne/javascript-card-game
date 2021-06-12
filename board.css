@@ -112,10 +112,10 @@
 }
 
 .card {
-    width: 87%;
+    width: 90px;
     background-image: url("example_card.png");
     background-size: cover;
-    height: 91%;
+    height: 135px;
     position: absolute;
 }
 
@@ -293,7 +293,7 @@ body, html {
     position: absolute;
     margin: 0;
     height: 100%;
-    width: 60%;
+    width: 100%;
     padding-left: 1.5%;
     background-color: greenyellow;
 }

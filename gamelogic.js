@@ -20,6 +20,12 @@ function screen_size(){
             gap = document.getElementById("position_2").getBoundingClientRect().top.toString();
         }
     }
+    document.getElementById("pl_hand_pos_1").style.width = document.getElementById("position_5").style.width;
+    document.getElementById("pl_hand_pos_2").style.width = document.getElementById("position_5").style.width;
+    document.getElementById("pl_hand_pos_3").style.width = document.getElementById("position_5").style.width;
+    document.getElementById("pl_hand_pos_4").style.width = document.getElementById("position_5").style.width;
+    document.getElementById("pl_hand_pos_5").style.width = document.getElementById("position_5").style.width;
+
 }
 window.addEventListener('resize', screen_size);
 
