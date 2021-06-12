@@ -10,8 +10,8 @@ function screen_size(){
     let x = (((window.innerWidth - (window.innerWidth * .5)) * .5));
     let y = (((window.innerHeight - (window.innerHeight * .2)) * .5));
     document.getElementById("grid").style.transformOrigin = x + "px " + y + "px";
-    x -= 45;
-    y -= 67.5;
+    x -= 55;
+    y -= 77.5;
     document.getElementById("grid").style.transform = "scale(" + scale +") translate(" + x +"px, " + y + "px)";
     /*if (x < 175) {
         scale = 0.5;
