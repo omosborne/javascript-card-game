@@ -58,6 +58,9 @@ function summon(selected_pos){
         card_chosen = false;
         selected_pos.appendChild(chosen_card);
         chosen_card = null;
+
+        selected_pos.style.border = "2px solid #9ecaed";
+        selected_pos.stack.boxShadow = "0 0 10px #9ecaed";
     }
 }
 
@@ -87,7 +90,9 @@ function highlight_pos(selected_pos){
 }
 
 function unhighlight_pos(selected_pos){
-    selected_pos.style.removeProperty("border");
+    if (!(selected_pos.querySelectorAll(".card").length > 0)) {
+        selected_pos.style.removeProperty("border");
+    }
 }
 
 function random_card() {

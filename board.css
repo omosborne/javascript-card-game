@@ -56,33 +56,52 @@
     display: flex;
     flex-direction: column;
     position: absolute;
+    padding: 7px;
 }
 
-#position_1{ /* top left */
+/* top left */
+#position_1 {
+
 }
 
-#position_2{ /* top middle */
+/* top middle */
+#position_2 {
+    display: none;
 }
 
-#position_3{ /* top right */
+/* top right */
+#position_3 {
+    display: none;
 }
 
-#position_4{ /* middle left */
+/* middle left */
+#position_4 {
+    display: none;
 }
 
-#position_5{ /* middle */
+/* middle */
+#position_5 {
+    display: none;
 }
 
-#position_6{ /* middle right */
+/* middle right */
+#position_6 {
+    display: none;
 }
 
-#position_7{ /* bottom left */
+/* bottom left */
+#position_7 {
+    display: none;
 }
 
-#position_8{ /* bottom middle */
+/* bottom middle */
+#position_8 {
+    display: none;
 }
 
-#position_9{ /* bottom right */
+/* bottom right */
+#position_9 {
+    display: none;
 }
 
 .op_card {
