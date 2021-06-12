@@ -5,25 +5,21 @@ let player_cards = ['example_card_1.png', 'example_card_2.png', 'example_card_3.
 function screen_size(){
     document.getElementById("game_area").style.height = ((window.innerHeight) * 0.8).toString();
     document.getElementById("player_area").style.height = ((window.innerHeight) * 0.2).toString();
-    //let x = document.getElementById("position_4").getBoundingClientRect().top.toString();
-    let scale = 1;
+    let scale = 0.5;
     let x = (((window.innerWidth - (window.innerWidth * .5)) * .5));
     let y = (((window.innerHeight - (window.innerHeight * .2)) * .5));
     document.getElementById("grid").style.transformOrigin = x + "px " + y + "px";
     x -= 55;
     y -= 77.5;
     document.getElementById("grid").style.transform = "scale(" + scale +") translate(" + x +"px, " + y + "px)";
-    /*if (x < 175) {
-        scale = 0.5;
+    let gap = document.getElementById("position_2").getBoundingClientRect().top.toString();
+    if (parseInt(gap) > 30){
+        while (parseInt(gap) > 30){
+            scale = scale + 0.1;
+            document.getElementById("grid").style.transform = "scale(" + scale +") translate(" + x +"px, " + y + "px)";
+            gap = document.getElementById("position_2").getBoundingClientRect().top.toString();
+        }
     }
-    else if (x > 185) {
-        scale = 1.5;
-    }
-    else{
-        scale = 1;
-    }
-    document.getElementById("grid").style.transform = "scale(" + scale +") translate(" + x +"px, " + y + "px)";
-    */
 }
 
 function choose_card(selected_pos){
