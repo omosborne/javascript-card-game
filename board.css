@@ -356,15 +356,17 @@ body, html {
 
 #pl_buffer_left {
     float: left;
-    width: 15%;
+    width: 50%;
     height: 100%;
     background-color: aqua;
     align-content: center;
+    min-width: 15%;
 }
 
 #pl_buffer_right {
     float: right;
-    width: 15%;
+    width: 50%;
+    min-width: 15%;
     height: 100%;
     background-color: orange;
 }
@@ -372,6 +374,7 @@ body, html {
 #player_hand {
     float: left;
     width: 0;
+    max-width: 70%;
     height: 100%;
     background-color: violet;
     visibility: hidden;
@@ -384,26 +387,23 @@ body, html {
 
 .hand_position {
     transform-origin: top left;
+    transform: scale(0.01);
     position: absolute;
     height: 270px;
     width: 180px;
     background-color: greenyellow;
+    visibility: hidden;
 }
 
-/*pl hand*/
-#pl_hand_pos_1 {
+/* Deck Position (off to the left) */
+#player_deck {
+    left: 5px;
+    transform-origin: top left;
 }
 
-#pl_hand_pos_2 {
-}
-
-#pl_hand_pos_3 {
-}
-
-#pl_hand_pos_4 {
-}
-
-#pl_hand_pos_5 {
+/* Discard Pile (off to the left) */
+#discard_pile {
+    transform-origin: top left;
 }
 
 /*op hand*/
