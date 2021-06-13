@@ -41,6 +41,7 @@
 }
 
 #grid {
+    transform: scale(0.01);
     display: grid;
     grid-template-columns: 7fr 6fr 21fr;
 }
@@ -112,18 +113,18 @@
 }
 
 .card {
-    width: 90px;
+    width: 180px;
     background-image: url("example_card.png");
     background-size: cover;
-    height: 135px;
+    height: 270px;
     position: absolute;
 }
 
 .card_test {
-    width: 90px;
+    width: 180px;
     background-image: url("card_size.png");
     background-size: cover;
-    height: 135px;
+    height: 270px;
     position: absolute;
 }
 
@@ -298,11 +299,10 @@ body, html {
 }
 
 .hand_position {
+    transform-origin: top left;
     position: absolute;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    padding-left: 1.5%;
+    height: 270px;
+    width: 180px;
     background-color: greenyellow;
 }
 
