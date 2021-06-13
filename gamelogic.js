@@ -114,7 +114,48 @@ function random_card() {
     /*[ 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5'].forEach(function( hand_pos ) {
         document.getElementById(hand_pos).firstElementChild.style.backgroundImage = "url('" + player_cards[Math.floor(Math.random() * player_cards.length)] + "')";
     });*/
+    let hand = document.getElementById("player_hand");
+    for (let i = 0; i < hand.children.length; i++) {
+        let card = hand.children[i].children[0];
+        let epic_chance = Math.floor(Math.random() * 100);
+        let is_epic = false;
 
+        if (epic_chance < 99) {
+            is_epic = true;
+        }
+
+        card.children[0].style.backgroundImage = "url('" + card_backgrounds[Math.floor(Math.random() * card_backgrounds.length)] + "')";
+        card.children[1].style.backgroundImage = "url('" + card_images[Math.floor(Math.random() * card_images.length)] + "')";
+
+        if (is_epic) {
+            card.children[1].style.filter = "invert(79%) sepia(67%) saturate(950%) hue-rotate(340deg) brightness(99%) contrast(99%)";
+        }
+
+        if (!is_epic && card.children[1].style.backgroundImage === 'url("card_image_1.png")') {
+            card.children[6].innerHTML = "The night thief";
+        }
+        else if (is_epic && card.children[1].style.backgroundImage === 'url("card_image_1.png")') {
+            card.children[6].innerHTML = "The night thief";
+            card.children[6].style.color = "#FBBD1D";
+        }
+        else if (!is_epic &&  card.children[1].style.backgroundImage === 'url("card_image_2.png")') {
+            card.children[6].innerHTML = "Plague doctor of death";
+        }
+        else if (is_epic && card.children[1].style.backgroundImage === 'url("card_image_2.png")') {
+            card.children[6].innerHTML = "Plague doctor of death";
+            card.children[6].style.color = "#FBBD1D";
+        }
+        else if (!is_epic &&  card.children[1].style.backgroundImage === 'url("card_image_3.png")') {
+            card.children[6].innerHTML = "Bandit of the shadows";
+        }
+        else if (is_epic && card.children[1].style.backgroundImage === 'url("card_image_3.png")') {
+            card.children[6].innerHTML = "Bandit of the shadows";
+            card.children[6].style.color = "#FBBD1D";
+        }
+        else {
+            card.children[6].innerHTML = "Unknown";
+        }
+    }
 
 }
 
