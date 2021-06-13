@@ -123,5 +123,13 @@ function random_stats() {
 }
 
 function adjust_hand() {
+    // function to center and change the overlap of cards in player hand when cards are added/removed
+}
 
+function create_card(card_id) {
+    // use card_id to get name, ability, images, and stats from database
+    // place these in local vars
+    // create the card div
+    // add the local vars to the children divs properties
+    // add the card div to the hand position
 }
