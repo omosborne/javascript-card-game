@@ -1,6 +1,8 @@
 let card_chosen = false;
 let chosen_card = null;
-let player_cards = ['card_tier_3.png', 'card_tier_1.png', 'card_tier_1.png', 'card_tier_1.png', 'card_tier_1.png'];
+// let player_cards = ['card_tier_3.png', 'card_tier_1.png', 'card_tier_1.png', 'card_tier_1.png', 'card_tier_1.png'];
+let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
+let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
 
 function screen_size(){
     document.getElementById("game_area").style.height = ((window.innerHeight) * 0.8).toString();
@@ -89,7 +91,7 @@ function highlight_card(selected_pos){
     else{
         //selected_pos.firstElementChild.style.bottom = "";
     }
-    
+
 }
 
 function unhighlight_card(selected_pos){
@@ -114,24 +116,64 @@ function unhighlight_pos(selected_pos){
 }
 
 function random_card() {
-     screen_size();
-    [ 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5'].forEach(function( hand_pos ) {
-        document.getElementById(hand_pos).firstElementChild.style.backgroundImage = "url('" + player_cards[Math.floor(Math.random() * player_cards.length)] + "')";
-    });
+    screen_size();
+
+    let hand = document.getElementById("player_hand");
+
+    for (let i = 0; i < hand.children.length; i++) {
+        let card = hand.children[i].children[0];
+        let epic_chance = Math.floor(Math.random() * 100);
+        let is_epic = false;
+
+        if (epic_chance < 2) {
+            is_epic = true;
+        }
+
+        card.children[0].style.backgroundImage = "url('" + card_backgrounds[Math.floor(Math.random() * card_backgrounds.length)] + "')";
+        card.children[1].style.backgroundImage = "url('" + card_images[Math.floor(Math.random() * card_images.length)] + "')";
+
+        if (is_epic) {
+            card.children[1].style.filter = "invert(79%) sepia(67%) saturate(950%) hue-rotate(340deg) brightness(99%) contrast(99%)";
+            card.children[7].innerHTML = "Privately view the king. If this card is destroyed the king is reset."
+        }
+
+        if (!is_epic && card.children[1].style.backgroundImage === 'url("card_image_4.png")') {
+            card.children[6].innerHTML = "The night thief";
+        }
+        else if (is_epic && card.children[1].style.backgroundImage === 'url("card_image_4.png")') {
+            card.children[6].innerHTML = "The night thief";
+            card.children[6].style.color = "#FBBD1D";
+
+        }
+        else if (!is_epic &&  card.children[1].style.backgroundImage === 'url("card_image_5.png")') {
+            card.children[6].innerHTML = "Plague doctor of death";
+        }
+        else if (is_epic && card.children[1].style.backgroundImage === 'url("card_image_5.png")') {
+            card.children[6].innerHTML = "Plague doctor of death";
+            card.children[6].style.color = "#FBBD1D";
+        }
+        else if (!is_epic &&  card.children[1].style.backgroundImage === 'url("card_image_6.png")') {
+            card.children[6].innerHTML = "Bandit of the shadows";
+        }
+        else if (is_epic && card.children[1].style.backgroundImage === 'url("card_image_6.png")') {
+            card.children[6].innerHTML = "Bandit of the shadows";
+            card.children[6].style.color = "#FBBD1D";
+        }
+        else {
+            card.children[6].innerHTML = "Unknown";
+        }
+    }
 
 }
 
 function random_stats() {
-    [ 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5'].forEach(function( hand_pos ) {
-        let card_div = document.getElementById(hand_pos).children[0];
-        let stat_div = card_div.children[0];
+    let hand = document.getElementById("player_hand");
+    for (let i = 0; i < hand.children.length; i++) {
+        let card = hand.children[i].children[0];
 
-        stat_div.children[0].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
-        stat_div.children[1].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
-        stat_div.children[2].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
-        stat_div.children[3].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
-    });
-
+        card.children[3].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
+        card.children[5].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
+    }
 }
 
 function adjust_hand() {

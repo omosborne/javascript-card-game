@@ -132,14 +132,7 @@
     background-image: url("card_base.png");
     background-size: cover;
     height: 270px;
-    position: absolute;
-}
-
-.card_test {
-    width: 180px;
-    background-image: url("card_base.png");
-    background-size: cover;
-    height: 270px;
+    user-select: none;
     position: absolute;
 }
 
@@ -153,7 +146,8 @@
 .card_image {
     width: 180px;
     height: 180px;
-    background-image: url("card_image_3.png");
+    background-image: url("card_image_6.png");
+    filter: invert(1);
     position: absolute;
 }
 
@@ -199,14 +193,15 @@
 
 .card_name {
     width: 164px;
-    height: 30px;
-    font-size: 30px;
+    height: 42px;
+    font-size: 20px;
     color: white;
     font-weight: bold;
     text-align: left;
     line-height: 100%;
+    overflow: hidden;
     position: absolute;
-    transform: translate(8px, 188px);
+    transform: translate(8px, 176px);
 }
 
 .card_ability {
@@ -216,6 +211,7 @@
     color: white;
     text-align: left;
     letter-spacing: 0.1em;
+    overflow: hidden;
     position: absolute;
     transform: translate(8px, 217px);
 }
