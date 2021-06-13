@@ -116,15 +116,19 @@
 
 .op_card {
     width: 23px;
-    background-image: url("card_size.png");
+    background-image: url("card_base.png");
     background-size: cover;
     height: 34px;
     position: relative;
 }
 
+.card_back {
+    background-image: url("card_base.png");
+}
+
 .card {
     width: 180px;
-    background-image: url("card_size.png");
+    background-image: url("card_base.png");
     background-size: cover;
     height: 270px;
     position: absolute;
@@ -132,7 +136,7 @@
 
 .card_test {
     width: 180px;
-    background-image: url("card_size.png");
+    background-image: url("card_base.png");
     background-size: cover;
     height: 270px;
     position: absolute;
@@ -209,10 +213,6 @@
     background-color: sienna;
     position: absolute;
     transform: translate(8px, 217px);
-}
-
-.card_back {
-    background-image: url("card_size.png");
 }
 
 .card_stats {
