@@ -111,10 +111,9 @@ function unhighlight_pos(selected_pos){
 
 function random_card() {
     screen_size();
-    /*[ 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5'].forEach(function( hand_pos ) {
-        document.getElementById(hand_pos).firstElementChild.style.backgroundImage = "url('" + player_cards[Math.floor(Math.random() * player_cards.length)] + "')";
-    });*/
+
     let hand = document.getElementById("player_hand");
+
     for (let i = 0; i < hand.children.length; i++) {
         let card = hand.children[i].children[0];
         let epic_chance = Math.floor(Math.random() * 100);
@@ -162,16 +161,13 @@ function random_card() {
 }
 
 function random_stats() {
-    /*[ 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5'].forEach(function( hand_pos ) {
-        let card_div = document.getElementById(hand_pos).children[0];
-        let stat_div = card_div.children[0];
+    let hand = document.getElementById("player_hand");
+    for (let i = 0; i < hand.children.length; i++) {
+        let card = hand.children[i].children[0];
 
-        stat_div.children[0].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
-        stat_div.children[1].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
-        stat_div.children[2].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
-        stat_div.children[3].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
-    });*/
-
+        card.children[3].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
+        card.children[5].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
+    }
 }
 
 function adjust_hand() {
