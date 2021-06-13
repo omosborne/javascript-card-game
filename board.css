@@ -213,7 +213,8 @@
     height: 45px;
     font-size: 12px;
     color: white;
-    background-color: sienna;
+    text-align: left;
+    letter-spacing: 0.1em;
     position: absolute;
     transform: translate(8px, 217px);
 }
