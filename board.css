@@ -138,6 +138,79 @@
     position: absolute;
 }
 
+.card_background {
+    width: 180px;
+    height: 180px;
+    background-color: red;
+    position: absolute;
+}
+
+.card_image {
+    width: 180px;
+    height: 180px;
+    background-color: green;
+    position: absolute;
+}
+
+.card_atk_image {
+    width: 30px;
+    height: 30px;
+    background-color: blue;
+    position: absolute;
+    transform: translate(8px, 142px);
+}
+
+.card_atk_val {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    background-color: purple;
+    position: absolute;
+    transform: translate(46px, 142px);
+}
+
+.card_def_image {
+    width: 30px;
+    height: 30px;
+    background-color: blue;
+    position: absolute;
+    transform: translate(142px, 142px);
+}
+
+.card_def_val {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    background-color: purple;
+    position: absolute;
+    transform: translate(104px, 142px);
+}
+
+.card_name {
+    width: 164px;
+    height: 30px;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    background-color: yellow;
+    position: absolute;
+    transform: translate(8px, 188px);
+}
+
+.card_ability {
+    width: 164px;
+    height: 45px;
+    font-size: 12px;
+    color: white;
+    background-color: sienna;
+    position: absolute;
+    transform: translate(8px, 217px);
+}
+
 .card_back {
     background-image: url("example_card_back.png");
 }
