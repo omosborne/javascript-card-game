@@ -1,6 +1,6 @@
 let card_chosen = false;
 let chosen_card = null;
-let player_cards = ['example_card_1.png', 'example_card_2.png', 'example_card_3.png', 'example_card_4.png', 'example_card_5.png'];
+let player_cards = ['card_tier_3.png', 'card_tier_1.png', 'card_tier_1.png', 'card_tier_1.png', 'card_tier_1.png'];
 
 function screen_size(){
     document.getElementById("game_area").style.height = ((window.innerHeight) * 0.8).toString();
@@ -104,8 +104,7 @@ function unhighlight_pos(selected_pos){
 function random_card() {
      screen_size();
     [ 'pl_hand_pos_1', 'pl_hand_pos_2', 'pl_hand_pos_3', 'pl_hand_pos_4', 'pl_hand_pos_5'].forEach(function( hand_pos ) {
-        document.getElementById(hand_pos).firstElementChild.style.backgroundImage = "url(card_size.png)";
-        //"url('" + player_cards[Math.floor(Math.random() * player_cards.length)] + "')";
+        document.getElementById(hand_pos).firstElementChild.style.backgroundImage = "url('" + player_cards[Math.floor(Math.random() * player_cards.length)] + "')";
     });
 
 }
