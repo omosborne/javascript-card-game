@@ -145,7 +145,7 @@
 .card_background {
     width: 180px;
     height: 180px;
-    background-color: red;
+    background-image: url("card_background_2.png");
     position: absolute;
 }
 
