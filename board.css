@@ -135,14 +135,6 @@
     position: absolute;
 }
 
-.card_test {
-    width: 180px;
-    background-image: url("card_base.png");
-    background-size: cover;
-    height: 270px;
-    position: absolute;
-}
-
 .card_background {
     width: 180px;
     height: 180px;
