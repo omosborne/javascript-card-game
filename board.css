@@ -152,7 +152,7 @@
 .card_image {
     width: 180px;
     height: 180px;
-    background-color: green;
+    background-image: url("card_image_3.png");
     position: absolute;
 }
 
