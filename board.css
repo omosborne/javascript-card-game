@@ -202,7 +202,8 @@
     font-size: 30px;
     color: white;
     font-weight: bold;
-    background-color: yellow;
+    text-align: left;
+    line-height: 100%;
     position: absolute;
     transform: translate(8px, 188px);
 }
