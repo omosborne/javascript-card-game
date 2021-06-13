@@ -47,11 +47,13 @@
 }
 
 .position {
-    max-height: 135px;
-    max-width: 90px;
-    height: 135px;
-    width: 90px;
+    max-height: 270px;
+    max-width: 180px;
+    height: 270px;
+    width: 180px;
     border: solid;
+    transform-origin: 90px 135px;
+    transform: scale(0.5);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -61,47 +63,55 @@
 
 /* top left */
 #position_1 {
-    transform: translate(-125px, -165px);
+    transform-origin: top left;
+    transform: scale(0.5) translate(-125px, -165px);
 }
 
 /* top middle */
 #position_2 {
-    transform: translate(0px, -165px);
+    transform-origin: top center;
+    transform: scale(0.5) translate(0px, -165px);
 }
 
 /* top right */
 #position_3 {
-    transform: translate(125px, -165px);
+    transform-origin: top right;
+    transform: scale(0.5) translate(125px, -165px);
 }
 
 /* middle left */
 #position_4 {
-    transform: translate(-125px, 0px);
+    transform-origin: left center;
+    transform: scale(0.5) translate(-125px, 0px);
 }
 
 /* middle */
 #position_5 {
-
+    transform-origin: center;
 }
 
 /* middle right */
 #position_6 {
-    transform: translate(125px, 0px);
+    transform-origin: right center;
+    transform: scale(0.5) translate(125px, 0px);
 }
 
 /* bottom left */
 #position_7 {
-    transform: translate(-125px, 165px);
+    transform-origin: left bottom;
+    transform: scale(0.5) translate(-125px, 165px);
 }
 
 /* bottom middle */
 #position_8 {
-    transform: translate(0px, 165px);
+    transform-origin: bottom;
+    transform: scale(0.5) translate(0px, 165px);
 }
 
 /* bottom right */
 #position_9 {
-    transform: translate(125px, 165px);
+    transform-origin: right bottom;
+    transform: scale(0.5) translate(125px, 165px);
 }
 
 .op_card {

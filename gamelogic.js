@@ -9,8 +9,8 @@ function screen_size(){
     let grid_x = (((window.innerWidth - (window.innerWidth * .5)) * .5));
     let grid_y = (((window.innerHeight - (window.innerHeight * .2)) * .5));
     document.getElementById("grid").style.transformOrigin = grid_x + "px " + grid_y + "px";
-    grid_x -= 55;
-    grid_y -= 77.5;
+    grid_x -= 100;
+    grid_y -= 145;
     document.getElementById("grid").style.transform = "scale(" + grid_scale +") translate(" + grid_x +"px, " + grid_y + "px)";
     let gap = document.getElementById("position_2").getBoundingClientRect().top.toString();
     if (parseInt(gap) > 30){
