@@ -32,6 +32,12 @@ function screen_size(){
             }
         }
     }
+    document.getElementById("pl_buffer_left").style.width = (((window.innerWidth) * .5) - (document.getElementById("pl_hand_pos_1").getBoundingClientRect().width * .5)).toString() + "px";
+    document.getElementById("pl_buffer_right").style.width = (((window.innerWidth) * .5) - (document.getElementById("pl_hand_pos_1").getBoundingClientRect().width * .5)).toString() + "px";
+    document.getElementById("player_hand").style.width = document.getElementById("pl_hand_pos_1").getBoundingClientRect().width.toString() + "px";
+    document.getElementById("grid").style.visibility = "visible";
+    document.getElementById("player_hand").style.visibility = "visible";
+
 }
 window.addEventListener('resize', screen_size);
 

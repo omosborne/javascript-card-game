@@ -44,6 +44,7 @@
     transform: scale(0.01);
     display: grid;
     grid-template-columns: 7fr 6fr 21fr;
+    visibility: hidden;
 }
 
 .position {
@@ -370,9 +371,10 @@ body, html {
 
 #player_hand {
     float: left;
-    width: 70%;
+    width: 0;
     height: 100%;
     background-color: violet;
+    visibility: hidden;
 }
 
 #opponent_hand {
@@ -390,23 +392,18 @@ body, html {
 
 /*pl hand*/
 #pl_hand_pos_1 {
-    left: 0;
 }
 
 #pl_hand_pos_2 {
-    left: 20%;
 }
 
 #pl_hand_pos_3 {
-    left: calc(20% * 2);
 }
 
 #pl_hand_pos_4 {
-    left: calc(20% * 3);
 }
 
 #pl_hand_pos_5 {
-    left: calc(20% * 4);
 }
 
 /*op hand*/
