@@ -117,15 +117,19 @@
 
 .op_card {
     width: 23px;
-    background-image: url("example_card.png");
+    background-image: url("card_base.png");
     background-size: cover;
     height: 34px;
     position: relative;
 }
 
+.card_back {
+    background-image: url("card_base.png");
+}
+
 .card {
     width: 180px;
-    background-image: url("example_card.png");
+    background-image: url("card_base.png");
     background-size: cover;
     height: 270px;
     position: absolute;
@@ -133,7 +137,7 @@
 
 .card_test {
     width: 180px;
-    background-image: url("card_size.png");
+    background-image: url("card_base.png");
     background-size: cover;
     height: 270px;
     position: absolute;
@@ -142,32 +146,33 @@
 .card_background {
     width: 180px;
     height: 180px;
-    background-color: red;
+    background-image: url("card_background_2.png");
     position: absolute;
 }
 
 .card_image {
     width: 180px;
     height: 180px;
-    background-color: green;
+    background-image: url("card_image_3.png");
     position: absolute;
 }
 
 .card_atk_image {
     width: 30px;
     height: 30px;
-    background-color: blue;
+    background-image: url("card_attack_image.png");
     position: absolute;
     transform: translate(8px, 142px);
 }
 
 .card_atk_val {
-    width: 30px;
+    width: 38px;
     height: 30px;
     font-size: 30px;
     color: white;
     font-weight: bold;
-    background-color: purple;
+    text-align: left;
+    line-height: 100%;
     position: absolute;
     transform: translate(46px, 142px);
 }
@@ -175,20 +180,21 @@
 .card_def_image {
     width: 30px;
     height: 30px;
-    background-color: blue;
+    background-image: url("card_health_image.png");
     position: absolute;
     transform: translate(142px, 142px);
 }
 
 .card_def_val {
-    width: 30px;
+    width: 38px;
     height: 30px;
     font-size: 30px;
     color: white;
     font-weight: bold;
-    background-color: purple;
+    text-align: right;
+    line-height: 100%;
     position: absolute;
-    transform: translate(104px, 142px);
+    transform: translate(96px, 142px);
 }
 
 .card_name {
@@ -197,7 +203,8 @@
     font-size: 30px;
     color: white;
     font-weight: bold;
-    background-color: yellow;
+    text-align: left;
+    line-height: 100%;
     position: absolute;
     transform: translate(8px, 188px);
 }
@@ -207,13 +214,10 @@
     height: 45px;
     font-size: 12px;
     color: white;
-    background-color: sienna;
+    text-align: left;
+    letter-spacing: 0.1em;
     position: absolute;
     transform: translate(8px, 217px);
-}
-
-.card_back {
-    background-image: url("example_card_back.png");
 }
 
 .card_stats {
