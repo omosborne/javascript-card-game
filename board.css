@@ -116,7 +116,7 @@
 
 .op_card {
     width: 23px;
-    background-image: url("example_card.png");
+    background-image: url("card_size.png");
     background-size: cover;
     height: 34px;
     position: relative;
@@ -124,7 +124,7 @@
 
 .card {
     width: 180px;
-    background-image: url("example_card.png");
+    background-image: url("card_size.png");
     background-size: cover;
     height: 270px;
     position: absolute;
@@ -212,7 +212,7 @@
 }
 
 .card_back {
-    background-image: url("example_card_back.png");
+    background-image: url("card_size.png");
 }
 
 .card_stats {
