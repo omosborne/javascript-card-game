@@ -159,7 +159,7 @@
 .card_atk_image {
     width: 30px;
     height: 30px;
-    background-color: blue;
+    background-image: url("card_attack_image.png");
     position: absolute;
     transform: translate(8px, 142px);
 }
@@ -178,7 +178,7 @@
 .card_def_image {
     width: 30px;
     height: 30px;
-    background-color: blue;
+    background-image: url("card_health_image.png");
     position: absolute;
     transform: translate(142px, 142px);
 }
