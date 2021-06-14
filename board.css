@@ -414,21 +414,18 @@ body, html {
     font-size: 12px;
     user-select: none;
     color: white;
+    vertical-align: center;
     text-align: center;
     align-content: center;
-    width: 0;
-    height: 0;
-    opacity: 100%;
-}
-
-.card_count_background{
     visibility: hidden;
-    width: 87px;
-    height: 20px;
+    line-height: 100%;
+    border-radius: 3px;
+    height: 14px;
+    width: 22px;
+    position: absolute;
+    bottom: 5px;
     background: rgba(0, 0, 0, 0.5);
-    transform: translate(5px, -25px);
 }
-
 
 /* Deck Position (off to the left) */
 #player_deck {

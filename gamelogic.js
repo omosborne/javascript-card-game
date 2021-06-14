@@ -62,8 +62,8 @@ function screen_size(){
     //rescale the player hand
     resize_player_hand();
 
-    document.getElementById("pl_deck_count").children[0].style.width = document.getElementById("player_deck").getBoundingClientRect().width.toString() + "px";
-    document.getElementById("pl_deck_count").children[0].style.visibility = "visible";
+    document.getElementById("pl_deck_count").style.transform = "translateX(" + (((document.getElementById("player_deck").getBoundingClientRect().width) * .5) - 4)+ "px)";
+    document.getElementById("pl_deck_count").style.visibility = "visible";
 }
 
 //creating a placeholder value so that cards can be resized to this (perfect scaling based on browser)
@@ -100,7 +100,7 @@ function show(){
 }
 
 function pl_deck_count(){
-    document.getElementById("pl_deck_count").children[0].innerHTML = document.getElementById("player_deck").children.length.toString();
+    document.getElementById("pl_deck_count").innerHTML = document.getElementById("player_deck").children.length.toString();
 }
 //Loads the cards in the hand
 function load_hand(){
