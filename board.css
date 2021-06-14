@@ -363,10 +363,15 @@ body, html {
 
 #opponent_area {
     margin-top: 5px;
-    height: 134px;
-    width: 30px;
     position: relative;
+    width: 100%;
+    height: 20%;
     background-color: blue;
+}
+
+#opponent_hand {
+    width: 100%;
+    height: 100%;
 }
 
 .hand {
@@ -397,11 +402,6 @@ body, html {
     height: 100%;
     background-color: violet;
     visibility: hidden;
-}
-
-#opponent_hand {
-    float: left;
-    right: 0;
 }
 
 .hand_position {
@@ -453,12 +453,4 @@ body, html {
 
 #op_hand_pos_3 {
     left: 28px;
-}
-
-#op_hand_pos_4 {
-    left: 42px;
-}
-
-#op_hand_pos_5 {
-    left: 56px;
 }
