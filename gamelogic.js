@@ -127,13 +127,16 @@ function load_hand(card_count){
         //remove from this div and place in hand div
         deck.removeChild(card);
         pl_deck_count();
-        /*new_position.onmousedown = choose_card(event);
-        new_position.onmouseenter = highlight_card(this);
-        new_position.onmouseleave = unhighlight_card(this)*/
+
         const new_position = document.createElement("div");
         new_position.className = "hand_position";
         new_position.appendChild(card);
         document.getElementById("player_hand").appendChild(new_position);
+
+        new_position.onmousedown = choose_card;
+        new_position.onmouseenter = highlight_card;
+        new_position.onmouseleave = unhighlight_card;
+
         generate_resize();
         show();
         new_position.children[0].classList.toggle('flipped');
@@ -146,7 +149,12 @@ function load_hand(card_count){
 window.addEventListener('resize', screen_size);
 
 //Not used, this is for when a card is clicked on "selected"
-function choose_card(selected_pos){
+function choose_card(event){
+    let mouse_x = event.clientX;
+    let mouse_y = event.clientY;
+    let mouse_pos = document.elementFromPoint(mouse_x, mouse_y);
+    let selected_pos = mouse_pos.parentElement.parentElement.parentElement;
+
     hand1.forEach(function( hand_pos ) {
             if (document.getElementById(hand_pos).querySelectorAll(".card").length > 0) {
                 // document.getElementById(hand_pos).firstElementChild.style.bottom = "0px";
