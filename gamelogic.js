@@ -6,6 +6,23 @@ let card_scale = 0.01;
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
 let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
 
+function load(){
+    //adjust elements to screen size
+    screen_size();
+
+    //Make the components visible as scaling is complete.
+    show();
+
+    //Load the cards into the deck
+    fill_deck(15);
+
+    //Show the number of cards in the player's deck
+    pl_deck_count();
+
+    //Load Hand
+    load_hand();
+}
+
 function screen_size(){
     //Setting the height of the board and player area
     document.getElementById("game_area").style.height = ((window.innerHeight) * 0.8).toString();
@@ -38,17 +55,15 @@ function screen_size(){
     document.getElementById("discard_pile").style.transform = "scale(" + card_scale +")";
     document.getElementById("discard_pile").style.left = (document.getElementById("player_deck").getBoundingClientRect().width + 10).toString() + "px";
 
+
     //resize the cards in the deck to match that of the placeholders
     generate_resize("player_deck");
 
     //rescale the player hand
     resize_player_hand();
 
-    //Make the components visible as scaling is complete.
-    show();
-
-    //Load Hand
-    load_hand();
+    document.getElementById("pl_deck_count").children[0].style.width = document.getElementById("player_deck").getBoundingClientRect().width.toString() + "px";
+    document.getElementById("pl_deck_count").children[0].style.visibility = "visible";
 }
 
 //creating a placeholder value so that cards can be resized to this (perfect scaling based on browser)
@@ -82,9 +97,11 @@ function show(){
     for (let i = 0; i < document.getElementById("player_hand").children.length; i++) {
         document.getElementById("player_hand").children[i].style.visibility = "visible";
     }
-
 }
 
+function pl_deck_count(){
+    document.getElementById("pl_deck_count").children[0].innerHTML = document.getElementById("player_deck").children.length.toString();
+}
 //Loads the cards in the hand
 function load_hand(){
     hand1 = ["test", "test2", "test3", "test4", "test5"];

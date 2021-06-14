@@ -6,7 +6,7 @@
         <link href="board.css" rel="stylesheet">
         <script src="gamelogic.js"></script>
     </head>
-    <body onload="screen_size(); fill_deck(15)">
+    <body onload="load()">
 
         <div class="game_area" id="game_area">
             <div class="game_info">
@@ -95,6 +95,9 @@
 
         <div class="area" id="player_area">
             <div id="pl_buffer_left">
+                <div class="card_count" id="pl_deck_count">
+                    <div class="card_count_background"></div>
+                </div>
                 <div class="hand_position" id="player_deck"></div>
                 <div class="hand_position" id="discard_pile">
                     <div class="card">
