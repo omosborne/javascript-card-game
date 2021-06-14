@@ -296,7 +296,6 @@ body, html {
     float: left;
     width: 40%;
     height: 100%;
-    background-color: cyan;
 }
 
 #op_info {
@@ -304,7 +303,6 @@ body, html {
     width: 40%;
     height: 100%;
     text-align: right;
-    background-color: cyan;
 }
 
 #game_score {
@@ -314,7 +312,6 @@ body, html {
     font-size: 300%;
     display: flex;
     flex-direction: row;
-    background-color: green;
 }
 
 #pl_score {
@@ -323,7 +320,6 @@ body, html {
     line-height: 100%;
     width: 40%;
     text-align: right;
-    background-color: crimson;
     padding-right: 2px;
 }
 
@@ -332,7 +328,6 @@ body, html {
     height: 100%;
     line-height: 100%;
     width: 40%;
-    background-color: indigo;
     padding-left: 2px;
 }
 
@@ -342,7 +337,6 @@ body, html {
     height: 100%;
     line-height: 100%;
     text-align: center;
-    background-color: sienna;
 }
 
 .title {
