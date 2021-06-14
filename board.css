@@ -393,7 +393,7 @@ body, html {
     visibility: hidden;
 }
 
-.hand_position:hover {
+.card.flipped:hover {
     bottom: 20px;
 }
 
