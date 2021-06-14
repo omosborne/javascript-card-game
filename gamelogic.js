@@ -197,12 +197,17 @@ function summon(selected_pos){
 }
 
 //Not used, moving the card up slightly when hovered over
-function highlight_card(selected_pos){
+function highlight_card(event){
+    let mouse_x = event.clientX;
+    let mouse_y = event.clientY;
+    let mouse_pos = document.elementFromPoint(mouse_x, mouse_y);
+    let selected_pos = mouse_pos.parentElement.parentElement.parentElement;
+
     if (!(chosen_card === selected_pos.firstElementChild)){
-        //selected_pos.firstElementChild.style.bottom = "";
+        //selected_pos.children[0].style.bottom = "";
     }
     else{
-        //selected_pos.firstElementChild.style.bottom = "";
+        //selected_pos.children[0].style.bottom = "";
     }
 
 }
