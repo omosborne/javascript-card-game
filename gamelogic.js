@@ -45,12 +45,6 @@ function screen_size(){
     //rescale the player hand
     resize_player_hand();
 
-    //generates random card
-    //random_card();
-
-    //generates random stats
-    //random_stats();
-
     //Make the components visible as scaling is complete.
     show();
 
@@ -174,66 +168,6 @@ function highlight_pos(selected_pos){
 function unhighlight_pos(selected_pos){
     if (!(selected_pos.querySelectorAll(".card").length > 0)) {
         selected_pos.style.removeProperty("border");
-    }
-}
-
-function random_card() {
-    let hand = document.getElementById("player_hand");
-
-    for (let i = 0; i < hand.children.length; i++) {
-        let card = hand.children[i].children[0];
-        let epic_chance = Math.floor(Math.random() * 100);
-        let is_epic = false;
-
-        if (epic_chance < 2) {
-            is_epic = true;
-        }
-
-        card.children[0].style.backgroundImage = "url('" + card_backgrounds[Math.floor(Math.random() * card_backgrounds.length)] + "')";
-        card.children[1].style.backgroundImage = "url('" + card_images[Math.floor(Math.random() * card_images.length)] + "')";
-
-        if (is_epic) {
-            card.children[1].style.filter = "invert(79%) sepia(67%) saturate(950%) hue-rotate(340deg) brightness(99%) contrast(99%)";
-            card.children[7].innerHTML = "Privately view the king. If this card is destroyed the king is reset."
-        }
-
-        if (!is_epic && card.children[1].style.backgroundImage === 'url("card_image_4.png")') {
-            card.children[6].innerHTML = "The night thief";
-        }
-        else if (is_epic && card.children[1].style.backgroundImage === 'url("card_image_4.png")') {
-            card.children[6].innerHTML = "The night thief";
-            card.children[6].style.color = "#FBBD1D";
-
-        }
-        else if (!is_epic &&  card.children[1].style.backgroundImage === 'url("card_image_5.png")') {
-            card.children[6].innerHTML = "Plague doctor of death";
-        }
-        else if (is_epic && card.children[1].style.backgroundImage === 'url("card_image_5.png")') {
-            card.children[6].innerHTML = "Plague doctor of death";
-            card.children[6].style.color = "#FBBD1D";
-        }
-        else if (!is_epic &&  card.children[1].style.backgroundImage === 'url("card_image_6.png")') {
-            card.children[6].innerHTML = "Bandit of the shadows";
-        }
-        else if (is_epic && card.children[1].style.backgroundImage === 'url("card_image_6.png")') {
-            card.children[6].innerHTML = "Bandit of the shadows";
-            card.children[6].style.color = "#FBBD1D";
-        }
-        else {
-            card.children[6].innerHTML = "Unknown";
-        }
-    }
-
-}
-
-//random stat generator
-function random_stats() {
-    let hand = document.getElementById("player_hand");
-    for (let i = 0; i < hand.children.length; i++) {
-        let card = hand.children[i].children[0];
-
-        card.children[3].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
-        card.children[5].innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
     }
 }
 
