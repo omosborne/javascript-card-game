@@ -136,6 +136,21 @@
     position: absolute;
 }
 
+.card_back {
+
+}
+
+.card_front {
+    display: none;
+}
+
+.card_back_image {
+    width: 180px;
+    height: 270px;
+    background-image: url("card_back_1.png");
+    position: absolute
+}
+
 .card_background {
     width: 180px;
     height: 180px;

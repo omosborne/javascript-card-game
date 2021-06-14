@@ -216,6 +216,13 @@ function create_card() {
     const card_div = document.createElement("div");
     card_div.className = "card";
 
+    const card_back_div = document.createElement("div");
+    card_back_div.className = "card_back";
+    const card_front_div = document.createElement("div");
+    card_front_div.className = "card_front";
+
+    const card_back_image_div = document.createElement("div");
+
     const card_background_div = document.createElement("div");
     const card_image_div = document.createElement("div");
     const card_atk_image_div = document.createElement("div");
@@ -224,6 +231,8 @@ function create_card() {
     const card_def_val_div = document.createElement("div");
     const card_name_div = document.createElement("div");
     const card_ability_div = document.createElement("div");
+
+    card_back_image_div.className = "card_back_image"
 
     card_background_div.className = "card_background";
     card_image_div.className = "card_image";
@@ -234,8 +243,10 @@ function create_card() {
     card_name_div.className = "card_name";
     card_ability_div.className = "card_ability";
 
+    card_back_image_div.style.backgroundImage = "url('card_back_1.png')";
+
     card_background_div.style.backgroundImage = "url('" + card_backgrounds[Math.floor(Math.random() * card_backgrounds.length)] + "')";
-    card_image_div.style.backgroundImage = "url('" + card_images[Math.floor(Math.random() * card_images.length)] + "')";;
+    card_image_div.style.backgroundImage = "url('" + card_images[Math.floor(Math.random() * card_images.length)] + "')";
 
     if (is_epic) {
         card_background_div.style.filter = "invert(79%) sepia(67%) saturate(950%) hue-rotate(340deg) brightness(99%) contrast(99%)";
@@ -271,15 +282,19 @@ function create_card() {
     card_atk_val_div.innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
     card_def_val_div.innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
 
-    card_div.appendChild(card_background_div);
-    card_div.appendChild(card_image_div);
-    card_div.appendChild(card_atk_image_div);
-    card_div.appendChild(card_atk_val_div);
-    card_div.appendChild(card_def_image_div);
-    card_div.appendChild(card_def_val_div);
-    card_div.appendChild(card_name_div);
-    card_div.appendChild(card_ability_div);
+    card_back_div.appendChild(card_back_image_div);
 
+    card_front_div.appendChild(card_background_div);
+    card_front_div.appendChild(card_image_div);
+    card_front_div.appendChild(card_atk_image_div);
+    card_front_div.appendChild(card_atk_val_div);
+    card_front_div.appendChild(card_def_image_div);
+    card_front_div.appendChild(card_def_val_div);
+    card_front_div.appendChild(card_name_div);
+    card_front_div.appendChild(card_ability_div);
+
+    card_div.appendChild(card_back_div);
+    card_div.appendChild(card_front_div);
 
     const deck = document.getElementById("player_deck");
     deck.appendChild(card_div);
