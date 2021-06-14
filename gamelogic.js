@@ -1,7 +1,7 @@
 let card_chosen = false;
 let chosen_card = null;
 let deck = new Array(0);
-let hand1 = new Array(0);
+let players_cards = new Array(0);
 let card_scale = 0.01;
 let animate;
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
@@ -46,31 +46,28 @@ function screen_size(){
 
     //reset card_scale
     card_scale = 0.01;
-    //Create a size for the player hand and card size
-    generate_resize("player_hand");
-
-    //scale the deck and discard pile to fit the screen
-    document.getElementById("player_deck").style.transform = "scale(" + card_scale +")";
-    document.getElementById("discard_pile").style.transform = "scale(" + card_scale +")";
-    document.getElementById("discard_pile").style.left = (document.getElementById("player_deck").getBoundingClientRect().width + 10).toString() + "px";
-
 
     //resize the cards in the deck to match that of the placeholders
     if (document.getElementById("player_hand").children.length === 0){
         const placeholder = document.createElement("div");
         placeholder.className = "hand_position";
         document.getElementById("player_hand").appendChild(placeholder);
-        generate_resize();
+        generate_resize("player_hand");
+        adjust_hand();
         document.getElementById("player_hand").removeChild(document.getElementById("player_hand").children[0]);
     }
     else{
-        generate_resize();
+        generate_resize("player_hand");
+        adjust_hand();//rescale the player hand
     }
 
 
-    //rescale the player hand
-    resize_player_hand();
+    generate_resize("player_deck");
 
+    //scale the deck and discard pile to fit the screen
+    document.getElementById("player_deck").style.transform = "scale(" + card_scale +")";
+    document.getElementById("discard_pile").style.transform = "scale(" + card_scale +")";
+    document.getElementById("discard_pile").style.left = (document.getElementById("player_deck").getBoundingClientRect().width + 10).toString() + "px";
     document.getElementById("pl_deck_count").style.transform = "translateX(" + (((document.getElementById("player_deck").getBoundingClientRect().width) * .5) - 4)+ "px)";
     document.getElementById("pl_discard_count").style.transform = "translateX(" + ((((document.getElementById("player_deck").getBoundingClientRect().width) * .5) * 3)- 4) + "px)";
     document.getElementById("pl_deck_count").style.visibility = "visible";
@@ -78,8 +75,8 @@ function screen_size(){
 }
 
 //creating a placeholder value so that cards can be resized to this (perfect scaling based on browser)
-function generate_resize(){
-    let test = document.getElementById("player_hand");
+function generate_resize(i){
+    let test = document.getElementById(i);
     for (let i = 0; i < test.children.length; i++) {
         test.children[i].style.transform = "scale(" + card_scale +")";
         if (test.children[i].getBoundingClientRect().height < document.getElementById("player_area").getBoundingClientRect().height){
@@ -89,14 +86,6 @@ function generate_resize(){
             }
         }
     }
-
-}
-
-//resizing the width of the hand and buffers to make sure the hand is centred
-function resize_player_hand(){
-    document.getElementById("pl_buffer_left").style.width = (((window.innerWidth) * .5) - ((document.getElementById("player_hand").children[0]).getBoundingClientRect().width * .5)).toString() + "px";
-    document.getElementById("pl_buffer_right").style.width = (((window.innerWidth) * .5) - ((document.getElementById("player_hand").children[0]).getBoundingClientRect().width * .5)).toString() + "px";
-    document.getElementById("player_hand").style.width = document.getElementById("player_hand").children[0].getBoundingClientRect().width.toString() + "px";
 }
 
 function show(){
@@ -137,10 +126,12 @@ function load_hand(card_count){
         //new_position.onmouseenter = highlight_card;
         //new_position.onmouseleave = unhighlight_card;
 
-        generate_resize();
+        //add to hand array
+        players_cards.push((i + " card").toString());
+
+        generate_resize("player_hand");
         show();
         new_position.children[0].classList.toggle('flipped');
-        //add to hand array
     }
     adjust_hand();
 }
@@ -155,7 +146,7 @@ function choose_card(event){
     let mouse_pos = document.elementFromPoint(mouse_x, mouse_y);
     let selected_pos = mouse_pos.parentElement.parentElement.parentElement;
 
-    hand1.forEach(function( hand_pos ) {
+    players_cards.forEach(function( hand_pos ) {
             if (document.getElementById(hand_pos).querySelectorAll(".card").length > 0) {
                 // document.getElementById(hand_pos).firstElementChild.style.bottom = "0px";
                 // document.getElementById(hand_pos).firstElementChild.style.left = "0px";
@@ -240,9 +231,28 @@ function unhighlight_pos(selected_pos){
     }
 }
 
-//Not used, adjusts the hand width based on number of cards
+//function to center and change the overlap of cards in player hand when cards are added/removed
 function adjust_hand() {
-    // function to center and change the overlap of cards in player hand when cards are added/removed
+    let hand_size = players_cards.length;
+    document.getElementById("player_hand").style.width = (document.getElementById("player_hand").children[0].getBoundingClientRect().width * hand_size).toString() + "px";
+    document.getElementById("pl_buffer_left").style.width = (((window.innerWidth) * .5) - (document.getElementById("player_hand").getBoundingClientRect().width * .5)).toString() + "px";
+    document.getElementById("pl_buffer_right").style.width = (document.getElementById("pl_buffer_left").getBoundingClientRect().width).toString() + "px";
+
+    if (document.getElementById("pl_buffer_left").getBoundingClientRect().width < ((window.innerWidth) * .15)){
+        document.getElementById("pl_buffer_left").style.width = "15%";
+        document.getElementById("pl_buffer_right").style.width = "15%";
+        document.getElementById("player_hand").style.width = "70%";
+    }
+
+    let hand = document.getElementById("player_hand");
+    for (let i = 0; i < (hand_size); i++){
+        if (i === 0){
+            hand.children[i].style.left = "0";
+        }
+        else {
+            hand.children[i].style.left = (((hand.children[i].getBoundingClientRect().width) * i)).toString() + "px";
+        }
+    }
 }
 
 function fill_deck(deck_size) {
