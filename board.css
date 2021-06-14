@@ -139,6 +139,7 @@
     position: absolute;
     transition: transform 1s;
     transform-style: preserve-3d;
+    left: 0;
 }
 
 .card div{

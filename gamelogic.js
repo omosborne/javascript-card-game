@@ -56,7 +56,17 @@ function screen_size(){
 
 
     //resize the cards in the deck to match that of the placeholders
-    generate_resize("player_deck");
+    if (document.getElementById("player_hand").children.length === 0){
+        const placeholder = document.createElement("div");
+        placeholder.className = "hand_position";
+        document.getElementById("player_hand").appendChild(placeholder);
+        generate_resize();
+        document.getElementById("player_hand").removeChild(document.getElementById("player_hand").children[0]);
+    }
+    else{
+        generate_resize();
+    }
+
 
     //rescale the player hand
     resize_player_hand();
@@ -68,8 +78,8 @@ function screen_size(){
 }
 
 //creating a placeholder value so that cards can be resized to this (perfect scaling based on browser)
-function generate_resize(i){
-    let test = document.getElementById(i);
+function generate_resize(){
+    let test = document.getElementById("player_hand");
     for (let i = 0; i < test.children.length; i++) {
         test.children[i].style.transform = "scale(" + card_scale +")";
         if (test.children[i].getBoundingClientRect().height < document.getElementById("player_area").getBoundingClientRect().height){
@@ -111,11 +121,25 @@ function load_hand(card_count){
     for (let i = 0, j = (deck_size - 1); i < card_count; i++, j--) {
         let card = deck.children[j];
         //animation
-        card.classList.toggle('flipped');
+        //card.classList.toggle('flipped');
         //translate to center of hand
-    }
 
-    //remove from deck and put divs in hand
+        //remove from this div and place in hand div
+        deck.removeChild(card);
+        pl_deck_count();
+        /*new_position.onmousedown = choose_card(event);
+        new_position.onmouseenter = highlight_card(this);
+        new_position.onmouseleave = unhighlight_card(this)*/
+        const new_position = document.createElement("div");
+        new_position.className = "hand_position";
+        new_position.appendChild(card);
+        document.getElementById("player_hand").appendChild(new_position);
+        generate_resize();
+        show();
+        new_position.children[0].classList.toggle('flipped');
+        //add to hand array
+    }
+    adjust_hand();
 }
 
 //an event listener that runs screen size once browser is rescaled
