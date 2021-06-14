@@ -243,10 +243,88 @@ function adjust_hand() {
 }
 
 //Not used, creates a card once called (used for loading decks and creating the 15 cards)
-function create_card(card_id) {
+function create_card() {
     // use card_id to get name, ability, images, and stats from database
     // place these in local vars
     // create the card div
     // add the local vars to the children divs properties
     // add the card div to the hand position
+
+    let epic_chance = Math.floor(Math.random() * 100);
+    let is_epic = false;
+
+    if (epic_chance < 2) {
+        is_epic = true;
+    }
+
+    const card_div = document.createElement("div");
+    card_div.className = "card";
+
+    const card_background_div = document.createElement("div");
+    const card_image_div = document.createElement("div");
+    const card_atk_image_div = document.createElement("div");
+    const card_atk_val_div = document.createElement("div");
+    const card_def_image_div = document.createElement("div");
+    const card_def_val_div = document.createElement("div");
+    const card_name_div = document.createElement("div");
+    const card_ability_div = document.createElement("div");
+
+    card_background_div.className = "card_background";
+    card_image_div.className = "card_image";
+    card_atk_image_div.className = "card_atk_image";
+    card_atk_val_div.className = "card_atk_val";
+    card_def_image_div.className = "card_def_image";
+    card_def_val_div.className = "card_def_val";
+    card_name_div.className = "card_name";
+    card_ability_div.className = "card_ability";
+
+    card_background_div.style.backgroundImage = "url('" + card_backgrounds[Math.floor(Math.random() * card_backgrounds.length)] + "')";
+    card_image_div.style.backgroundImage = "url('" + card_images[Math.floor(Math.random() * card_images.length)] + "')";;
+
+    if (is_epic) {
+        card_background_div.style.filter = "invert(79%) sepia(67%) saturate(950%) hue-rotate(340deg) brightness(99%) contrast(99%)";
+        card_ability_div.innerHTML = "Privately view the king. If this card is destroyed the king is reset."
+    }
+
+    if (!is_epic && card_image_div.style.backgroundImage === 'url("card_image_4.png")') {
+        card_name_div.innerHTML = "The night thief";
+    }
+    else if (is_epic && card_image_div.style.backgroundImage === 'url("card_image_4.png")') {
+        card_name_div.innerHTML = "The night thief";
+        card_name_div.style.color = "#FBBD1D";
+
+    }
+    else if (!is_epic &&  card_image_div.style.backgroundImage === 'url("card_image_5.png")') {
+        card_name_div.innerHTML = "Plague doctor of death";
+    }
+    else if (is_epic && card_image_div.style.backgroundImage === 'url("card_image_5.png")') {
+        card_name_div.innerHTML = "Plague doctor of death";
+        card_name_div.style.color = "#FBBD1D";
+    }
+    else if (!is_epic &&  card_image_div.style.backgroundImage === 'url("card_image_6.png")') {
+        card_name_div.innerHTML = "Bandit of the shadows";
+    }
+    else if (is_epic && card_image_div.style.backgroundImage === 'url("card_image_6.png")') {
+        card_name_div.innerHTML = "Bandit of the shadows";
+        card_name_div.style.color = "#FBBD1D";
+    }
+    else {
+        card_name_div.innerHTML = "Error";
+    }
+
+    card_atk_val_div.innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
+    card_def_val_div.innerHTML = (Math.floor(Math.random() * 10) + 1).toString();
+
+    card_div.appendChild(card_background_div);
+    card_div.appendChild(card_image_div);
+    card_div.appendChild(card_atk_image_div);
+    card_div.appendChild(card_atk_val_div);
+    card_div.appendChild(card_def_image_div);
+    card_div.appendChild(card_def_val_div);
+    card_div.appendChild(card_name_div);
+    card_div.appendChild(card_ability_div);
+
+
+    const deck = document.getElementById("player_deck");
+    deck.appendChild(card_div);
 }
