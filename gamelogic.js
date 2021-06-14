@@ -204,10 +204,10 @@ function highlight_card(event){
     let selected_pos = mouse_pos.parentElement.parentElement.parentElement;
 
     if (!(chosen_card === selected_pos.firstElementChild)){
-        //selected_pos.children[0].style.bottom = "";
+        selected_pos.children[0].style.bottom = "20px";
     }
     else{
-        //selected_pos.children[0].style.bottom = "";
+        selected_pos.children[0].style.bottom = "";
     }
 
 }
@@ -221,8 +221,8 @@ function unhighlight_card(event){
 
     if (chosen_card === null || !(chosen_card.parentNode === selected_pos))
     {
-        //selected_pos.children[0].style.bottom = "0px";
-        //selected_pos.children[0].style.left = "0px";
+        selected_pos.children[0].style.bottom = "0px";
+        selected_pos.children[0].style.left = "0px";
 
     }
 }
