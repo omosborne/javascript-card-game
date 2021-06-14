@@ -283,10 +283,20 @@ body, html {
     position: fixed;
 }
 
+#match_info {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    background-color: orange;
+    display: flex;
+    flex-direction: row;
+}
+
 #pl_info {
     float: left;
     width: 40%;
     height: 100%;
+    background-color: cyan;
 }
 
 #op_info {
@@ -294,41 +304,41 @@ body, html {
     width: 40%;
     height: 100%;
     text-align: right;
+    background-color: cyan;
 }
 
-.game_score {
+#game_score {
     float: left;
-    width: 25%;
+    width: 20%;
     height: 100%;
     font-size: 300%;
     display: flex;
     flex-direction: row;
     background-color: green;
-
 }
 
 #pl_score {
     float: left;
     height: 100%;
     line-height: 200%;
-    width: 43%;
+    width: 40%;
     text-align: right;
     background-color: crimson;
     padding-right: 2px;
 }
 
 #op_score {
-    float: right;
+    float: left;
     height: 100%;
     line-height: 200%;
-    width: 43%;
+    width: 40%;
     background-color: indigo;
     padding-left: 2px;
 }
 
 #dv_score {
     float: left;
-    width: 14%;
+    width: 20%;
     height: 100%;
     line-height: 200%;
     text-align: center;
