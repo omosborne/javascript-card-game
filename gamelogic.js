@@ -3,7 +3,6 @@ let chosen_card = null;
 let deck = new Array(0);
 let hand1 = new Array(0);
 let card_scale = 0.01;
-// let player_cards = ['card_tier_3.png', 'card_tier_1.png', 'card_tier_1.png', 'card_tier_1.png', 'card_tier_1.png'];
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
 let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
 
