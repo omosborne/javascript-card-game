@@ -302,7 +302,7 @@ function create_card() {
     card_image_div.style.backgroundImage = "url('" + card_images[Math.floor(Math.random() * card_images.length)] + "')";
 
     if (is_epic) {
-        card_background_div.style.filter = "invert(79%) sepia(67%) saturate(950%) hue-rotate(340deg) brightness(99%) contrast(99%)";
+        card_image_div.style.filter = "invert(79%) sepia(67%) saturate(950%) hue-rotate(340deg) brightness(99%) contrast(99%)";
         card_ability_div.innerHTML = "Privately view the king. If this card is destroyed the king is reset."
     }
 
