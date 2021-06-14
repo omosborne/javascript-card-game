@@ -10,56 +10,58 @@
 
         <div class="game_area" id="game_area">
             <div class="game_info">
-                <div id="pl_info">
-                    <div class="title">
-                        Player
+                <div id="match_info">
+                    <div id="pl_info">
+                        <div class="title">
+                            Player
+                        </div>
+                        <div class="username">
+                            {username}
+                        </div>
+                        <div class="account_score">
+                            {account score}
+                        </div>
                     </div>
-                    <div class="username">
-                        {username}
+                    <div id="game_score">
+                        <div id="pl_score">
+                            2
+                        </div>
+                        <div id="dv_score">
+                            -
+                        </div>
+                        <div id="op_score">
+                            2
+                        </div>
                     </div>
-                    <div class="account_score">
-                        {account score}
-                    </div>
-                </div>
-                <div id="game_score">
-                    <div id="pl_score">
-                        2
-                    </div>
-                    <div id="dv_score">
-                        -
-                    </div>
-                    <div id="op_score">
-                        2
-                    </div>
-                </div>
-                <div id="op_info">
-                    <div class="title">
-                        Opponent
-                    </div>
-                    <div class="username">
-                        {username}
-                    </div>
-                    <div class="account_score">
-                        {account score}
+                    <div id="op_info">
+                        <div class="title">
+                            Opponent
+                        </div>
+                        <div class="username">
+                            {username}
+                        </div>
+                        <div class="account_score">
+                            {account score}
+                        </div>
                     </div>
                 </div>
 
                 <div id="opponent_area">
-                    <div class="hand" id="opponent_hand">
-                        <div class="hand_position" id="op_hand_pos_1">
-                            <div class="card_back op_card"></div>
+                    <div id="opponent_hand">
+                        <div id="op_hand_pos_1">
+                            <div class="op_card">
+                                <div class="op_card_back_image"></div>
+                            </div>
                         </div>
-                        <div class="hand_position" id="op_hand_pos_2">
-                            <div class="card_back op_card"></div>
+                        <div id="op_hand_pos_2">
+                            <div class="op_card">
+                                <div class="op_card_back_image"></div>
+                            </div>
                         </div>
-                        <div class="hand_position" id="op_hand_pos_3">
-                            <div class="card_back op_card"></div>
-                        </div>
-                        <div class="hand_position" id="op_hand_pos_4">
-                            <div class="card_back op_card"></div>
-                        </div>
-                        <div class="hand_position" id="op_hand_pos_5">
-                            <div class="card_back op_card"></div>
+                        <div id="op_hand_pos_3">
+                            <div class="op_card">
+                                <div class="op_card_back_image"></div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -116,15 +116,18 @@
 }
 
 .op_card {
-    width: 23px;
+    width: 180px;
+    height: 270px;
     background-image: url("card_base.png");
     background-size: cover;
-    height: 34px;
     position: relative;
 }
 
-.card_back {
-    background-image: url("card_base.png");
+.op_card_back_image {
+    width: 100%;
+    height: 100%;
+    background-image: url("card_back_1.png");
+    position: absolute;
 }
 
 .card {
@@ -237,42 +240,6 @@
     transform: translate(8px, 217px);
 }
 
-.card_stats {
-    width: 25%;
-    height: 20%;
-    text-align: center;
-    font-size: 10px;
-    color: white;
-    padding-top: 5px;
-    padding-left: 5px;
-    user-select: none;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-}
-
-.card_stat_north {
-    float: left;
-    width: 100%;
-    height: 33.33%;
-}
-
-.card_stat_west {
-    float: left;
-    width: 50%;
-    height: 33.33%;
-}
-
-.card_stat_east {
-    float: right;
-    width: 50%;
-    height: 33.33%;
-}
-
-.card_stat_south {
-    float: left;
-    width: 100%;
-    height: 33.33%;
-}
-
 img {
     max-width:100%;
     max-height:100%;
@@ -289,6 +256,15 @@ body, html {
     position: fixed;
 }
 
+#match_info {
+    position: relative;
+    width: 100%;
+    height: 20%;
+    background-color: orange;
+    display: flex;
+    flex-direction: row;
+}
+
 #pl_info {
     float: left;
     width: 40%;
@@ -302,43 +278,38 @@ body, html {
     text-align: right;
 }
 
-.game_score {
+#game_score {
     float: left;
-    width: 25%;
+    width: 20%;
     height: 100%;
     font-size: 300%;
     display: flex;
     flex-direction: row;
-    background-color: green;
-
 }
 
 #pl_score {
     float: left;
     height: 100%;
-    line-height: 200%;
-    width: 43%;
+    line-height: 100%;
+    width: 40%;
     text-align: right;
-    background-color: crimson;
     padding-right: 2px;
 }
 
 #op_score {
-    float: right;
+    float: left;
     height: 100%;
-    line-height: 200%;
-    width: 43%;
-    background-color: indigo;
+    line-height: 100%;
+    width: 40%;
     padding-left: 2px;
 }
 
 #dv_score {
     float: left;
-    width: 14%;
+    width: 20%;
     height: 100%;
-    line-height: 200%;
+    line-height: 100%;
     text-align: center;
-    background-color: sienna;
 }
 
 .title {
@@ -364,11 +335,21 @@ body, html {
 }
 
 #opponent_area {
-    margin-top: 5px;
-    height: 134px;
-    width: 30px;
     position: relative;
+    width: 100%;
+    height: 20%;
     background-color: blue;
+}
+
+#opponent_hand {
+    width: available;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    float: left;
+    transform: scale(0.2);
+
 }
 
 .hand {
@@ -399,11 +380,6 @@ body, html {
     height: 100%;
     background-color: violet;
     visibility: hidden;
-}
-
-#opponent_hand {
-    float: left;
-    right: 0;
 }
 
 .hand_position {
@@ -446,21 +422,10 @@ body, html {
 
 /*op hand*/
 #op_hand_pos_1 {
-    left: 0;
 }
 
 #op_hand_pos_2 {
-    left: 14px;
 }
 
 #op_hand_pos_3 {
-    left: 28px;
-}
-
-#op_hand_pos_4 {
-    left: 42px;
-}
-
-#op_hand_pos_5 {
-    left: 56px;
 }
