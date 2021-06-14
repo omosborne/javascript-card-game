@@ -213,11 +213,16 @@ function highlight_card(event){
 }
 
 //Not used, resets position once mouse is not hovering over the card
-function unhighlight_card(selected_pos){
+function unhighlight_card(event){
+    let mouse_x = event.clientX;
+    let mouse_y = event.clientY;
+    let mouse_pos = document.elementFromPoint(mouse_x, mouse_y);
+    let selected_pos = mouse_pos.parentElement.parentElement.parentElement;
+
     if (chosen_card === null || !(chosen_card.parentNode === selected_pos))
     {
-        //selected_pos.firstElementChild.style.bottom = "0px";
-        //selected_pos.firstElementChild.style.left = "0px";
+        //selected_pos.children[0].style.bottom = "0px";
+        //selected_pos.children[0].style.left = "0px";
 
     }
 }
