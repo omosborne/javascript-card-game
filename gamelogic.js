@@ -134,8 +134,8 @@ function load_hand(card_count){
         document.getElementById("player_hand").appendChild(new_position);
 
         new_position.onmousedown = choose_card;
-        new_position.onmouseenter = highlight_card;
-        new_position.onmouseleave = unhighlight_card;
+        //new_position.onmouseenter = highlight_card;
+        //new_position.onmouseleave = unhighlight_card;
 
         generate_resize();
         show();
@@ -196,7 +196,7 @@ function summon(selected_pos){
     }
 }
 
-//Not used, moving the card up slightly when hovered over
+/*//Not used, moving the card up slightly when hovered over
 function highlight_card(event){
     let mouse_x = event.clientX;
     let mouse_y = event.clientY;
@@ -225,7 +225,7 @@ function unhighlight_card(event){
         selected_pos.children[0].style.left = "0px";
 
     }
-}
+}*/
 
 //highlights the position on the grid that the mouse is over
 function highlight_pos(selected_pos){

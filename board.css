@@ -393,6 +393,10 @@ body, html {
     visibility: hidden;
 }
 
+.hand_position:hover {
+    bottom: 20px;
+}
+
 .card_count{
     font-size: 12px;
     user-select: none;
