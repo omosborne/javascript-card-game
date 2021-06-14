@@ -3,6 +3,7 @@ let chosen_card = null;
 let deck = new Array(0);
 let hand1 = new Array(0);
 let card_scale = 0.01;
+let animate;
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
 let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
 
@@ -19,8 +20,6 @@ function load(){
     //Show the number of cards in the player's deck
     pl_deck_count();
 
-    //Load Hand
-    load_hand();
 }
 
 function screen_size(){
@@ -106,8 +105,17 @@ function pl_deck_count(){
     document.getElementById("pl_discard_count").innerHTML = document.getElementById("discard_pile").children.length.toString();
 }
 //Loads the cards in the hand
-function load_hand(){
-    hand1 = ["test", "test2", "test3", "test4", "test5"];
+function load_hand(card_count){
+    let deck = document.getElementById("player_deck");
+    let deck_size = document.getElementById("player_deck").children.length;
+    for (let i = 0, j = (deck_size - 1); i < card_count; i++, j--) {
+        let card = deck.children[j];
+        //animation
+        card.classList.toggle('flipped');
+        //translate to center of hand
+    }
+
+    //remove from deck and put divs in hand
 }
 
 //an event listener that runs screen size once browser is rescaled
