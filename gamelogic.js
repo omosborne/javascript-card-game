@@ -46,10 +46,10 @@ function screen_size(){
     resize_player_hand();
 
     //generates random card
-    random_card();
+    //random_card();
 
     //generates random stats
-    random_stats();
+    //random_stats();
 
     //Make the components visible as scaling is complete.
     show();
@@ -240,6 +240,12 @@ function random_stats() {
 //Not used, adjusts the hand width based on number of cards
 function adjust_hand() {
     // function to center and change the overlap of cards in player hand when cards are added/removed
+}
+
+function fill_deck(deck_size) {
+    for (let i = 0; i < deck_size; i++) {
+        create_card();
+    }
 }
 
 //Not used, creates a card once called (used for loading decks and creating the 15 cards)
