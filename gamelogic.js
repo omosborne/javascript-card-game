@@ -432,3 +432,17 @@ function stage(stage, button) {
 function update_stage_text() {
     document.getElementById("game_stage").innerHTML = "Stage: " + game_stage;
 }
+
+function player_action(selected_pos) {
+
+    if (game_stage === 'summon') {
+        summon(selected_pos);
+    }
+    else if (game_stage === 'attack') {
+        attack(selected_pos);
+    }
+    else if (game_stage === 'merge') {
+        merge(selected_pos);
+    }
+
+}
