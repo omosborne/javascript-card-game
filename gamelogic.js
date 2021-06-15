@@ -202,6 +202,8 @@ function summon(selected_pos){
         selected_pos.style.boxShadow = "0 0 10px #9ecaed";
         let remove_card =  players_cards.splice(0, 1);
         adjust_hand();
+
+        stage('attack');
     }
     adjust_hand();
 }
@@ -424,7 +426,7 @@ function generate_king() {
     king.appendChild(card_div);
 }
 
-function stage(stage, button) {
+function stage(stage) {
     game_stage = stage;
     update_stage_text();
 }
