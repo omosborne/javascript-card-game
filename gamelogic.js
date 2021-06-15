@@ -71,8 +71,10 @@ function screen_size(){
 function generate_resize(element){
     let card_scale = 0.01;
     let resize_element = document.getElementById(element);
+    if (element === "player_hand"){
+        resize_element.style.width = "180px";
+    }
     resize_element.style.transform = "scale(" + card_scale +")";
-
     while (resize_element.getBoundingClientRect().height < document.getElementById("player_area").getBoundingClientRect().height){
         card_scale = card_scale + 0.01;
         resize_element.style.transform = "scale(" + card_scale +")";
@@ -145,6 +147,7 @@ function load_hand(card_count){
         generate_resize("player_hand");
         show();
         new_position.children[0].classList.toggle('flipped');
+        adjust_hand();
     }
     adjust_hand();
 }
@@ -247,7 +250,7 @@ function unhighlight_pos(selected_pos){
 function adjust_hand() {
     let hand_size = players_cards.length;
     let hand = document.getElementById("player_hand");
-    document.getElementById("player_hand").style.width = (hand.children[0].getBoundingClientRect().width * hand_size).toString() + "px";
+    hand.style.width = (hand.children[0].getBoundingClientRect().width * hand_size).toString() + "px";
     document.getElementById("pl_buffer_left").style.width = (((window.innerWidth) * .5) - (hand.getBoundingClientRect().width * .5)).toString() + "px";
     document.getElementById("pl_buffer_right").style.width = (document.getElementById("pl_buffer_left").getBoundingClientRect().width).toString() + "px";
 
@@ -258,10 +261,12 @@ function adjust_hand() {
     }
 
     for (let i = 0; i < (hand_size); i++){
-        if (hand.getBoundingClientRect().width === ((window.innerWidth) * .5)){
-            hand.children[i].classList.add("overlap");
+        if (hand.getBoundingClientRect().width >= ((window.innerWidth) * .5)) {
+            if (!(hand.children[i].classList.contains("overlap"))){
+                hand.children[i].classList.add("overlap");
+            }
         }
-        else{
+        else if (hand.getBoundingClientRect().width < ((window.innerWidth) * .5)){
             if (hand.children[i].classList.contains("overlap")){
                 hand.children[i].classList.remove("overlap");
             }
