@@ -184,7 +184,7 @@ function choose_card(event){
 
 //summoning a card to a position on the grid
 function summon(selected_pos){
-    if (!(selected_pos.querySelectorAll(".card").length > 0)) {
+    if (chosen_card !== null && !(selected_pos.querySelectorAll(".card").length > 0)) {
         chosen_card.style.removeProperty("border");
         chosen_card.style.removeProperty("border-radius");
         chosen_card.style.removeProperty("box-shadow");
