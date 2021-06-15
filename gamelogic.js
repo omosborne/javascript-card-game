@@ -212,12 +212,14 @@ function summon(selected_pos){
 
 function attack(selected_pos) {
     if (attack_card === null) {
-        attack_card = selected_pos.children[0];
-        attack_card.style.border = "solid red";
+        if (selected_pos.id !== "king_position") {
+            attack_card = selected_pos.children[0];
+            attack_card.style.border = "solid red";
+        }
     }
-
-    if (target_card === null) {
-
+    else if (target_card === null) {
+        target_card = selected_pos.children[0];
+        attack_card.style.border = "solid green";
     }
 }
 
