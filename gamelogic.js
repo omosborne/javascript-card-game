@@ -73,14 +73,14 @@ function screen_size(){
 }
 
 //creating a placeholder value so that cards can be resized to this (perfect scaling based on browser)
-function generate_resize(i){
-    let test = document.getElementById(i);
-    for (let i = 0; i < test.children.length; i++) {
-        test.children[i].style.transform = "scale(" + card_scale +")";
-        if (test.children[i].getBoundingClientRect().height < document.getElementById("player_area").getBoundingClientRect().height){
-            while (test.children[i].getBoundingClientRect().height < document.getElementById("player_area").getBoundingClientRect().height){
+function generate_resize(element){
+    let resize_element = document.getElementById(element);
+    for (let i = 0; i < resize_element.children.length; i++) {
+        resize_element.children[i].style.transform = "scale(" + card_scale +")";
+        if (resize_element.children[i].getBoundingClientRect().height < document.getElementById("player_area").getBoundingClientRect().height){
+            while (resize_element.children[i].getBoundingClientRect().height < document.getElementById("player_area").getBoundingClientRect().height){
                 card_scale = card_scale + 0.01;
-                test.children[i].style.transform = "scale(" + card_scale +")";
+                resize_element.children[i].style.transform = "scale(" + card_scale +")";
             }
         }
     }
