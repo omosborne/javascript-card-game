@@ -206,37 +206,6 @@ function summon(selected_pos){
     adjust_hand();
 }
 
-/*//Not used, moving the card up slightly when hovered over
-function highlight_card(event){
-    let mouse_x = event.clientX;
-    let mouse_y = event.clientY;
-    let mouse_pos = document.elementFromPoint(mouse_x, mouse_y);
-    let selected_pos = mouse_pos.parentElement.parentElement.parentElement;
-
-    if (!(chosen_card === selected_pos.firstElementChild)){
-        selected_pos.children[0].style.bottom = "20px";
-    }
-    else{
-        selected_pos.children[0].style.bottom = "";
-    }
-
-}
-
-//Not used, resets position once mouse is not hovering over the card
-function unhighlight_card(event){
-    let mouse_x = event.clientX;
-    let mouse_y = event.clientY;
-    let mouse_pos = document.elementFromPoint(mouse_x, mouse_y);
-    let selected_pos = mouse_pos.parentElement.parentElement.parentElement;
-
-    if (chosen_card === null || !(chosen_card.parentNode === selected_pos))
-    {
-        selected_pos.children[0].style.bottom = "0px";
-        selected_pos.children[0].style.left = "0px";
-
-    }
-}*/
-
 //highlights the position on the grid that the mouse is over
 function highlight_pos(selected_pos){
     if (!(chosen_card === null || selected_pos.querySelectorAll(".card").length > 0)){
