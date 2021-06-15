@@ -80,15 +80,24 @@ function generate_resize(element){
 
     if (resize_element === document.getElementById("player_deck")){
         document.getElementById("discard_pile").style.transform = "scale(" + card_scale +")";
+        if (document.getElementById("player_deck").children.length > 0){
+            resize_card(resize_element);
+        }
     }
+    else{
+        resize_card(resize_element);
+    }
+}
 
-    if (document.getElementById("player_deck").children.length > 0){
-        card_scale = 0.01;
-        for (let i = 0; i < resize_element.children.length; i++) {
-            while (resize_element.children[i].getBoundingClientRect().height < document.getElementById("player_area").getBoundingClientRect().height){
-                card_scale = card_scale + 0.01;
-                resize_element.children[i].style.transform = "scale(" + card_scale +")";
-            }
+function resize_card(resize_element){
+    let card_scale = 0.01;
+     for (let i = 0; i < resize_element.children.length; i++) {
+         if (resize_element === document.getElementById("player_hand")){
+             resize_element.children[i].style.transform = "scale(" + card_scale +")";
+         }
+        while (resize_element.children[i].getBoundingClientRect().height < document.getElementById("player_area").getBoundingClientRect().height){
+            card_scale = card_scale + 0.01;
+            resize_element.children[i].style.transform = "scale(" + card_scale +")";
         }
     }
 }
