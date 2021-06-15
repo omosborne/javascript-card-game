@@ -144,7 +144,7 @@
 .king_card .card_back_image {
     width: 180px;
     height: 270px;
-    background-image: url("king_back.png");
+    background-image: url("king_back_1.png");
     position: absolute
 }
 
