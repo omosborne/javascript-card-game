@@ -227,7 +227,7 @@ function merge(selected_pos) {
 
 //highlights the position on the grid that the mouse is over
 function highlight_pos(selected_pos){
-    if (game_stage === 'summon') {
+    if (selected_pos.id !== "king_position" && game_stage === 'summon') {
         if (!(chosen_card === null || selected_pos.querySelectorAll(".card").length > 0)){
             selected_pos.style.border = "solid red";
         }
@@ -236,18 +236,21 @@ function highlight_pos(selected_pos){
         if (attack_card !== null && selected_pos.querySelectorAll(".card").length > 0){
             selected_pos.style.border = "solid red";
         }
+        else if (attack_card !== null && selected_pos.querySelectorAll(".king_card").length > 0){
+            selected_pos.style.border = "solid blue";
+        }
     }
 
 }
 //once the mouse leaves the position in the grid, remove highlight
 function unhighlight_pos(selected_pos){
-    if (game_stage === 'summon') {
+    if (selected_pos.id !== "king_position" && game_stage === 'summon') {
         if (!(selected_pos.querySelectorAll(".card").length > 0)) {
             selected_pos.style.removeProperty("border");
         }
     }
     else if (game_stage === 'attack') {
-        if (selected_pos.querySelectorAll(".card").length > 0){
+        if (selected_pos.querySelectorAll(".card").length > 0 || selected_pos.querySelectorAll(".king_card").length > 0){
             selected_pos.style.removeProperty("border");
         }
     }
@@ -470,13 +473,13 @@ function update_stage_text() {
 
 function player_action(selected_pos) {
 
-    if (game_stage === 'summon') {
+    if (selected_pos.id !== "king_position" && game_stage === 'summon') {
         summon(selected_pos);
     }
     else if (game_stage === 'attack') {
         attack(selected_pos);
     }
-    else if (game_stage === 'merge') {
+    else if (selected_pos.id !== "king_position" && game_stage === 'merge') {
         merge(selected_pos);
     }
 
