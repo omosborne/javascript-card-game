@@ -65,8 +65,6 @@ function screen_size(){
     generate_resize("player_deck");
 
     //scale the deck and discard pile to fit the screen
-    document.getElementById("player_deck").style.transform = "scale(" + card_scale +")";
-    document.getElementById("discard_pile").style.transform = "scale(" + card_scale +")";
     document.getElementById("discard_pile").style.left = (document.getElementById("player_deck").getBoundingClientRect().width + 10).toString() + "px";
     document.getElementById("pl_deck_count").style.transform = "translateX(" + (((document.getElementById("player_deck").getBoundingClientRect().width) * .5) - 4)+ "px)";
     document.getElementById("pl_discard_count").style.transform = "translateX(" + ((((document.getElementById("player_deck").getBoundingClientRect().width) * .5) * 3)- 4) + "px)";
@@ -86,6 +84,9 @@ function generate_resize(i){
             }
         }
     }
+
+    document.getElementById("player_deck").style.transform = "scale(" + card_scale +")";
+    document.getElementById("discard_pile").style.transform = "scale(" + card_scale +")";
 }
 
 function show(){
@@ -112,7 +113,6 @@ function load_hand(card_count){
         //animation
         //card.classList.toggle('flipped');
         //translate to center of hand
-
         //remove from this div and place in hand div
         deck.removeChild(card);
         pl_deck_count();
@@ -146,15 +146,12 @@ function choose_card(event){
     let mouse_pos = document.elementFromPoint(mouse_x, mouse_y);
     let selected_pos = mouse_pos.parentElement.parentElement.parentElement;
 
-    players_cards.forEach(function( hand_pos ) {
+    /*players_cards.forEach(function( hand_pos ) {
             if (document.getElementById(hand_pos).querySelectorAll(".card").length > 0) {
-                // document.getElementById(hand_pos).firstElementChild.style.bottom = "0px";
-                // document.getElementById(hand_pos).firstElementChild.style.left = "0px";
-                document.getElementById(hand_pos).firstElementChild.style.removeProperty("border");
-                document.getElementById(hand_pos).firstElementChild.style.removeProperty("border-radius");
-                document.getElementById(hand_pos).firstElementChild.style.removeProperty("box-shadow");
+                //document.getElementById(hand_pos).firstElementChild.style.removeProperty("border");
+                //remove all effects
             }
-    });
+    });*/
 
     if (selected_pos.querySelectorAll(".card").length > 0) {
         if (!(chosen_card === selected_pos.firstElementChild)){
@@ -177,7 +174,8 @@ function summon(selected_pos){
         chosen_card.style.removeProperty("border");
         chosen_card.style.removeProperty("border-radius");
         chosen_card.style.removeProperty("box-shadow");
-        chosen_card.parentElement.style.zIndex = "-1";
+
+        chosen_card.parentElement.remove();
         card_chosen = false;
         selected_pos.appendChild(chosen_card);
         chosen_card = null;
@@ -185,6 +183,8 @@ function summon(selected_pos){
         selected_pos.style.border = "2px solid #9ecaed";
         selected_pos.style.boxShadow = "0 0 10px #9ecaed";
     }
+    let remove_card =  players_cards.splice(0, 1);
+    adjust_hand();
 }
 
 /*//Not used, moving the card up slightly when hovered over

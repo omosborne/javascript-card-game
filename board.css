@@ -390,6 +390,8 @@ body, html {
     width: 180px;
     background-color: greenyellow;
     visibility: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .hand_position .card.flipped:hover {
