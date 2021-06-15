@@ -126,9 +126,6 @@ function load_hand(card_count){
     let deck_size = document.getElementById("player_deck").children.length;
     for (let i = 0, j = (deck_size - 1); i < card_count; i++, j--) {
         let card = deck.children[j];
-        //animation
-        //card.classList.toggle('flipped');
-        //translate to center of hand
         //remove from this div and place in hand div
         deck.removeChild(card);
         pl_deck_count();
@@ -262,11 +259,19 @@ function adjust_hand() {
     }
 
     for (let i = 0; i < (hand_size); i++){
-        if (i === 0){
-            hand.children[i].style.left = "0";
+        if (hand.getBoundingClientRect().width === ((window.innerWidth) * .5)){
+            hand.children[i].classList.add("overlap");
         }
-        else {
-            hand.children[i].style.left = (((hand.children[i].getBoundingClientRect().width) * i)).toString() + "px";
+        else{
+            if (hand.children[i].classList.contains("overlap")){
+                hand.children[i].classList.remove("overlap");
+            }
+            if (i === 0){
+                hand.children[i].style.left = "0";
+            }
+            else {
+                hand.children[i].style.left = (((hand.children[i].getBoundingClientRect().width) * i)).toString() + "px";
+            }
         }
     }
 }
