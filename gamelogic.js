@@ -167,7 +167,7 @@ function choose_card(event){
         pl_hand.children[i].children[0].style.removeProperty("border");
     }
 
-    if (selected_pos.querySelectorAll(".card").length > 0) {
+    if (selected_pos.querySelectorAll(".card").length > 0 && mouse_pos.parentElement.className === "card_front") {
         if (!(chosen_card === selected_pos.firstElementChild)){
             card_chosen = true;
             chosen_card = selected_pos.firstElementChild;
