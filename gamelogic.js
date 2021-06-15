@@ -211,7 +211,14 @@ function summon(selected_pos){
 }
 
 function attack(selected_pos) {
+    if (attack_card === null) {
+        attack_card = selected_pos.children[0];
+        attack_card.style.border = "solid red";
+    }
 
+    if (target_card === null) {
+
+    }
 }
 
 function merge(selected_pos) {
@@ -225,12 +232,22 @@ function highlight_pos(selected_pos){
             selected_pos.style.border = "solid red";
         }
     }
+    else if (game_stage === 'attack') {
+        if (attack_card !== null && selected_pos.querySelectorAll(".card").length > 0){
+            selected_pos.style.border = "solid red";
+        }
+    }
 
 }
 //once the mouse leaves the position in the grid, remove highlight
 function unhighlight_pos(selected_pos){
     if (game_stage === 'summon') {
         if (!(selected_pos.querySelectorAll(".card").length > 0)) {
+            selected_pos.style.removeProperty("border");
+        }
+    }
+    else if (game_stage === 'attack') {
+        if (selected_pos.querySelectorAll(".card").length > 0){
             selected_pos.style.removeProperty("border");
         }
     }
