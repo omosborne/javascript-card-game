@@ -2,7 +2,6 @@ let card_chosen = false;
 let chosen_card = null;
 let deck = new Array(0);
 let players_cards = new Array(0);
-let card_scale = 0.01;
 let animate;
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
 let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
@@ -44,9 +43,6 @@ function screen_size(){
         }
     }
 
-    //reset card_scale
-    card_scale = 0.01;
-
     //resize the cards in the deck to match that of the placeholders
     if (document.getElementById("player_hand").children.length === 0){
         const placeholder = document.createElement("div");
@@ -61,10 +57,9 @@ function screen_size(){
         adjust_hand();//rescale the player hand
     }
 
-
     generate_resize("player_deck");
 
-    //scale the deck and discard pile to fit the screen
+    //translate the deck and discard pile to fit the screen
     document.getElementById("discard_pile").style.left = (document.getElementById("player_deck").getBoundingClientRect().width + 10).toString() + "px";
     document.getElementById("pl_deck_count").style.transform = "translateX(" + (((document.getElementById("player_deck").getBoundingClientRect().width) * .5) - 4)+ "px)";
     document.getElementById("pl_discard_count").style.transform = "translateX(" + ((((document.getElementById("player_deck").getBoundingClientRect().width) * .5) * 3)- 4) + "px)";
@@ -72,21 +67,30 @@ function screen_size(){
     document.getElementById("pl_discard_count").style.visibility = "visible";
 }
 
-//creating a placeholder value so that cards can be resized to this (perfect scaling based on browser)
+
 function generate_resize(element){
+    let card_scale = 0.01;
     let resize_element = document.getElementById(element);
-    for (let i = 0; i < resize_element.children.length; i++) {
-        resize_element.children[i].style.transform = "scale(" + card_scale +")";
-        if (resize_element.children[i].getBoundingClientRect().height < document.getElementById("player_area").getBoundingClientRect().height){
+    resize_element.style.transform = "scale(" + card_scale +")";
+
+    while (resize_element.getBoundingClientRect().height < document.getElementById("player_area").getBoundingClientRect().height){
+        card_scale = card_scale + 0.01;
+        resize_element.style.transform = "scale(" + card_scale +")";
+    }
+
+    if (resize_element === document.getElementById("player_deck")){
+        document.getElementById("discard_pile").style.transform = "scale(" + card_scale +")";
+    }
+
+    if (document.getElementById("player_deck").children.length > 0){
+        card_scale = 0.01;
+        for (let i = 0; i < resize_element.children.length; i++) {
             while (resize_element.children[i].getBoundingClientRect().height < document.getElementById("player_area").getBoundingClientRect().height){
                 card_scale = card_scale + 0.01;
                 resize_element.children[i].style.transform = "scale(" + card_scale +")";
             }
         }
     }
-
-    document.getElementById("player_deck").style.transform = "scale(" + card_scale +")";
-    document.getElementById("discard_pile").style.transform = "scale(" + card_scale +")";
 }
 
 function show(){
@@ -182,9 +186,9 @@ function summon(selected_pos){
 
         selected_pos.style.border = "2px solid #9ecaed";
         selected_pos.style.boxShadow = "0 0 10px #9ecaed";
+        let remove_card =  players_cards.splice(0, 1);
+        adjust_hand();
     }
-    let remove_card =  players_cards.splice(0, 1);
-    adjust_hand();
 }
 
 /*//Not used, moving the card up slightly when hovered over
@@ -234,17 +238,17 @@ function unhighlight_pos(selected_pos){
 //function to center and change the overlap of cards in player hand when cards are added/removed
 function adjust_hand() {
     let hand_size = players_cards.length;
-    document.getElementById("player_hand").style.width = (document.getElementById("player_hand").children[0].getBoundingClientRect().width * hand_size).toString() + "px";
-    document.getElementById("pl_buffer_left").style.width = (((window.innerWidth) * .5) - (document.getElementById("player_hand").getBoundingClientRect().width * .5)).toString() + "px";
+    let hand = document.getElementById("player_hand");
+    document.getElementById("player_hand").style.width = (hand.children[0].getBoundingClientRect().width * hand_size).toString() + "px";
+    document.getElementById("pl_buffer_left").style.width = (((window.innerWidth) * .5) - (hand.getBoundingClientRect().width * .5)).toString() + "px";
     document.getElementById("pl_buffer_right").style.width = (document.getElementById("pl_buffer_left").getBoundingClientRect().width).toString() + "px";
 
-    if (document.getElementById("pl_buffer_left").getBoundingClientRect().width < ((window.innerWidth) * .15)){
-        document.getElementById("pl_buffer_left").style.width = "15%";
-        document.getElementById("pl_buffer_right").style.width = "15%";
-        document.getElementById("player_hand").style.width = "70%";
+    if (document.getElementById("pl_buffer_left").getBoundingClientRect().width < ((window.innerWidth) * .25)){
+        document.getElementById("pl_buffer_left").style.width = "25%";
+        document.getElementById("pl_buffer_right").style.width = "25%";
+        hand.style.width = "50%";
     }
 
-    let hand = document.getElementById("player_hand");
     for (let i = 0; i < (hand_size); i++){
         if (i === 0){
             hand.children[i].style.left = "0";
