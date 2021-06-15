@@ -208,6 +208,14 @@ function summon(selected_pos){
     adjust_hand();
 }
 
+function attack(selected_pos) {
+
+}
+
+function merge(selected_pos) {
+
+}
+
 //highlights the position on the grid that the mouse is over
 function highlight_pos(selected_pos){
     if (game_stage === 'summon') {
