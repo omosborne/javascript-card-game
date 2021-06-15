@@ -141,6 +141,13 @@
     transform-style: preserve-3d;
 }
 
+.king_card .card_back_image {
+    width: 180px;
+    height: 270px;
+    background-image: url("king_back.png");
+    position: absolute
+}
+
 .card {
     width: 180px;
     background-image: url("card_base.png");
