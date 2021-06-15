@@ -87,7 +87,7 @@
 }
 
 /* middle */
-#position_5 {
+#king_position {
     transform-origin: center;
 }
 
@@ -128,6 +128,17 @@
     height: 100%;
     background-image: url("card_back_1.png");
     position: absolute;
+}
+
+.king_card {
+    width: 180px;
+    background-image: url("card_base.png");
+    background-size: cover;
+    height: 270px;
+    user-select: none;
+    position: absolute;
+    transition: transform 1s;
+    transform-style: preserve-3d;
 }
 
 .card {
