@@ -464,3 +464,7 @@ body, html {
 
 #op_hand_pos_3 {
 }
+
+#game_stage {
+    color: white;
+}

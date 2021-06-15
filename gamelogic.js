@@ -450,3 +450,7 @@ function generate_king() {
     const king = document.getElementById("king_position");
     king.appendChild(card_div);
 }
+
+function stage(stage, button) {
+
+}
