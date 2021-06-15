@@ -210,15 +210,21 @@ function summon(selected_pos){
 
 //highlights the position on the grid that the mouse is over
 function highlight_pos(selected_pos){
-    if (!(chosen_card === null || selected_pos.querySelectorAll(".card").length > 0)){
-        selected_pos.style.border = "solid red";
+    if (game_stage === 'summon') {
+        if (!(chosen_card === null || selected_pos.querySelectorAll(".card").length > 0)){
+            selected_pos.style.border = "solid red";
+        }
     }
+
 }
 //once the mouse leaves the position in the grid, remove highlight
 function unhighlight_pos(selected_pos){
-    if (!(selected_pos.querySelectorAll(".card").length > 0)) {
-        selected_pos.style.removeProperty("border");
+    if (game_stage === 'summon') {
+        if (!(selected_pos.querySelectorAll(".card").length > 0)) {
+            selected_pos.style.removeProperty("border");
+        }
     }
+
 }
 
 //function to center and change the overlap of cards in player hand when cards are added/removed
