@@ -196,6 +196,7 @@ function summon(selected_pos){
         let remove_card =  players_cards.splice(0, 1);
         adjust_hand();
     }
+    adjust_hand();
 }
 
 /*//Not used, moving the card up slightly when hovered over

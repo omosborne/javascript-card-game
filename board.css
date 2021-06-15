@@ -420,7 +420,7 @@ body, html {
 }
 
 .hand_position.overlap:first-child {
-    flex: 0 0 auto;
+    flex: 0 0 0;
 }
 
 .hand_position .card.flipped:hover {
