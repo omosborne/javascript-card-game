@@ -5,6 +5,7 @@ let players_cards = new Array(0);
 let animate;
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
 let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
+let game_stage = 'summon';
 
 function load(){
     //adjust elements to screen size
@@ -18,6 +19,9 @@ function load(){
 
     //Show the number of cards in the player's deck
     pl_deck_count();
+
+    // Display game stage
+    update_stage_text();
 
 }
 
@@ -452,5 +456,10 @@ function generate_king() {
 }
 
 function stage(stage, button) {
+    game_stage = stage;
+    update_stage_text();
+}
 
+function update_stage_text() {
+    document.getElementById("game_stage").innerHTML = "Stage: " + game_stage;
 }
