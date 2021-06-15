@@ -80,25 +80,28 @@ function generate_resize(element){
 
     if (resize_element === document.getElementById("player_deck")){
         document.getElementById("discard_pile").style.transform = "scale(" + card_scale +")";
-        if (document.getElementById("player_deck").children.length > 0){
+        if (resize_element.children.length > 0){
             resize_card(resize_element);
         }
     }
-    else{
-        resize_card(resize_element);
+    else if(resize_element === document.getElementById("player_hand")){
+        if (resize_element.children.length > 0){
+            resize_card(resize_element);
+        }
     }
 }
 
 function resize_card(resize_element){
     let card_scale = 0.01;
-     for (let i = 0; i < resize_element.children.length; i++) {
-         if (resize_element === document.getElementById("player_hand")){
-             resize_element.children[i].style.transform = "scale(" + card_scale +")";
-         }
-        while (resize_element.children[i].getBoundingClientRect().height < document.getElementById("player_area").getBoundingClientRect().height){
+    if (resize_element === document.getElementById("player_hand")){
+         resize_element.children[0].style.transform = "scale(" + card_scale +")";
+         while (resize_element.children[0].getBoundingClientRect().height < document.getElementById("player_area").getBoundingClientRect().height){
             card_scale = card_scale + 0.01;
+            resize_element.children[0].style.transform = "scale(" + card_scale +")";
+         }
+         for (let i = 1; i < resize_element.children.length; i++) {
             resize_element.children[i].style.transform = "scale(" + card_scale +")";
-        }
+         }
     }
 }
 
