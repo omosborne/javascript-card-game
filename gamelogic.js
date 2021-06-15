@@ -161,13 +161,11 @@ function choose_card(event){
     let mouse_y = event.clientY;
     let mouse_pos = document.elementFromPoint(mouse_x, mouse_y);
     let selected_pos = mouse_pos.parentElement.parentElement.parentElement;
+    let pl_hand = selected_pos.parentElement;
 
-    /*players_cards.forEach(function( hand_pos ) {
-            if (document.getElementById(hand_pos).querySelectorAll(".card").length > 0) {
-                //document.getElementById(hand_pos).firstElementChild.style.removeProperty("border");
-                //remove all effects
-            }
-    });*/
+    for (let i = 0; i < pl_hand.children.length; i++) {
+        pl_hand.children[i].children[0].style.removeProperty("border");
+    }
 
     if (selected_pos.querySelectorAll(".card").length > 0) {
         if (!(chosen_card === selected_pos.firstElementChild)){
