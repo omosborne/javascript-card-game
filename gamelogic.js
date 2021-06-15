@@ -376,3 +376,66 @@ function create_card() {
     const deck = document.getElementById("player_deck");
     deck.appendChild(card_div);
 }
+
+function generate_king() {
+    let weak_king_chance = Math.floor(Math.random() * 1000);
+    let is_weak = false;
+
+    if (weak_king_chance < 40) {
+        is_weak = true;
+    }
+
+    const card_div = document.getElementById("king_position").children[0];
+
+    const card_front_div = document.createElement("div");
+    card_front_div.className = "card_front";
+
+    const card_background_div = document.createElement("div");
+    const card_image_div = document.createElement("div");
+    const card_def_image_div = document.createElement("div");
+    const card_def_val_div = document.createElement("div");
+    const card_name_div = document.createElement("div");
+
+    card_background_div.className = "card_background";
+    card_image_div.className = "card_image";
+    card_def_image_div.className = "card_def_image";
+    card_def_val_div.className = "card_def_val";
+    card_name_div.className = "card_name";
+
+    card_background_div.style.backgroundImage = "url('" + card_backgrounds[Math.floor(Math.random() * card_backgrounds.length)] + "')";
+    card_image_div.style.backgroundImage = "url('" + card_images[Math.floor(Math.random() * card_images.length)] + "')";
+
+    card_image_div.style.filter = "invert(79%) sepia(67%) saturate(950%) hue-rotate(340deg) brightness(99%) contrast(99%)";
+    card_name_div.style.color = "#FBBD1D";
+
+    if (card_image_div.style.backgroundImage === 'url("card_image_4.png")') {
+        card_name_div.innerHTML = "The night thief";
+    }
+    else if (card_image_div.style.backgroundImage === 'url("card_image_5.png")') {
+        card_name_div.innerHTML = "Plague doctor of death";
+    }
+    else if (card_image_div.style.backgroundImage === 'url("card_image_6.png")') {
+        card_name_div.innerHTML = "Bandit of the shadows";
+    }
+    else {
+        card_name_div.innerHTML = "Error";
+    }
+
+    if (is_weak) {
+        card_def_val_div.innerHTML = ((Math.floor(Math.random() * 4) + 1) + 4).toString();
+    }
+    else {
+        card_def_val_div.innerHTML = ((Math.floor(Math.random() * 8) + 1) + 7).toString();
+    }
+
+    card_front_div.appendChild(card_background_div);
+    card_front_div.appendChild(card_image_div);
+    card_front_div.appendChild(card_def_image_div);
+    card_front_div.appendChild(card_def_val_div);
+    card_front_div.appendChild(card_name_div);
+
+    card_div.appendChild(card_front_div);
+
+    const king = document.getElementById("king_position");
+    king.appendChild(card_div);
+}
