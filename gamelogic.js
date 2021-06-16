@@ -8,6 +8,8 @@ let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
 let game_stage = 'summon';
 let attack_card = null;
 let target_card = null;
+let sacrifice_card = null;
+let heal_card = null;
 
 function load(){
     //adjust elements to screen size
@@ -217,7 +219,7 @@ function attack(selected_pos) {
             if (selected_pos.id !== "king_position") {
                 attack_card = selected_pos.children[0];
                 attack_card.style.border = "solid red";
-                document.getElementById("game_stage").innerHTML = "Attack initiated" + attack_card.id;
+                document.getElementById("game_stage").innerHTML = "Attack initiated";
             }
         } else if (target_card === null) {
             if (selected_pos !== attack_card.parentElement) {
@@ -289,7 +291,53 @@ function card_killed(destroyed_card) {
 }
 
 function merge(selected_pos) {
+    if (selected_pos.querySelectorAll(".pl_card").length > 0) {
+        if (sacrifice_card === null) {
+            sacrifice_card = selected_pos.children[0];
+            sacrifice_card.style.border = "solid red";
+            document.getElementById("game_stage").innerHTML = "Sacrifice aquired";
+        } else if (heal_card === null) {
+            if (selected_pos !== sacrifice_card.parentElement) {
+                heal_card = selected_pos.children[0];
+                heal_card.style.border = "solid yellow";
+                document.getElementById("game_stage").innerHTML = "Heal initiated";
 
+                calculate_heal();
+
+                sacrifice_card.style.removeProperty("border");
+                heal_card.style.removeProperty("border");
+
+                sacrifice_card = null;
+                heal_card = null;
+
+                //stage('summon');
+            }
+            else {
+                sacrifice_card.style.removeProperty("border");
+                sacrifice_card = null;
+                stage('merge');
+            }
+
+        }
+
+
+    }
+}
+
+function calculate_heal() {
+    let sacrifice_val = sacrifice_card.children[1].children[5].innerHTML;
+    let heal_val = heal_card.children[1].children[5].innerHTML;
+
+    let merge_val = Math.floor(parseInt(sacrifice_val) / 2);
+
+    if (merge_val > 1) merge_val = 1;
+
+    heal_card.children[1].children[5].innerHTML = (parseInt(heal_val) + merge_val).toString();
+    heal_card.children[1].children[5].style.color = "green";
+
+    card_killed(sacrifice_card);
+
+    document.getElementById("game_stage").innerHTML = "Merge complete";
 }
 
 //highlights the position on the grid that the mouse is over
@@ -381,6 +429,7 @@ function create_card() {
 
     const card_div = document.createElement("div");
     card_div.className = "card";
+    card_div.classList.add("pl_card");
 
     const card_back_div = document.createElement("div");
     card_back_div.className = "card_back";
