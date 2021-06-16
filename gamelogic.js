@@ -20,7 +20,7 @@ function load(){
     fill_deck(15);
 
     //Show the number of cards in the player's deck
-    pl_deck_count();
+    pl_update_pile_count();
 
     // Display game stage
     update_stage_text();
@@ -124,7 +124,7 @@ function show(){
     }
 }
 
-function pl_deck_count(){
+function pl_update_pile_count() {
     document.getElementById("pl_deck_count").innerHTML = document.getElementById("player_deck").children.length.toString();
     document.getElementById("pl_discard_count").innerHTML = document.getElementById("discard_pile").children.length.toString();
 }
@@ -136,7 +136,7 @@ function load_hand(card_count){
         let card = deck.children[j];
         //remove from this div and place in hand div
         deck.removeChild(card);
-        pl_deck_count();
+        pl_update_pile_count();
 
         const new_position = document.createElement("div");
         new_position.className = "hand_position";
@@ -224,7 +224,7 @@ function attack(selected_pos) {
                 target_card.style.border = "solid yellow";
                 document.getElementById("game_stage").innerHTML = "Target aquired";
 
-                calculate_attack()
+                calculate_attack();
 
                 attack_card.style.removeProperty("border");
                 target_card.style.removeProperty("border");
@@ -284,6 +284,8 @@ function card_killed(destroyed_card) {
     destroyed_card.parentElement.style.removeProperty("box-shadow");
     destroyed_card.remove();
     document.getElementById("discard_pile").appendChild(destroyed_card);
+    pl_update_pile_count();
+
 }
 
 function merge(selected_pos) {
