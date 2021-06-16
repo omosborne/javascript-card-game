@@ -213,7 +213,7 @@ function summon(selected_pos){
     adjust_hand();
 }
 
-function attack(selected_pos) {
+function attack(selected_pos) {      <!--        v------ change below to .op_card-->
     if (selected_pos.querySelectorAll(".card").length > 0 || selected_pos.querySelectorAll(".king_card").length > 0) {
         if (attack_card === null) {
             if (selected_pos.id !== "king_position") {
@@ -277,7 +277,31 @@ function calculate_attack () {
         }
     }
     else {
+        let attack_val = attack_card.children[1].children[3].innerHTML;
+        let target_val = target_card.children[1].children[5].innerHTML;
 
+        if (parseInt(attack_val) === parseInt(target_val)) {
+            document.getElementById("game_stage").innerHTML = "Draw";
+            return;
+        }
+
+        let winner = parseInt(attack_val) > parseInt(target_val) ? attack_card : target_card;
+
+        if (winner === attack_card) {
+            document.getElementById("game_stage").innerHTML = "Attacker won";
+            card_killed(target_card);
+        }
+        else if (winner === target_card) {
+
+            document.getElementById("game_stage").innerHTML = "Attacker lost";
+
+            let damage_val = parseInt(target_val) - parseInt(attack_val);
+
+            target_card.children[1].children[5].innerHTML = (parseInt(target_val) - damage_val).toString();
+
+            card_killed(attack_card);
+
+        }
     }
 }
 
