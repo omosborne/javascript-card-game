@@ -138,7 +138,7 @@ function load_hand(card_count){
         let card = deck.children[j];
         //remove from this div and place in hand div
         deck.removeChild(card);
-
+        //remove from deck array
         //add to hand array
         players_cards.push(card);
         move_cards.push(card);
@@ -161,10 +161,14 @@ function load_hand(card_count){
         //new_position.children[0].classList.toggle('flip');
         //new_position.children[0].classList.toggle('flipped');
         //adjust_hand();
-
-        show();
+        new_position.children[0].style.left = "-" + ((new_position.children[0].getBoundingClientRect().left)).toString() + "px";
+        new_position.children[0].style.zIndex = "1";
+        new_position.style.width = "0";
+        document.getElementById("player_hand").style.width = new_position.children[0].getBoundingClientRect().width.toString() + "px";
     }
 
+
+    show();
 
     test();
     move_cards.forEach((card, idx) => {
@@ -182,7 +186,7 @@ function test(){
     let fadeOutRule_0 = fadeOutRule.cssRules[0];
     /*let fadeOutRule_50 = fadeOutRule.cssRules[1];
     let fadeOutRule_100 = fadeOutRule.cssRules[2];*/
-    fadeOutRule_0.style.setProperty("left", "-" + ((window.innerWidth * .5) + 5).toString() + "px");
+    fadeOutRule_0.style.setProperty("left", "-" + (document.getElementById("player_hand").children[0].getBoundingClientRect().left).toString() + "px");
 }
 
 //an event listener that runs screen size once browser is rescaled

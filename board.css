@@ -188,7 +188,7 @@
 }
 
 .card.flip {
-    animation: move_flip_card 0.4s 1 ease-out;
+    animation: move_flip_card 0.8s 1 ease-out;
     animation-fill-mode: forwards;
 }
 
@@ -432,8 +432,6 @@ body, html {
     width: 180px;
     background-color: greenyellow;
     visibility: hidden;
-    display: flex;
-    flex-direction: column;
 }
 
 .hand_position.overlap{
