@@ -1,6 +1,7 @@
 let card_chosen = false;
 let chosen_card = null;
 let deck = new Array(0);
+let move_cards = new Array(0);
 let players_cards = new Array(0);
 let animate;
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
@@ -137,6 +138,12 @@ function load_hand(card_count){
         let card = deck.children[j];
         //remove from this div and place in hand div
         deck.removeChild(card);
+
+        //add to hand array
+        players_cards.push(card);
+        move_cards.push(card);
+
+        //update coutners
         pl_update_pile_count();
 
         const new_position = document.createElement("div");
@@ -148,15 +155,34 @@ function load_hand(card_count){
         //new_position.onmouseenter = highlight_card;
         //new_position.onmouseleave = unhighlight_card;
 
-        //add to hand array
-        players_cards.push((i + " card").toString());
+
 
         generate_resize("player_hand");
+        //new_position.children[0].classList.toggle('flip');
+        //new_position.children[0].classList.toggle('flipped');
+        //adjust_hand();
+
         show();
-        new_position.children[0].classList.toggle('flip');
-        new_position.children[0].classList.toggle('flipped');
-        adjust_hand();
     }
+
+
+    test();
+    move_cards.forEach((card, idx) => {
+        setTimeout(() =>{
+            card.classList.toggle('flip');
+        }, idx * 200)
+        card.classList.toggle('flipped');
+    });
+    move_cards = [];
+}
+
+function test(){
+    let stylesheet = document.styleSheets[0];
+    let fadeOutRule = stylesheet.cssRules[0];
+    let fadeOutRule_0 = fadeOutRule.cssRules[0];
+    /*let fadeOutRule_50 = fadeOutRule.cssRules[1];
+    let fadeOutRule_100 = fadeOutRule.cssRules[2];*/
+    fadeOutRule_0.style.setProperty("left", "-" + ((window.innerWidth * .5) + 5).toString() + "px");
 }
 
 //an event listener that runs screen size once browser is rescaled
