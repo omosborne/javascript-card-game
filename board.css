@@ -182,7 +182,7 @@
 }
 
 .card.flip {
-    animation: flip_card 1s 1 ease;
+    animation: flip_card 0.5s 1 ease;
     animation-fill-mode: forwards;
 }
 
@@ -369,7 +369,7 @@ body, html {
     left: 0;
     float: bottom;
     position: fixed;
-    width: available;
+    width: 100%;
     background-color: red;
     height: 20vh;
 }
@@ -415,7 +415,7 @@ body, html {
 
 #player_hand {
     float: left;
-    width: 0;
+    width: 50%;
     max-width: 50%;
     height: 100%;
     background-color: violet;
@@ -437,12 +437,14 @@ body, html {
 }
 
 .hand_position.overlap{
-    flex: 1 0 0;
+    flex: 1 1 0;
     position: initial;
+    z-index: 2;
 }
 
 .hand_position.overlap:first-child {
-    flex: 0 0 0;
+    flex: 0 0 available;
+    z-index: 1;
 }
 
 #player_hand .hand_position .card.flipped:hover {

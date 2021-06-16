@@ -63,7 +63,6 @@ function screen_size(){
     else{
         generate_resize("player_hand");
         adjust_hand();
-
     }
 
     generate_resize("player_deck");
@@ -398,34 +397,47 @@ function unhighlight_pos(selected_pos){
 
 }
 
+function set_pl_area(hand, hand_size){
+    document.getElementById("pl_buffer_right").style.width = (((window.innerWidth) * .5) - (hand.getBoundingClientRect().width * .5)).toString() + "px";
+    document.getElementById("pl_buffer_left").style.width = (document.getElementById("pl_buffer_right").getBoundingClientRect().width).toString() + "px";
+
+    if (hand.getBoundingClientRect().width >= ((window.innerWidth) * .5)){
+        hand.style.width = "50%";
+        document.getElementById("pl_buffer_left").style.width = "25%";
+        document.getElementById("pl_buffer_right").style.width = "25%";
+    }
+}
+
 //function to center and change the overlap of cards in player hand when cards are added/removed
 function adjust_hand() {
     let hand_size = players_cards.length;
     let hand = document.getElementById("player_hand");
-    hand.style.width = (hand.children[0].getBoundingClientRect().width * hand_size).toString() + "px";
-    document.getElementById("pl_buffer_left").style.width = (((window.innerWidth) * .5) - (hand.getBoundingClientRect().width * .5)).toString() + "px";
-    document.getElementById("pl_buffer_right").style.width = (document.getElementById("pl_buffer_left").getBoundingClientRect().width).toString() + "px";
+    set_pl_area(hand, 1);
+    if (hand.children.length > 1) {
+        for (let i = 0; i < (hand_size); i++) {
+            if (hand.children[i].classList.contains("overlap")) {
+                    hand.children[i].classList.remove("overlap");
+            }
+            //add animation to move to center
+            hand.children[i].style.left = "0";
+        }
 
-    if (document.getElementById("pl_buffer_left").getBoundingClientRect().width < ((window.innerWidth) * .25)){
-        document.getElementById("pl_buffer_left").style.width = "25%";
-        document.getElementById("pl_buffer_right").style.width = "25%";
-        hand.style.width = "50%";
-    }
+        hand.style.width = (hand.children[0].getBoundingClientRect().width * hand_size).toString() + "px";
+        set_pl_area(hand, hand_size);
 
-    for (let i = 0; i < (hand_size); i++){
-        if (hand.getBoundingClientRect().width >= ((window.innerWidth) * .5)) {
-            if (!(hand.children[i].classList.contains("overlap"))){
+        if ((hand.children[0].children[0].getBoundingClientRect().width * hand_size) >= ((window.innerWidth) * .5)) {
+            for (let i = 0; i < (hand_size); i++) {
                 hand.children[i].classList.add("overlap");
             }
+            hand.children[0].style.width = (hand.children[0].children[0].getBoundingClientRect().width).toString() + "px";
+            hand.style.width = (hand.children[0].children[0].getBoundingClientRect().width * hand_size).toString() + "px";
+            set_pl_area(hand, hand_size);
         }
-        else if (hand.getBoundingClientRect().width < ((window.innerWidth) * .5)){
-            if (hand.children[i].classList.contains("overlap")){
-                hand.children[i].classList.remove("overlap");
-            }
-            if (i === 0){
-                hand.children[i].style.left = "0";
-            }
-            else {
+        else{
+            for (let i = 0; i < (hand_size); i++) {
+                if (hand.children[i].classList.contains("overlap")) {
+                    hand.children[i].classList.remove("overlap");
+                }
                 hand.children[i].style.left = (((hand.children[i].getBoundingClientRect().width) * i)).toString() + "px";
             }
         }
