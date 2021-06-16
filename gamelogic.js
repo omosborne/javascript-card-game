@@ -434,12 +434,12 @@ function adjust_hand() {
 
 function fill_deck(deck_size) {
     for (let i = 0; i < deck_size; i++) {
-        create_card();
+        create_card('pl');
     }
 }
 
-//Not used, creates a card once called (used for loading decks and creating the 15 cards)
-function create_card() {
+// Creates a card once called (used for loading decks and creating the 15 cards)
+function create_card(owner) {
     // use card_id to get name, ability, images, and stats from database
     // place these in local vars
     // create the card div
@@ -455,7 +455,14 @@ function create_card() {
 
     const card_div = document.createElement("div");
     card_div.className = "card";
-    card_div.classList.add("pl_card");
+
+    if (owner === 'pl') {
+        card_div.classList.add("pl_card");
+    }
+    else if (owner === 'op') {
+        card_div.classList.add("op_card");
+    }
+
 
     const card_back_div = document.createElement("div");
     card_back_div.className = "card_back";
