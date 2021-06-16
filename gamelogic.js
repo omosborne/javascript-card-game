@@ -219,7 +219,7 @@ function attack(selected_pos) {
         }
     } else if (target_card === null) {
         target_card = selected_pos.children[0];
-        target_card.style.border = "solid green";
+        target_card.style.border = "solid yellow";
         document.getElementById("game_stage").innerHTML = "Target: " + target_card.id;
     }
 }
