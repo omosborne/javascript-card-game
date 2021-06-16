@@ -612,6 +612,14 @@ function generate_king() {
 }
 
 function stage(stage) {
+
+    card_chosen = false;
+    chosen_card = null;
+    attack_card = null;
+    target_card = null;
+    sacrifice_card = null;
+    heal_card = null;
+
     game_stage = stage;
     update_stage_text();
 }
