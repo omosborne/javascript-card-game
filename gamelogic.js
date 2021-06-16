@@ -211,23 +211,25 @@ function summon(selected_pos){
 }
 
 function attack(selected_pos) {
-    if (attack_card === null) {
-        if (selected_pos.id !== "king_position") {
-            attack_card = selected_pos.children[0];
-            attack_card.style.border = "solid red";
-            document.getElementById("game_stage").innerHTML = "Attack initiated" + attack_card.id;
-        }
-    } else if (target_card === null) {
-        if (selected_pos !== attack_card.parentElement) {
-            target_card = selected_pos.children[0];
-            target_card.style.border = "solid yellow";
-            document.getElementById("game_stage").innerHTML = "Target aquired";
-        }
-        else {
-            attack_card.style.removeProperty("border");
-            attack_card = null;
-        }
+    if (selected_pos.querySelectorAll(".card").length > 0 || selected_pos.querySelectorAll(".king_card").length > 0) {
+        if (attack_card === null) {
+            if (selected_pos.id !== "king_position") {
+                attack_card = selected_pos.children[0];
+                attack_card.style.border = "solid red";
+                document.getElementById("game_stage").innerHTML = "Attack initiated" + attack_card.id;
+            }
+        } else if (target_card === null) {
+            if (selected_pos !== attack_card.parentElement) {
+                target_card = selected_pos.children[0];
+                target_card.style.border = "solid yellow";
+                document.getElementById("game_stage").innerHTML = "Target aquired";
+            }
+            else {
+                attack_card.style.removeProperty("border");
+                attack_card = null;
+            }
 
+        }
     }
 
 }
