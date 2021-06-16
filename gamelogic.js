@@ -60,11 +60,11 @@ function screen_size(){
     }
     else{
         generate_resize("player_hand");
-        adjust_hand();//rescale the player hand
+        adjust_hand();
+
     }
 
     generate_resize("player_deck");
-
     //translate the deck and discard pile to fit the screen
     document.getElementById("discard_pile").style.left = (document.getElementById("player_deck").getBoundingClientRect().width + 10).toString() + "px";
     document.getElementById("pl_deck_count").style.transform = "translateX(" + (((document.getElementById("player_deck").getBoundingClientRect().width) * .5) - 4)+ "px)";
@@ -152,10 +152,10 @@ function load_hand(card_count){
 
         generate_resize("player_hand");
         show();
+        new_position.children[0].classList.toggle('flip');
         new_position.children[0].classList.toggle('flipped');
         adjust_hand();
     }
-    adjust_hand();
 }
 
 //an event listener that runs screen size once browser is rescaled
@@ -194,6 +194,7 @@ function summon(selected_pos){
         chosen_card.style.removeProperty("border");
         chosen_card.style.removeProperty("border-radius");
         chosen_card.style.removeProperty("box-shadow");
+        chosen_card.classList.toggle("flip");
 
         chosen_card.parentElement.remove();
         card_chosen = false;
@@ -229,7 +230,6 @@ function attack(selected_pos) {
                 attack_card.style.removeProperty("border");
                 target_card.style.removeProperty("border");
 
-
                 attack_card = null;
                 target_card = null;
 
@@ -251,9 +251,9 @@ function attack(selected_pos) {
 function calculate_attack () {
     if (target_card.parentElement.id === "king_position") {
 
-        if (!(target_card.classList.contains('flipped'))) {
+        if (!(target_card.classList.contains('flip'))) {
             generate_king();
-            target_card.classList.toggle('flipped');
+            target_card.classList.toggle('flip');
         }
 
         document.getElementById("game_stage").innerHTML = "King Attacked";

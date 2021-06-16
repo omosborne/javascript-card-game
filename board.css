@@ -155,7 +155,7 @@
     height: 270px;
     user-select: none;
     position: absolute;
-    transition: transform 1s;
+    transition: transform 0s;
     transform-style: preserve-3d;
 }
 
@@ -163,8 +163,8 @@
     backface-visibility: hidden;
 }
 
-.king_card.flipped {
-    animation: flip_card 1s 1;
+.king_card.flip {
+    animation: flip_card 0.5s 1 ease;
     animation-fill-mode: forwards;
 }
 
@@ -181,11 +181,14 @@
     backface-visibility: hidden;
 }
 
-.card.flipped {
-    animation: flip_card 1s 1;
+.card.flip {
+    animation: flip_card 1s 1 ease;
     animation-fill-mode: forwards;
 }
 
+.card.flipped{
+    transform: rotateY( -180deg );
+}
 .card_front{
     transform: rotateY( 180deg );
 }
@@ -442,8 +445,13 @@ body, html {
     flex: 0 0 0;
 }
 
-.hand_position .card.flipped:hover {
+#player_hand .hand_position .card.flipped:hover {
     bottom: 20px;
+}
+
+#player_hand .hand_position.overlap .card.flipped:hover {
+    bottom: 20px;
+    z-index: 30;
 }
 
 .card_count{
