@@ -251,9 +251,25 @@ function attack(selected_pos) {
 function calculate_attack () {
     if (target_card.parentElement.id === "king_position") {
         document.getElementById("game_stage").innerHTML = "King Attacked";
+
         generate_king();
         target_card.classList.toggle('flipped');
 
+        let attack_val = attack_card.children[1].children[3].innerHTML;
+        let target_val = target_card.children[1].children[3].innerHTML;
+
+        let winner = parseInt(attack_val) > parseInt(target_val) ? attack_card : target_card;
+        document.getElementById("game_stage").innerHTML = winner.className + " " + attack_val + " " + target_val;
+
+        /*if (winner === attack_card) {
+            //target_card.
+
+            document.getElementById("game_stage").innerHTML = "Round over";
+            document.getElementById("pl_score").innerHTML += 1;
+        }
+        else if (winner === target_card) {
+
+        }*/
     }
     else {
 
