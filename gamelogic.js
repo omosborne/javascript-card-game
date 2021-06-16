@@ -333,7 +333,7 @@ function calculate_heal() {
     if (merge_val < 1) merge_val = 1;
 
     heal_card.children[1].children[5].innerHTML = (parseInt(heal_val) + merge_val).toString();
-    heal_card.children[1].children[5].style.color = "green";
+    heal_card.children[1].children[5].style.color = "#ADFF2F";
 
     card_killed(sacrifice_card);
 
