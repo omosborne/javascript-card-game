@@ -215,11 +215,12 @@ function attack(selected_pos) {
         if (selected_pos.id !== "king_position") {
             attack_card = selected_pos.children[0];
             attack_card.style.border = "solid red";
+            document.getElementById("game_stage").innerHTML = "Attack: " + attack_card.id;
         }
-    }
-    else if (target_card === null) {
+    } else if (target_card === null) {
         target_card = selected_pos.children[0];
-        attack_card.style.border = "solid green";
+        target_card.style.border = "solid green";
+        document.getElementById("game_stage").innerHTML = "Target: " + target_card.id;
     }
 }
 
