@@ -298,6 +298,8 @@ function calculate_attack () {
             let damage_val = parseInt(target_val) - parseInt(attack_val);
 
             target_card.children[1].children[5].innerHTML = damage_val.toString();
+            target_card.children[1].children[5].style.color = "#FF0000";
+
 
             card_killed(attack_card);
 
@@ -357,7 +359,7 @@ function calculate_heal() {
     if (merge_val < 1) merge_val = 1;
 
     heal_card.children[1].children[5].innerHTML = (parseInt(heal_val) + merge_val).toString();
-    heal_card.children[1].children[5].style.color = "#ADFF2F";
+    heal_card.children[1].children[5].style.color = "#00FF00";
 
     card_killed(sacrifice_card);
 
