@@ -279,10 +279,6 @@ function calculate_attack () {
     }
 }
 
-async function flip_king() {
-
-}
-
 function card_killed(destroyed_card) {
     destroyed_card.parentElement.style.border = "solid";
     destroyed_card.parentElement.style.removeProperty("box-shadow");
