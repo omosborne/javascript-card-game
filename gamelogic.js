@@ -232,28 +232,6 @@ function attack(selected_pos) {
         target_card = null;
     }
 
-    /*if (selected_pos.querySelectorAll(".op_card").length > 0 || selected_pos.querySelectorAll(".king_card").length > 0) {
-        if (attack_card === null) {
-            if (selected_pos.id !== "king_position") {
-
-            }
-        } else if (target_card === null) {
-            if (selected_pos !== attack_card.parentElement) {
-
-
-                //stage('merge');
-            }
-            else {
-                attack_card.style.removeProperty("border");
-                attack_card = null;
-                stage('attack');
-            }
-
-        }
-
-
-    }*/
-
 }
 
 function calculate_attack () {
