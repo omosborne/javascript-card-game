@@ -250,6 +250,7 @@ function attack(selected_pos) {
 
 function calculate_attack () {
     if (target_card.parentElement.id === "king_position") {
+
         if (!(target_card.classList.contains('flipped'))) {
             generate_king();
             target_card.classList.toggle('flipped');
@@ -269,12 +270,20 @@ function calculate_attack () {
             document.getElementById("pl_score").innerHTML = (parseInt(player_score) + 1).toString();
         }
         else if (winner === target_card) {
+            card_killed(attack_card);
 
         }
     }
     else {
 
     }
+}
+
+function card_killed(destroyed_card) {
+    destroyed_card.parentElement.style.border = "solid";
+    destroyed_card.parentElement.style.removeProperty("box-shadow");
+    destroyed_card.remove();
+    document.getElementById("discard_pile").appendChild(destroyed_card);
 }
 
 function merge(selected_pos) {
