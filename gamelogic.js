@@ -398,8 +398,9 @@ function unhighlight_pos(selected_pos){
 }
 
 function set_pl_area(hand, hand_size){
-    document.getElementById("pl_buffer_right").style.width = (((window.innerWidth) * .5) - (hand.getBoundingClientRect().width * .5)).toString() + "px";
-    document.getElementById("pl_buffer_left").style.width = (document.getElementById("pl_buffer_right").getBoundingClientRect().width).toString() + "px";
+    hand.style.width = (hand.children[0].getBoundingClientRect().width * hand_size).toString() + "px";
+    document.getElementById("pl_buffer_left").style.width = (((window.innerWidth) * .5) - (hand.getBoundingClientRect().width * .5)).toString() + "px";
+    document.getElementById("pl_buffer_right").style.width = (document.getElementById("pl_buffer_left").getBoundingClientRect().width).toString() + "px";
 
     if (hand.getBoundingClientRect().width >= ((window.innerWidth) * .5)){
         hand.style.width = "50%";
@@ -421,8 +422,6 @@ function adjust_hand() {
             //add animation to move to center
             hand.children[i].style.left = "0";
         }
-
-        hand.style.width = (hand.children[0].getBoundingClientRect().width * hand_size).toString() + "px";
         set_pl_area(hand, hand_size);
 
         if ((hand.children[0].children[0].getBoundingClientRect().width * hand_size) >= ((window.innerWidth) * .5)) {
@@ -431,7 +430,14 @@ function adjust_hand() {
             }
             hand.children[0].style.width = (hand.children[0].children[0].getBoundingClientRect().width).toString() + "px";
             hand.style.width = (hand.children[0].children[0].getBoundingClientRect().width * hand_size).toString() + "px";
-            set_pl_area(hand, hand_size);
+            document.getElementById("pl_buffer_right").style.width = (((window.innerWidth) * .5) - (hand.getBoundingClientRect().width * .5)).toString() + "px";
+            document.getElementById("pl_buffer_left").style.width = (document.getElementById("pl_buffer_right").getBoundingClientRect().width).toString() + "px";
+
+            if (hand.getBoundingClientRect().width >= ((window.innerWidth) * .5)){
+                hand.style.width = "50%";
+                document.getElementById("pl_buffer_left").style.width = "25%";
+                document.getElementById("pl_buffer_right").style.width = "25%";
+            }
         }
         else{
             for (let i = 0; i < (hand_size); i++) {
