@@ -213,8 +213,8 @@ function summon(selected_pos){
     adjust_hand();
 }
 
-function attack(selected_pos) {      <!--        v------ change below to .op_card-->
-    if (selected_pos.querySelectorAll(".card").length > 0 || selected_pos.querySelectorAll(".king_card").length > 0) {
+function attack(selected_pos) {
+    if (selected_pos.querySelectorAll(".op_card").length > 0 || selected_pos.querySelectorAll(".king_card").length > 0) {
         if (attack_card === null) {
             if (selected_pos.id !== "king_position") {
                 attack_card = selected_pos.children[0];
