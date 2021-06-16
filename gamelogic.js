@@ -227,6 +227,7 @@ function attack(selected_pos) {
             else {
                 attack_card.style.removeProperty("border");
                 attack_card = null;
+                stage('attack');
             }
 
         }
