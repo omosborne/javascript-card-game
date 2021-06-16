@@ -297,7 +297,7 @@ function calculate_attack () {
 
             let damage_val = parseInt(target_val) - parseInt(attack_val);
 
-            target_card.children[1].children[5].innerHTML = (parseInt(target_val) - damage_val).toString();
+            target_card.children[1].children[5].innerHTML = damage_val.toString();
 
             card_killed(attack_card);
 
