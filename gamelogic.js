@@ -223,6 +223,7 @@ function attack(selected_pos) {
                 target_card = selected_pos.children[0];
                 target_card.style.border = "solid yellow";
                 document.getElementById("game_stage").innerHTML = "Target aquired";
+                calculate_attack()
             }
             else {
                 attack_card.style.removeProperty("border");
@@ -233,6 +234,17 @@ function attack(selected_pos) {
         }
     }
 
+}
+
+function calculate_attack () {
+    if (target_card.parentElement.id === "king_position") {
+        document.getElementById("game_stage").innerHTML = "King Attacked";
+        generate_king();
+        target_card.classList.toggle('flipped');
+    }
+    else {
+
+    }
 }
 
 function merge(selected_pos) {

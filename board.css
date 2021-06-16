@@ -159,6 +159,14 @@
     transform-style: preserve-3d;
 }
 
+.king_card div{
+    backface-visibility: hidden;
+}
+
+.king_card.flipped {
+    transform: rotateY( -180deg );
+}
+
 .card div{
     backface-visibility: hidden;
 }
