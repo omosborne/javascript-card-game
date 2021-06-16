@@ -259,17 +259,18 @@ function calculate_attack () {
         let target_val = target_card.children[1].children[3].innerHTML;
 
         let winner = parseInt(attack_val) > parseInt(target_val) ? attack_card : target_card;
-        document.getElementById("game_stage").innerHTML = winner.className + " " + attack_val + " " + target_val;
 
-        /*if (winner === attack_card) {
+        if (winner === attack_card) {
             //target_card.
 
             document.getElementById("game_stage").innerHTML = "Round over";
-            document.getElementById("pl_score").innerHTML += 1;
+
+            let player_score = document.getElementById("pl_score").innerHTML;
+            document.getElementById("pl_score").innerHTML = (parseInt(player_score) + 1).toString();
         }
         else if (winner === target_card) {
 
-        }*/
+        }
     }
     else {
 
