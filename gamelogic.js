@@ -330,7 +330,7 @@ function calculate_heal() {
 
     let merge_val = Math.floor(parseInt(sacrifice_val) / 2);
 
-    if (merge_val > 1) merge_val = 1;
+    if (merge_val < 1) merge_val = 1;
 
     heal_card.children[1].children[5].innerHTML = (parseInt(heal_val) + merge_val).toString();
     heal_card.children[1].children[5].style.color = "green";
