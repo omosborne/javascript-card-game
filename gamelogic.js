@@ -269,7 +269,7 @@ function summon(selected_pos){
 
         selected_pos.style.border = "2px solid #9ecaed";
         selected_pos.style.boxShadow = "0 0 10px #9ecaed";
-        let remove_card =  players_cards.splice(0, 1);
+        players_cards.splice(0, 1);
         adjust_hand();
 
         change_stage(stages.IDLE);
