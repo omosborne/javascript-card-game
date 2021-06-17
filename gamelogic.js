@@ -236,7 +236,13 @@ function summon(selected_pos){
 }
 
 function attack(selected_pos) {
-    if (attack_card === null && selected_pos.querySelectorAll(".pl_card").length > 0) {
+    if (selected_pos.parentElement === document.getElementById("grid"))
+    {
+        attack_card = selected_pos.children[0];
+        attack_card.children[1].children[2].style.backgroundImage = "url('card_action_cancel.png')";
+    }
+
+    /*if (attack_card === null && selected_pos.querySelectorAll(".pl_card").length > 0) {
         attack_card = selected_pos.children[0];
         attack_card.style.border = "solid red";
         document.getElementById("game_stage").innerHTML = "Attack initiated";
@@ -253,7 +259,7 @@ function attack(selected_pos) {
 
         attack_card = null;
         target_card = null;
-    }
+    }*/
 
 }
 
