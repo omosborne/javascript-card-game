@@ -530,6 +530,10 @@ function create_card(owner) {
     card_background_div.style.backgroundImage = "url('" + card_backgrounds[Math.floor(Math.random() * card_backgrounds.length)] + "')";
     card_image_div.style.backgroundImage = "url('" + card_images[Math.floor(Math.random() * card_images.length)] + "')";
 
+    if (owner === 'pl') {
+        card_atk_image_div.onmousedown = function() {attack(card_div.parentElement)};
+    }
+
     if (is_epic) {
         card_image_div.style.filter = "invert(79%) sepia(67%) saturate(950%) hue-rotate(340deg) brightness(99%) contrast(99%)";
         card_ability_div.innerHTML = "Privately view the king. If this card is destroyed the king is reset."
@@ -541,7 +545,6 @@ function create_card(owner) {
     else if (is_epic && card_image_div.style.backgroundImage === 'url("card_image_4.png")') {
         card_name_div.innerHTML = "The night thief";
         card_name_div.style.color = "#FBBD1D";
-
     }
     else if (!is_epic &&  card_image_div.style.backgroundImage === 'url("card_image_5.png")') {
         card_name_div.innerHTML = "Plague doctor of death";
