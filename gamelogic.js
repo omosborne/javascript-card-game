@@ -241,7 +241,6 @@ function choose_card(selected_card){
             chosen_card.style.borderRadius = "10px";
             chosen_card.style.boxShadow = "-2px -2px 15px #303030";
             change_stage(stages.SUMMON);
-            has_summoned = true;
         }
         else {
             chosen_card = null;
@@ -267,6 +266,7 @@ function summon(selected_pos){
         players_cards.splice(0, 1);
         adjust_hand();
 
+        has_summoned = true;
         change_stage(stages.IDLE);
     }
 }
