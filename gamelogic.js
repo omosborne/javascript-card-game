@@ -5,7 +5,11 @@ let placeholder;
 let animate;
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
 let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
-let attack_card, target_card, sacrifice_card, heal_card, chosen_card = null;
+let target_card = null;
+let sacrifice_card = null;
+let heal_card = null;
+let chosen_card = null;
+let attack_card = null;
 let has_summoned, has_attacked, has_merged = false;
 
 
@@ -271,11 +275,11 @@ function summon(selected_pos){
     }
 }
 
-function initiate_attack(selected_pos) {
-    if (has_attacked === false && selected_pos.parentElement === document.getElementById("grid"))
+function initiate_attack(selected_card) {
+    if (!has_attacked && selected_card.parentElement.parentElement === document.getElementById("grid"))
     {
         if (attack_card === null) {
-            attack_card = selected_pos.children[0];
+            attack_card = selected_card;
             attack_card.children[1].children[2].style.backgroundImage = "url('card_action_cancel.png')";
             change_stage(stages.ATTACK_TARGET);
         }
@@ -374,11 +378,11 @@ function card_killed(destroyed_card) {
 
 }
 
-function initiate_merge(selected_pos) {
-    if (has_merged === false && selected_pos.parentElement === document.getElementById("grid"))
+function initiate_merge(selected_card) {
+    if (!has_merged && selected_card.parentElement.parentElement === document.getElementById("grid"))
     {
         if (sacrifice_card === null) {
-            sacrifice_card = selected_pos.children[0];
+            sacrifice_card = selected_card;
             sacrifice_card.children[1].children[4].style.backgroundImage = "url('card_action_cancel.png')";
             change_stage(stages.MERGE_TARGET);
         }
@@ -581,8 +585,8 @@ function create_card(owner) {
     card_image_div.style.backgroundImage = "url('" + card_images[Math.floor(Math.random() * card_images.length)] + "')";
 
     if (owner === 'pl') {
-        card_atk_image_div.onmousedown = function() {initiate_attack(card_div.parentElement)};
-        card_def_image_div.onmousedown = function() {initiate_merge(card_div.parentElement)};
+        card_atk_image_div.onmousedown = function() {initiate_attack(card_div)};
+        card_def_image_div.onmousedown = function() {initiate_merge(card_div)};
         card_div.onmousedown = function() {choose_card(card_div)};
     }
 
