@@ -1,5 +1,3 @@
-let card_chosen = false;
-let chosen_card = null;
 let deck = new Array(0);
 let move_cards = new Array(0);
 let players_cards = new Array(0);
@@ -7,7 +5,7 @@ let placeholder;
 let animate;
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
 let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
-let attack_card, target_card, sacrifice_card, heal_card = null;
+let attack_card, target_card, sacrifice_card, heal_card, chosen_card = null;
 let has_summoned, has_attacked, has_merged = false;
 
 
@@ -238,7 +236,6 @@ function choose_card(selected_card){
         }
 
         if (chosen_card !== selected_card) {
-            card_chosen = true;
             chosen_card = selected_card;
             chosen_card.style.border = "solid red";
             chosen_card.style.borderRadius = "10px";
@@ -247,7 +244,6 @@ function choose_card(selected_card){
             has_summoned = true;
         }
         else {
-            card_chosen = false;
             chosen_card = null;
             change_stage(stages.IDLE);
         }
@@ -263,7 +259,6 @@ function summon(selected_pos){
         chosen_card.classList.toggle("flip");
 
         chosen_card.parentElement.remove();
-        card_chosen = false;
         selected_pos.appendChild(chosen_card);
         chosen_card = null;
 
