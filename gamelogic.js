@@ -154,11 +154,7 @@ function load_hand(card_count){
         new_position.appendChild(card);
         document.getElementById("player_hand").appendChild(new_position);
 
-        new_position.onmousedown = choose_card;
-        //new_position.onmouseenter = highlight_card;
-        //new_position.onmouseleave = unhighlight_card;
-
-
+        new_position.onmousedown = function() {choose_card(new_position)};
 
         generate_resize("player_hand");
         /*new_position.children[0].classList.toggle('flip');
@@ -194,18 +190,14 @@ function test(card_scale){
 window.addEventListener('resize', screen_size);
 
 //Not used, this is for when a card is clicked on "selected"
-function choose_card(event){
-    let mouse_x = event.clientX;
-    let mouse_y = event.clientY;
-    let mouse_pos = document.elementFromPoint(mouse_x, mouse_y);
-    let selected_pos = mouse_pos.parentElement.parentElement.parentElement;
+function choose_card(selected_pos){
     let pl_hand = selected_pos.parentElement;
 
     for (let i = 0; i < pl_hand.children.length; i++) {
         pl_hand.children[i].children[0].style.removeProperty("border");
     }
 
-    if (selected_pos.querySelectorAll(".card").length > 0 && mouse_pos.parentElement.className === "card_front") {
+    if (selected_pos.querySelectorAll(".card").length > 0) {
         if (!(chosen_card === selected_pos.firstElementChild)){
             card_chosen = true;
             chosen_card = selected_pos.firstElementChild;
