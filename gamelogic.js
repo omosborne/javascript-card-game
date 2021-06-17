@@ -269,7 +269,6 @@ function summon(selected_pos){
 
         change_stage(stages.IDLE);
     }
-    adjust_hand();
 }
 
 function initiate_attack(selected_pos) {
