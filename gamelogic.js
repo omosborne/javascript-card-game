@@ -261,12 +261,7 @@ function initiate_attack(selected_pos) {
 }
 
 function attack_find_target(selected_pos) {
-    if (attack_card === null && selected_pos.querySelectorAll(".pl_card").length > 0) {
-        attack_card = selected_pos.children[0];
-        attack_card.style.border = "solid red";
-        document.getElementById("game_stage").innerHTML = "Attack initiated";
-    }
-    else if ((attack_card !== null && target_card === null) && (selected_pos.querySelectorAll(".op_card").length > 0 || selected_pos.querySelectorAll(".king_card").length > 0)) {
+    if ((attack_card !== null && target_card === null) && (selected_pos.querySelectorAll(".op_card").length > 0 || selected_pos.querySelectorAll(".king_card").length > 0)) {
         target_card = selected_pos.children[0];
         target_card.style.border = "solid yellow";
         document.getElementById("game_stage").innerHTML = "Target aquired";
@@ -365,35 +360,20 @@ function initiate_merge(selected_pos) {
 }
 
 function merge_find_target(selected_pos) {
-    if (selected_pos.querySelectorAll(".pl_card").length > 0) {
-        if (sacrifice_card === null) {
-            sacrifice_card = selected_pos.children[0];
-            sacrifice_card.style.border = "solid red";
-            document.getElementById("game_stage").innerHTML = "Sacrifice aquired";
-        } else if (heal_card === null) {
-            if (selected_pos !== sacrifice_card.parentElement) {
-                heal_card = selected_pos.children[0];
-                heal_card.style.border = "solid yellow";
-                document.getElementById("game_stage").innerHTML = "Heal initiated";
+    if (sacrifice_card !== null && heal_card === null && selected_pos.querySelectorAll(".pl_card").length > 0) {
+        heal_card = selected_pos.children[0];
+        heal_card.style.border = "solid yellow";
+        document.getElementById("game_stage").innerHTML = "Heal initiated";
 
-                calculate_heal();
+        calculate_heal();
 
-                sacrifice_card.style.removeProperty("border");
-                heal_card.style.removeProperty("border");
+        sacrifice_card.style.removeProperty("border");
+        heal_card.style.removeProperty("border");
 
-                sacrifice_card = null;
-                heal_card = null;
+        sacrifice_card = null;
+        heal_card = null;
 
-                //stage('summon');
-            }
-            else {
-                sacrifice_card.style.removeProperty("border");
-                sacrifice_card = null;
-                change_stage(stages.IDLE);
-            }
-
-        }
-
+        change_stage(stages.IDLE);
 
     }
 }
