@@ -322,7 +322,7 @@ function calculate_attack () {
 }
 
 function card_killed(destroyed_card) {
-    destroyed_card.parentElement.style.border = "solid";
+    destroyed_card.parentElement.style.border = "solid black";
     destroyed_card.parentElement.style.removeProperty("box-shadow");
     destroyed_card.remove();
     document.getElementById("discard_pile").appendChild(destroyed_card);
