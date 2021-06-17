@@ -347,7 +347,24 @@ function card_killed(destroyed_card) {
 
 }
 
-function merge(selected_pos) {
+function initiate_merge(selected_pos) {
+    if (selected_pos.parentElement === document.getElementById("grid"))
+    {
+        if (sacrifice_card === null) {
+            sacrifice_card = selected_pos.children[0];
+            sacrifice_card.children[1].children[4].style.backgroundImage = "url('card_action_cancel.png')";
+            change_stage(stages.MERGE_TARGET);
+        }
+        else {
+            sacrifice_card.children[1].children[4].style.backgroundImage = "url('card_health_image.png')";
+            sacrifice_card = null;
+            change_stage(stages.IDLE);
+        }
+    }
+
+}
+
+function merge_find_target(selected_pos) {
     if (selected_pos.querySelectorAll(".pl_card").length > 0) {
         if (sacrifice_card === null) {
             sacrifice_card = selected_pos.children[0];
@@ -548,6 +565,7 @@ function create_card(owner) {
 
     if (owner === 'pl') {
         card_atk_image_div.onmousedown = function() {initiate_attack(card_div.parentElement)};
+        card_def_image_div.onmousedown = function() {initiate_merge(card_div.parentElement)};
     }
 
     if (is_epic) {
@@ -666,12 +684,12 @@ function generate_king() {
 
 function change_stage(stage) {
 
-    card_chosen = false;
+    /*card_chosen = false;
     chosen_card = null;
     attack_card = null;
     target_card = null;
     sacrifice_card = null;
-    heal_card = null;
+    heal_card = null;*/
 
     game_stage = stage;
     update_stage_text();
@@ -690,7 +708,7 @@ function player_action(selected_pos) {
         attack_find_target(selected_pos);
     }
     else if (selected_pos.id !== "king_position" && game_stage === stages.MERGE_TARGET) {
-        merge(selected_pos);
+        merge_find_target(selected_pos);
     }
 
 }
