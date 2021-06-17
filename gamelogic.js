@@ -8,8 +8,8 @@ let animate;
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
 let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
 let game_stage = stages.SUMMON;
-let attack_card = null, target_card = null;
-let sacrifice_card = null, heal_card = null;
+let attack_card, target_card, sacrifice_card, heal_card = null;
+let has_summoned, has_attacked, has_merged = false;
 
 
 const stages = {
