@@ -7,11 +7,10 @@ let placeholder;
 let animate;
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
 let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
-let game_stage = 'summon';
-let attack_card = null;
-let target_card = null;
-let sacrifice_card = null;
-let heal_card = null;
+let game_stage = stages.SUMMON;
+let attack_card = null, target_card = null;
+let sacrifice_card = null, heal_card = null;
+
 
 const stages = {
    SUMMON: 1,
