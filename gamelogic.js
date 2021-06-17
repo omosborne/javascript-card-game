@@ -7,7 +7,6 @@ let placeholder;
 let animate;
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
 let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
-let game_stage = stages.SUMMON;
 let attack_card, target_card, sacrifice_card, heal_card = null;
 let has_summoned, has_attacked, has_merged = false;
 
@@ -19,6 +18,8 @@ const stages = {
    MERGE_TARGET: 4
 };
 Object.freeze(stages);
+
+let game_stage = stages.SUMMON;
 
 function load(){
     //adjust elements to screen size
@@ -162,8 +163,6 @@ function load_hand(card_count){
         new_position.appendChild(card);
         document.getElementById("player_hand").appendChild(new_position);
 
-        new_position.onmousedown = function() {choose_card(new_position)};
-
         generate_resize("player_hand");
         new_position.children[0].style.left = "-" + ((window.innerWidth * .5 - (new_position.children[0].getBoundingClientRect().width / 2 + 5)) / placeholder).toString() + "px";
         new_position.children[0].style.zIndex = "1";
@@ -229,18 +228,18 @@ function set_keyframes(card_scale){
 window.addEventListener('resize', screen_size);
 
 //Not used, this is for when a card is clicked on "selected"
-function choose_card(selected_pos){
-    if (has_summoned === false && selected_pos.parentElement === document.getElementById("player_hand"))
+function choose_card(selected_card){
+    if (!has_summoned && selected_card.parentElement.parentElement === document.getElementById("player_hand"))
     {
-        let pl_hand = selected_pos.parentElement;
+        let pl_hand = selected_card.parentElement.parentElement;
 
         for (let i = 0; i < pl_hand.children.length; i++) {
             pl_hand.children[i].children[0].style.removeProperty("border");
         }
 
-        if (chosen_card !== selected_pos.children[0]) {
+        if (chosen_card !== selected_card) {
             card_chosen = true;
-            chosen_card = selected_pos.children[0];
+            chosen_card = selected_card;
             chosen_card.style.border = "solid red";
             chosen_card.style.borderRadius = "10px";
             chosen_card.style.boxShadow = "-2px -2px 15px #303030";
@@ -436,12 +435,12 @@ function calculate_heal() {
 
 //highlights the position on the grid that the mouse is over
 function highlight_pos(selected_pos){
-    if (selected_pos.id !== "king_position" && game_stage === 'summon') {
+    if (selected_pos.id !== "king_position" && game_stage === stages.SUMMON) {
         if (!(chosen_card === null || selected_pos.querySelectorAll(".card").length > 0)){
             selected_pos.style.border = "solid red";
         }
     }
-    else if (game_stage === 'attack') {
+    else if (game_stage === stages.ATTACK_TARGET) {
         if (attack_card !== null && selected_pos.querySelectorAll(".card").length > 0){
             selected_pos.style.border = "solid red";
         }
@@ -453,12 +452,12 @@ function highlight_pos(selected_pos){
 }
 //once the mouse leaves the position in the grid, remove highlight
 function unhighlight_pos(selected_pos){
-    if (selected_pos.id !== "king_position" && game_stage === 'summon') {
+    if (selected_pos.id !== "king_position" && game_stage === stages.SUMMON) {
         if (!(selected_pos.querySelectorAll(".card").length > 0)) {
             selected_pos.style.removeProperty("border");
         }
     }
-    else if (game_stage === 'attack') {
+    else if (game_stage === stages.ATTACK_TARGET) {
         if (selected_pos.querySelectorAll(".card").length > 0 || selected_pos.querySelectorAll(".king_card").length > 0){
             selected_pos.style.removeProperty("border");
         }
@@ -589,6 +588,7 @@ function create_card(owner) {
     if (owner === 'pl') {
         card_atk_image_div.onmousedown = function() {initiate_attack(card_div.parentElement)};
         card_def_image_div.onmousedown = function() {initiate_merge(card_div.parentElement)};
+        card_div.onmousedown = function() {choose_card(card_div)};
     }
 
     if (is_epic) {
