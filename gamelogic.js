@@ -13,6 +13,14 @@ let target_card = null;
 let sacrifice_card = null;
 let heal_card = null;
 
+const turn_stages = {
+   SUMMON: 1,
+   IDLE: 2,
+   ATTACK_TARGET: 3,
+   MERGE_TARGET: 4
+};
+Object.freeze(turn_stages);
+
 function load(){
     //adjust elements to screen size
     screen_size();
@@ -230,7 +238,7 @@ function summon(selected_pos){
         let remove_card =  players_cards.splice(0, 1);
         adjust_hand();
 
-        stage('attack');
+        change_stage(turn_stages.IDLE);
     }
     adjust_hand();
 }
@@ -248,6 +256,9 @@ function initiate_attack(selected_pos) {
         }
     }
 
+}
+
+function attack_find_target(selected_pos) {
     if (attack_card === null && selected_pos.querySelectorAll(".pl_card").length > 0) {
         attack_card = selected_pos.children[0];
         attack_card.style.border = "solid red";
@@ -266,7 +277,6 @@ function initiate_attack(selected_pos) {
         attack_card = null;
         target_card = null;
     }
-
 }
 
 function calculate_attack () {
@@ -360,7 +370,7 @@ function merge(selected_pos) {
             else {
                 sacrifice_card.style.removeProperty("border");
                 sacrifice_card = null;
-                stage('merge');
+                change_stage(turn_stages.IDLE);
             }
 
         }
@@ -652,7 +662,7 @@ function generate_king() {
     king.appendChild(card_div);
 }
 
-function stage(stage) {
+function change_stage(stage) {
 
     card_chosen = false;
     chosen_card = null;
@@ -674,8 +684,8 @@ function player_action(selected_pos) {
     if (selected_pos.id !== "king_position" && game_stage === 'summon') {
         summon(selected_pos);
     }
-    else if (game_stage === 'attack') {
-        attack(selected_pos);
+    else if (game_stage === 'attack_target') {
+        attack_find_target(selected_pos);
     }
     else if (selected_pos.id !== "king_position" && game_stage === 'merge') {
         merge(selected_pos);
