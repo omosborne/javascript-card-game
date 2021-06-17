@@ -243,7 +243,7 @@ function summon(selected_pos){
 }
 
 function initiate_attack(selected_pos) {
-    if (selected_pos.parentElement === document.getElementById("grid"))
+    if (has_attacked === false && selected_pos.parentElement === document.getElementById("grid"))
     {
         if (attack_card === null) {
             attack_card = selected_pos.children[0];
@@ -272,6 +272,10 @@ function attack_find_target(selected_pos) {
 
         attack_card = null;
         target_card = null;
+
+        has_attacked = true;
+
+        change_stage(stages.IDLE);
     }
 }
 
@@ -342,7 +346,7 @@ function card_killed(destroyed_card) {
 }
 
 function initiate_merge(selected_pos) {
-    if (selected_pos.parentElement === document.getElementById("grid"))
+    if (has_merged === false && selected_pos.parentElement === document.getElementById("grid"))
     {
         if (sacrifice_card === null) {
             sacrifice_card = selected_pos.children[0];
@@ -371,6 +375,8 @@ function merge_find_target(selected_pos) {
 
         sacrifice_card = null;
         heal_card = null;
+
+        has_merged = true;
 
         change_stage(stages.IDLE);
 
