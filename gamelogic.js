@@ -235,14 +235,20 @@ function summon(selected_pos){
     adjust_hand();
 }
 
-function attack(selected_pos) {
+function initiate_attack(selected_pos) {
     if (selected_pos.parentElement === document.getElementById("grid"))
     {
-        attack_card = selected_pos.children[0];
-        attack_card.children[1].children[2].style.backgroundImage = "url('card_action_cancel.png')";
+        if (attack_card === null) {
+            attack_card = selected_pos.children[0];
+            attack_card.children[1].children[2].style.backgroundImage = "url('card_action_cancel.png')";
+        }
+        else {
+            attack_card.children[1].children[2].style.backgroundImage = "url('card_attack_image.png')";
+            attack_card = null;
+        }
     }
 
-    /*if (attack_card === null && selected_pos.querySelectorAll(".pl_card").length > 0) {
+    if (attack_card === null && selected_pos.querySelectorAll(".pl_card").length > 0) {
         attack_card = selected_pos.children[0];
         attack_card.style.border = "solid red";
         document.getElementById("game_stage").innerHTML = "Attack initiated";
@@ -259,7 +265,7 @@ function attack(selected_pos) {
 
         attack_card = null;
         target_card = null;
-    }*/
+    }
 
 }
 
@@ -529,7 +535,7 @@ function create_card(owner) {
     card_image_div.style.backgroundImage = "url('" + card_images[Math.floor(Math.random() * card_images.length)] + "')";
 
     if (owner === 'pl') {
-        card_atk_image_div.onmousedown = function() {attack(card_div.parentElement)};
+        card_atk_image_div.onmousedown = function() {initiate_attack(card_div.parentElement)};
     }
 
     if (is_epic) {
