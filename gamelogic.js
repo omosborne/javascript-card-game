@@ -198,23 +198,26 @@ window.addEventListener('resize', screen_size);
 
 //Not used, this is for when a card is clicked on "selected"
 function choose_card(selected_pos){
-    let pl_hand = selected_pos.parentElement;
+    if (has_summoned === false && selected_pos.parentElement === document.getElementById("player_hand"))
+    {
+        let pl_hand = selected_pos.parentElement;
 
-    for (let i = 0; i < pl_hand.children.length; i++) {
-        pl_hand.children[i].children[0].style.removeProperty("border");
-    }
+        for (let i = 0; i < pl_hand.children.length; i++) {
+            pl_hand.children[i].children[0].style.removeProperty("border");
+        }
 
-    if (selected_pos.querySelectorAll(".card").length > 0) {
-        if (!(chosen_card === selected_pos.firstElementChild)){
+        if (chosen_card !== selected_pos.children[0]) {
             card_chosen = true;
-            chosen_card = selected_pos.firstElementChild;
+            chosen_card = selected_pos.children[0];
             chosen_card.style.border = "solid red";
             chosen_card.style.borderRadius = "10px";
             chosen_card.style.boxShadow = "-2px -2px 15px #303030";
+            change_stage(stages.SUMMON);
         }
         else {
             card_chosen = false;
             chosen_card = null;
+            change_stage(stages.IDLE);
         }
     }
 }
