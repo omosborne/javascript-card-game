@@ -113,7 +113,7 @@ function resize_card(resize_element){
          for (let i = 1; i < resize_element.children.length; i++) {
             resize_element.children[i].style.transform = "scale(" + card_scale +")";
          }
-         test(card_scale);
+         set_keyframes(card_scale);
          placeholder = card_scale;
     }
 }
@@ -142,6 +142,7 @@ function load_hand(card_count){
         //remove from this div and place in hand div
         deck.removeChild(card);
         //remove from deck array
+
         //add to hand array
         players_cards.push(card);
         move_cards.push(card);
@@ -158,36 +159,65 @@ function load_hand(card_count){
         //new_position.onmouseenter = highlight_card;
         //new_position.onmouseleave = unhighlight_card;
 
-
-
         generate_resize("player_hand");
-        /*new_position.children[0].classList.toggle('flip');
-        new_position.children[0].classList.toggle('flipped');
-        adjust_hand();*/
-        new_position.children[0].style.left = "-" + ((window.innerWidth * .5 - 45) / placeholder).toString() + "px";
+        new_position.children[0].style.left = "-" + ((window.innerWidth * .5 - (new_position.children[0].getBoundingClientRect().width / 2 + 5)) / placeholder).toString() + "px";
         new_position.children[0].style.zIndex = "1";
         new_position.style.width = "0";
         document.getElementById("player_hand").style.width = new_position.children[0].getBoundingClientRect().width.toString() + "px";
     }
-
-
     show();
-
     move_cards.forEach((card, idx) => {
         setTimeout(() =>{
             card.classList.toggle('flip');
         }, idx * 200)
     });
+
+    if (players_cards.length > 1){
+        centre_hand();
+    }
+
+    setTimeout(()=>{
+        test();
+    },1800);
+
+    setTimeout(()=>{
+        adjust_hand();
+    },1800);
+
     move_cards = [];
 }
 
-function test(card_scale){
+function centre_hand(){
+    document.getElementById("player_hand").style.width = move_cards[0].getBoundingClientRect().width.toString() + "px";
+    document.getElementById("pl_buffer_left").style.width = ((window.innerWidth / 2) - (move_cards[0].getBoundingClientRect().width / 2)).toString() + "px";
+    document.getElementById("pl_buffer_right").style.width = document.getElementById("pl_buffer_left").getBoundingClientRect().width.toString() + "px";
+
+    players_cards.forEach((card, idx) => {
+        if (card.parentElement.classList.contains("overlap")){
+                card.parentElement.classList.remove("overlap");
+        }
+        setTimeout(() =>{
+
+            card.style.left = "0";
+        }, idx * 200)
+    });
+}
+
+function test(){
+    move_cards.forEach((card, idx) => {
+        setTimeout(() =>{
+            card.classList.toggle('flip');
+        }, idx * 200)
+    });
+}
+
+function set_keyframes(card_scale){
     let stylesheet = document.styleSheets[0];
     let fadeOutRule = stylesheet.cssRules[0];
     let fadeOutRule_0 = fadeOutRule.cssRules[0];
     /*let fadeOutRule_50 = fadeOutRule.cssRules[1];
     let fadeOutRule_100 = fadeOutRule.cssRules[2];*/
-    fadeOutRule_0.style.setProperty("left", "-" + ((window.innerWidth * .5 - 45) / card_scale).toString() + "px");
+    fadeOutRule_0.style.setProperty("left", "-" + ((window.innerWidth * .5 - (document.getElementById("player_deck").getBoundingClientRect().width / 2 + 5)) / card_scale).toString() + "px");
 }
 
 //an event listener that runs screen size once browser is rescaled
@@ -435,8 +465,11 @@ function adjust_hand() {
             if (hand.children[i].classList.contains("overlap")) {
                     hand.children[i].classList.remove("overlap");
             }
-            //add animation to move to center
-            hand.children[i].style.left = "0";
+            if (!(hand.children[i].children[0].classList.contains("flipped"))) {
+                    hand.children[i].children[0].classList.toggle("flipped");
+            }
+            hand.children[i].children[0].style.left = "0px";
+            hand.children[i].style.width = hand.children[i].children[0].getBoundingClientRect().width.toString() + "px";
         }
         set_pl_area(hand, hand_size);
 
