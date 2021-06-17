@@ -137,34 +137,34 @@ function load_hand(card_count){
     for (let i = 0, j = (deck_size - 1); i < card_count; i++, j--) {
         let card = deck.children[j];
         //remove from this div and place in hand div
-        deck.removeChild(card);
+        //deck.removeChild(card);
         //remove from deck array
         //add to hand array
-        players_cards.push(card);
+        //players_cards.push(card);
         move_cards.push(card);
 
         //update coutners
-        pl_update_pile_count();
+        //pl_update_pile_count();
 
-        const new_position = document.createElement("div");
-        new_position.className = "hand_position";
-        new_position.appendChild(card);
-        document.getElementById("player_hand").appendChild(new_position);
+        //const new_position = document.createElement("div");
+        //new_position.className = "hand_position";
+        //new_position.appendChild(card);
+        //document.getElementById("player_hand").appendChild(new_position);
 
-        new_position.onmousedown = choose_card;
+        //new_position.onmousedown = choose_card;
         //new_position.onmouseenter = highlight_card;
         //new_position.onmouseleave = unhighlight_card;
 
 
 
-        generate_resize("player_hand");
+        //generate_resize("player_hand");
         //new_position.children[0].classList.toggle('flip');
         //new_position.children[0].classList.toggle('flipped');
         //adjust_hand();
-        new_position.children[0].style.left = "-" + ((new_position.children[0].getBoundingClientRect().left)).toString() + "px";
-        new_position.children[0].style.zIndex = "1";
-        new_position.style.width = "0";
-        document.getElementById("player_hand").style.width = new_position.children[0].getBoundingClientRect().width.toString() + "px";
+        //new_position.children[0].style.left = "-" + ((new_position.children[0].getBoundingClientRect().left)).toString() + "px";
+        //new_position.children[0].style.zIndex = "1";
+        //new_position.style.width = "0";
+        //document.getElementById("player_hand").style.width = new_position.children[0].getBoundingClientRect().width.toString() + "px";
     }
 
 
@@ -183,10 +183,11 @@ function load_hand(card_count){
 function test(){
     let stylesheet = document.styleSheets[0];
     let fadeOutRule = stylesheet.cssRules[0];
-    let fadeOutRule_0 = fadeOutRule.cssRules[0];
-    /*let fadeOutRule_50 = fadeOutRule.cssRules[1];
-    let fadeOutRule_100 = fadeOutRule.cssRules[2];*/
-    fadeOutRule_0.style.setProperty("left", "-" + (document.getElementById("player_hand").children[0].getBoundingClientRect().left).toString() + "px");
+    //let fadeOutRule_0 = fadeOutRule.cssRules[0];
+    let fadeOutRule_50 = fadeOutRule.cssRules[1];
+    let fadeOutRule_100 = fadeOutRule.cssRules[2];
+    fadeOutRule_50.style.setProperty("left", (window.innerWidth - 10).toString() + "px");
+    fadeOutRule_100.style.setProperty("left",  (window.innerWidth - 10).toString() + "px");
 }
 
 //an event listener that runs screen size once browser is rescaled
