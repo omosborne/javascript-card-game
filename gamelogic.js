@@ -13,10 +13,10 @@ let has_summoned, has_attacked, has_merged = false;
 
 
 const stages = {
-   SUMMON: 1,
-   IDLE: 2,
-   ATTACK_TARGET: 3,
-   MERGE_TARGET: 4
+    SUMMON: 1,
+    IDLE: 2,
+    ATTACK_TARGET: 3,
+    MERGE_TARGET: 4
 };
 Object.freeze(stages);
 
@@ -296,7 +296,6 @@ function attack_find_target(selected_pos) {
     if ((attack_card !== null && target_card === null) && (selected_pos.querySelectorAll(".op_card").length > 0 || selected_pos.querySelectorAll(".king_card").length > 0)) {
         target_card = selected_pos.children[0];
         target_card.style.border = "solid yellow";
-        document.getElementById("game_stage").innerHTML = "Target aquired";
 
         calculate_attack();
 
@@ -320,15 +319,12 @@ function calculate_attack () {
             target_card.classList.toggle('flip');
         }
 
-        document.getElementById("game_stage").innerHTML = "King Attacked";
-
         let attack_val = attack_card.children[1].children[3].innerHTML;
         let target_val = target_card.children[1].children[3].innerHTML;
 
         let winner = parseInt(attack_val) > parseInt(target_val) ? attack_card : target_card;
 
         if (winner === attack_card) {
-            document.getElementById("game_stage").innerHTML = "Round over";
 
             let player_score = document.getElementById("pl_score").innerHTML;
             document.getElementById("pl_score").innerHTML = (parseInt(player_score) + 1).toString();
@@ -343,19 +339,15 @@ function calculate_attack () {
         let target_val = target_card.children[1].children[5].innerHTML;
 
         if (parseInt(attack_val) === parseInt(target_val)) {
-            document.getElementById("game_stage").innerHTML = "Draw";
             return;
         }
 
         let winner = parseInt(attack_val) > parseInt(target_val) ? attack_card : target_card;
 
         if (winner === attack_card) {
-            document.getElementById("game_stage").innerHTML = "Attacker won";
             card_killed(target_card);
         }
         else if (winner === target_card) {
-
-            document.getElementById("game_stage").innerHTML = "Attacker lost";
 
             let damage_val = parseInt(target_val) - parseInt(attack_val);
 
@@ -425,7 +417,6 @@ function merge_find_target(selected_pos) {
     if ((sacrifice_card !== null && sacrifice_card !== selected_pos.children[0]) && heal_card === null && selected_pos.querySelectorAll(".pl_card").length > 0) {
         heal_card = selected_pos.children[0];
         heal_card.style.border = "solid yellow";
-        document.getElementById("game_stage").innerHTML = "Heal initiated";
 
         calculate_heal();
 
@@ -454,8 +445,6 @@ function calculate_heal() {
     heal_card.children[1].children[5].style.color = "#00FF00";
 
     card_killed(sacrifice_card);
-
-    document.getElementById("game_stage").innerHTML = "Merge complete";
 }
 
 //highlights the position on the grid that the mouse is over
