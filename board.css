@@ -9,6 +9,15 @@
     100% {transform: rotateY( -180deg ) rotateZ( 0deg ); left: 0;}
 }
 
+#account_area {
+    right: 0;
+    width: 25vw;
+    max-width: 25vw;
+    height: 5vh;
+    position: fixed;
+    background-color: steelblue;
+}
+
 #board {
     background-color: darkcyan;
     width: 50vw;
@@ -20,9 +29,10 @@
 
 #card_info {
     right: 0;
+    top: 5vh;
     width: 25vw;
     max-width: 25vw;
-    height: 80vh;
+    height: 75vh;
     position: fixed;
     background-color: purple;
 }
