@@ -8,8 +8,8 @@
     </head>
     <body onload="load()">
 
-        <div class="game_area" id="game_area">
-            <div class="game_info">
+        <div id="game_area">
+            <div id="game_info">
                 <div id="match_info">
                     <div id="pl_info">
                         <div class="title">
@@ -67,8 +67,8 @@
                 </div>
 
                 <div class="stage_buttons">
-                    <button class="debug_button" id="button_reset" onclick="reset_turn()">Reset Turn</button>
-                    <button class="debug_button" id="button_draw_5" onclick="load_hand(5)">Draw Hand</button>
+                    <button id="button_reset" onclick="reset_turn()">Reset Turn</button>
+                    <button id="button_draw_5" onclick="load_hand(5)">Draw Hand</button>
                     <h1 id="game_stage">Stage: </h1>
                 </div>
 
@@ -76,7 +76,7 @@
                 <div class="card_count" id="pl_discard_count"></div>
             </div>
 
-            <div class="board">
+            <div id="board">
                 <div id="grid">
                     <div class="position" id="position_1" onclick="player_action(this)" onmouseenter="highlight_pos(this)" onmouseleave="unhighlight_pos(this)">
                     </div>
@@ -103,7 +103,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card_info">
+            <div id="card_info">
 
             </div>
         </div>

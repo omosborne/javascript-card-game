@@ -9,7 +9,7 @@
     100% {transform: rotateY( -180deg ) rotateZ( 0deg ); left: 0;}
 }
 
-.board {
+#board {
     background-color: darkcyan;
     width: 50vw;
     max-width: 50vw;
@@ -18,7 +18,7 @@
     height: 80vh;
 }
 
-.card_info {
+#card_info {
     right: 0;
     width: 25vw;
     max-width: 25vw;
@@ -27,7 +27,7 @@
     background-color: purple;
 }
 
-.game_info{
+#game_info {
     left: 0;
     width: 25vw;
     max-width: 25vw;
@@ -36,7 +36,7 @@
     background-color: deeppink;
 }
 
-.game_area {
+#game_area {
     width: 100vw;
     top: 0;
     left: 0;
@@ -166,7 +166,7 @@
     transform-style: preserve-3d;
 }
 
-.king_card div{
+.king_card div {
     backface-visibility: hidden;
 }
 
@@ -175,7 +175,7 @@
     animation-fill-mode: forwards;
 }
 
-.king_card_front{
+.king_card_front {
     transform: rotateY( 180deg );
 }
 
@@ -184,7 +184,7 @@
   to {transform: rotateY( -180deg );}
 }
 
-.card div{
+.card div {
     backface-visibility: hidden;
 }
 
@@ -193,10 +193,10 @@
     animation-fill-mode: forwards;
 }
 
-.card.flipped{
+.card.flipped {
     transform: rotateY( -180deg );
 }
-.card_front{
+.card_front {
     transform: rotateY( 180deg );
 }
 
@@ -435,7 +435,7 @@ body, html {
     visibility: hidden;
 }
 
-.hand_position.overlap{
+.hand_position.overlap {
     flex: 1 1 0;
     position: initial;
     z-index: 2;
@@ -455,7 +455,7 @@ body, html {
     z-index: 30;
 }
 
-.card_count{
+.card_count {
     font-size: 12px;
     user-select: none;
     color: white;
