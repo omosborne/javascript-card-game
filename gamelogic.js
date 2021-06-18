@@ -731,7 +731,21 @@ function reset_turn() {
 }
 
 function update_stage_text() {
-    document.getElementById("game_stage").innerHTML = "Stage: " + game_stage;
+    if (game_stage === stages.IDLE) {
+        document.getElementById("game_stage").innerHTML = "Stage: Idle";
+    }
+    else if (game_stage === stages.SUMMON) {
+        document.getElementById("game_stage").innerHTML = "Stage: Summon";
+    }
+    else if (game_stage === stages.ATTACK_TARGET) {
+        document.getElementById("game_stage").innerHTML = "Stage: Attack Target";
+    }
+    else if (game_stage === stages.MERGE_TARGET) {
+        document.getElementById("game_stage").innerHTML = "Stage: Merge Target";
+    }
+    else {
+        document.getElementById("game_stage").innerHTML = "Stage: Error";
+    }
 }
 
 function player_action(selected_pos) {
