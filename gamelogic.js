@@ -255,6 +255,7 @@ function summon(selected_pos){
         chosen_card.style.removeProperty("border");
         chosen_card.style.removeProperty("border-radius");
         chosen_card.style.removeProperty("box-shadow");
+        chosen_card.style.left = "8px";
         chosen_card.classList.toggle("flip");
 
         chosen_card.parentElement.remove();
@@ -374,6 +375,7 @@ function card_killed(destroyed_card) {
     }
     destroyed_card.parentElement.style.border = "solid black";
     destroyed_card.parentElement.style.removeProperty("box-shadow");
+    destroyed_card.style.left = "0px";
     destroyed_card.remove();
     document.getElementById("discard_pile").appendChild(destroyed_card);
     pl_update_pile_count();
