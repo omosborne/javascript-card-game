@@ -591,9 +591,9 @@ function create_card(owner) {
     card_image_div.style.backgroundImage = "url('" + card_images[Math.floor(Math.random() * card_images.length)] + "')";
 
     if (owner === 'pl') {
-        card_atk_image_div.onmousedown = function() {initiate_attack(card_div)};
-        card_def_image_div.onmousedown = function() {initiate_merge(card_div)};
-        card_div.onmousedown = function() {choose_card(card_div)};
+        card_atk_image_div.onclick = function() {initiate_attack(card_div)};
+        card_def_image_div.onclick = function() {initiate_merge(card_div)};
+        card_div.onclick = function() {choose_card(card_div)};
     }
 
     if (is_epic) {
