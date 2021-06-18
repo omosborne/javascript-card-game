@@ -145,9 +145,10 @@ function pl_update_pile_count() {
 }
 //Loads the cards in the hand
 function load_hand(card_count){
-    change_stage(stages.DRAW);
     let deck = document.getElementById("player_deck");
     let deck_size = document.getElementById("player_deck").children.length;
+    if (deck_size < 1) return;
+    change_stage(stages.DRAW);
     for (let i = 0, j = (deck_size - 1); i < card_count; i++, j--) {
         let card = deck.children[j];
         //remove from this div and place in hand div
