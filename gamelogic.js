@@ -1,7 +1,7 @@
 let deck = new Array(0);
 let move_cards = new Array(0);
 let players_cards = new Array(0);
-let placeholder;
+let calc_card_scale = 0;
 let animate;
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
 let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
@@ -124,7 +124,7 @@ function resize_card(resize_element){
             resize_element.children[i].style.transform = "scale(" + card_scale +")";
          }
          set_keyframes(card_scale);
-         placeholder = card_scale;
+         calc_card_scale = card_scale;
     }
 }
 
@@ -166,7 +166,7 @@ function load_hand(card_count){
         document.getElementById("player_hand").appendChild(new_position);
 
         generate_resize("player_hand");
-        new_position.children[0].style.left = "-" + ((window.innerWidth * .5 - (new_position.children[0].getBoundingClientRect().width / 2 + 5)) / placeholder).toString() + "px";
+        new_position.children[0].style.left = "-" + ((window.innerWidth * .5 - (new_position.children[0].getBoundingClientRect().width / 2 + 5)) / calc_card_scale).toString() + "px";
         new_position.children[0].style.zIndex = "1";
         new_position.style.width = "0";
         document.getElementById("player_hand").style.width = new_position.children[0].getBoundingClientRect().width.toString() + "px";
@@ -183,7 +183,7 @@ function load_hand(card_count){
     }
 
     setTimeout(()=>{
-        test();
+        add_flip_animation();
     },1800);
 
     setTimeout(()=>{
@@ -199,8 +199,9 @@ function centre_hand(){
     document.getElementById("pl_buffer_right").style.width = document.getElementById("pl_buffer_left").getBoundingClientRect().width.toString() + "px";
 
     players_cards.forEach((card, idx) => {
-        if (card.parentElement.classList.contains("overlap")){
-                card.parentElement.classList.remove("overlap");
+        if (card.classList.contains("overlap")){
+            alert("test");
+            card.classList.remove("overlap");
         }
         setTimeout(() =>{
 
@@ -209,7 +210,7 @@ function centre_hand(){
     });
 }
 
-function test(){
+function add_flip_animation(){
     move_cards.forEach((card, idx) => {
         setTimeout(() =>{
             card.classList.toggle('flip');
