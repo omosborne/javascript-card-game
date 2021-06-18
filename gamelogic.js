@@ -370,6 +370,12 @@ function calculate_attack () {
 }
 
 function card_killed(destroyed_card) {
+    if (destroyed_card.children[1].children[2].style.backgroundImage === 'url("card_action_cancel.png")') {
+        destroyed_card.children[1].children[2].style.backgroundImage = "url('card_attack_image.png')";
+    }
+    if (destroyed_card.children[1].children[4].style.backgroundImage === 'url("card_action_cancel.png")') {
+        destroyed_card.children[1].children[4].style.backgroundImage = "url('card_health_image.png')";
+    }
     destroyed_card.parentElement.style.border = "solid black";
     destroyed_card.parentElement.style.removeProperty("box-shadow");
     destroyed_card.remove();
