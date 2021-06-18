@@ -9,6 +9,7 @@ let sacrifice_card = null;
 let heal_card = null;
 let chosen_card = null;
 let attack_card = null;
+let inspected_card = null;
 let has_summoned, has_attacked, has_merged = false;
 
 
@@ -39,6 +40,8 @@ function load(){
     // Display game stage
     update_stage_text();
 
+    // Display blank card inspection
+    inspect_card(null);
 }
 
 function screen_size(){
@@ -482,6 +485,33 @@ function unhighlight_pos(selected_pos){
 
 }
 
+function inspect_card(card) {
+    let card_inspector = document.getElementById("inspect_card");
+    inspected_card = card;
+    if (inspected_card === null) {
+        card_inspector.style.backgroundImage = "url('')";
+        card_inspector.children[0].children[0].style.backgroundImage = "url('')";
+        card_inspector.children[0].children[1].style.backgroundImage = "url('')";
+        card_inspector.children[0].children[2].style.backgroundImage = "url('')";
+        card_inspector.children[0].children[3].innerHTML = "";
+        card_inspector.children[0].children[4].style.backgroundImage = "url('')";
+        card_inspector.children[0].children[5].innerHTML = "";
+        card_inspector.children[0].children[6].innerHTML = "";
+        card_inspector.children[0].children[7].innerHTML = "";
+    }
+    else {
+        card_inspector.style.backgroundImage = inspected_card.style.backgroundImage;
+        card_inspector.children[0].children[0].style.backgroundImage = inspected_card.children[1].children[0].style.backgroundImage;
+        card_inspector.children[0].children[1].style.backgroundImage = inspected_card.children[1].children[1].style.backgroundImage;
+        card_inspector.children[0].children[2].style.backgroundImage = inspected_card.children[1].children[2].style.backgroundImage;
+        card_inspector.children[0].children[3].innerHTML = inspected_card.children[1].children[3].innerHTML;
+        card_inspector.children[0].children[4].style.backgroundImage = inspected_card.children[1].children[4].style.backgroundImage;
+        card_inspector.children[0].children[5].innerHTML = inspected_card.children[1].children[5].innerHTML;
+        card_inspector.children[0].children[6].innerHTML = inspected_card.children[1].children[6].innerHTML;
+        card_inspector.children[0].children[7].innerHTML = inspected_card.children[1].children[7].innerHTML;
+    }
+}
+
 function set_pl_area(hand, hand_size){
     hand.style.width = (hand.children[0].getBoundingClientRect().width * hand_size).toString() + "px";
     document.getElementById("pl_buffer_left").style.width = (((window.innerWidth) * .5) - (hand.getBoundingClientRect().width * .5)).toString() + "px";
@@ -609,6 +639,7 @@ function create_card(owner) {
         card_atk_image_div.onclick = function() {initiate_attack(card_div)};
         card_def_image_div.onclick = function() {initiate_merge(card_div)};
         card_div.onclick = function() {choose_card(card_div)};
+        card_div.onmouseover = function () {inspect_card(card_div)};
     }
 
     if (is_epic) {

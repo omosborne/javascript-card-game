@@ -215,6 +215,15 @@
     position: absolute
 }
 
+#inspect_card {
+    width: 180px;
+    background-image: url("card_base.png");
+    background-size: cover;
+    height: 270px;
+    user-select: none;
+    position: absolute;
+}
+
 .card {
     width: 180px;
     background-image: url("card_base.png");
