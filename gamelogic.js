@@ -2,7 +2,6 @@ let deck = new Array(0);
 let move_cards = new Array(0);
 let players_cards = new Array(0);
 let calc_card_scale = 0;
-let animate;
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
 let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
 let target_card = null;
