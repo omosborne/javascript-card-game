@@ -2,7 +2,6 @@ let deck = new Array(0);
 let move_cards = new Array(0);
 let players_cards = new Array(0);
 let calc_card_scale = 0;
-let animate;
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
 let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
 let target_card = null;
@@ -21,7 +20,7 @@ const stages = {
 };
 Object.freeze(stages);
 
-let game_stage = stages.SUMMON;
+let game_stage = stages.IDLE;
 
 function load(){
     //adjust elements to screen size
@@ -710,20 +709,40 @@ function generate_king() {
 }
 
 function change_stage(stage) {
-
-    /*card_chosen = false;
-    chosen_card = null;
-    attack_card = null;
-    target_card = null;
-    sacrifice_card = null;
-    heal_card = null;*/
-
     game_stage = stage;
     update_stage_text();
 }
 
+function reset_turn() {
+    chosen_card = null;
+    attack_card = null;
+    target_card = null;
+    sacrifice_card = null;
+    heal_card = null;
+
+    has_summoned = false;
+    has_attacked = false;
+    has_merged = false;
+
+    change_stage(stages.IDLE);
+}
+
 function update_stage_text() {
-    document.getElementById("game_stage").innerHTML = "Stage: " + game_stage;
+    if (game_stage === stages.IDLE) {
+        document.getElementById("game_stage").innerHTML = "Stage: Idle";
+    }
+    else if (game_stage === stages.SUMMON) {
+        document.getElementById("game_stage").innerHTML = "Stage: Summon";
+    }
+    else if (game_stage === stages.ATTACK_TARGET) {
+        document.getElementById("game_stage").innerHTML = "Stage: Attack Target";
+    }
+    else if (game_stage === stages.MERGE_TARGET) {
+        document.getElementById("game_stage").innerHTML = "Stage: Merge Target";
+    }
+    else {
+        document.getElementById("game_stage").innerHTML = "Stage: Error";
+    }
 }
 
 function player_action(selected_pos) {
