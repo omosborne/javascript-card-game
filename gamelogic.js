@@ -198,15 +198,11 @@ function centre_hand(){
     document.getElementById("pl_buffer_left").style.width = ((window.innerWidth / 2) - (move_cards[0].getBoundingClientRect().width / 2)).toString() + "px";
     document.getElementById("pl_buffer_right").style.width = document.getElementById("pl_buffer_left").getBoundingClientRect().width.toString() + "px";
 
-    players_cards.forEach((card, idx) => {
-        if (card.classList.contains("overlap")){
-            alert("test");
-            card.classList.remove("overlap");
+    players_cards.forEach((card) => {
+        if (card.parentElement.classList.contains("overlap")){
+            card.parentElement.classList.remove("overlap");
         }
-        setTimeout(() =>{
-
-            card.style.left = "0";
-        }, idx * 200)
+            card.parentElement.style.left = "0px";
     });
 }
 
@@ -490,14 +486,16 @@ function adjust_hand() {
     set_pl_area(hand, 1);
     if (hand.children.length > 1) {
         for (let i = 0; i < (hand_size); i++) {
-            if (hand.children[i].classList.contains("overlap")) {
-                    hand.children[i].classList.remove("overlap");
+            let pos = hand.children[i];
+            let card = pos.children[0];
+            if (pos.classList.contains("overlap")) {
+                    pos.classList.remove("overlap");
             }
-            if (!(hand.children[i].children[0].classList.contains("flipped"))) {
-                    hand.children[i].children[0].classList.toggle("flipped");
+            if (!(card.classList.contains("flipped"))) {
+                    card.classList.add("flipped");
             }
-            hand.children[i].children[0].style.left = "0px";
-            hand.children[i].style.width = hand.children[i].children[0].getBoundingClientRect().width.toString() + "px";
+            card.style.left = "0px";
+            pos.style.width = "180px";
         }
         set_pl_area(hand, hand_size);
 
