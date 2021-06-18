@@ -273,6 +273,9 @@ function summon(selected_pos){
 }
 
 function initiate_attack(selected_card) {
+    if (sacrifice_card !== null) {
+        reset_merge(selected_card);
+    }
     if (!has_attacked && selected_card.parentElement.parentElement === document.getElementById("grid"))
     {
         if (attack_card === null) {
@@ -382,7 +385,26 @@ function card_killed(destroyed_card) {
 
 }
 
+function reset_attack() {
+    if (attack_card !== null) {
+        attack_card.children[1].children[2].style.backgroundImage = "url('card_attack_image.png')";
+        attack_card = null;
+        change_stage(stages.IDLE);
+    }
+}
+
+function reset_merge() {
+    if (sacrifice_card !== null) {
+        sacrifice_card.children[1].children[4].style.backgroundImage = "url('card_health_image.png')";
+        sacrifice_card = null;
+        change_stage(stages.IDLE);
+    }
+}
+
 function initiate_merge(selected_card) {
+    if (attack_card !== null) {
+        reset_attack(selected_card);
+    }
     if (!has_merged && selected_card.parentElement.parentElement === document.getElementById("grid"))
     {
         if (sacrifice_card === null) {
