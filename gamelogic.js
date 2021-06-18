@@ -16,7 +16,8 @@ const stages = {
     SUMMON: 1,
     IDLE: 2,
     ATTACK_TARGET: 3,
-    MERGE_TARGET: 4
+    MERGE_TARGET: 4,
+    DRAW: 5
 };
 Object.freeze(stages);
 
@@ -144,6 +145,7 @@ function pl_update_pile_count() {
 }
 //Loads the cards in the hand
 function load_hand(card_count){
+    change_stage(stages.DRAW);
     let deck = document.getElementById("player_deck");
     let deck_size = document.getElementById("player_deck").children.length;
     for (let i = 0, j = (deck_size - 1); i < card_count; i++, j--) {
@@ -535,6 +537,7 @@ function adjust_hand() {
             }
         }
     }
+    change_stage(stages.IDLE);
 }
 
 function fill_deck(deck_size) {
@@ -752,6 +755,9 @@ function update_stage_text() {
     }
     else if (game_stage === stages.MERGE_TARGET) {
         document.getElementById("game_stage").innerHTML = "Stage: Merge Target";
+    }
+    else if (game_stage === stages.DRAW) {
+        document.getElementById("game_stage").innerHTML = "Stage: Draw";
     }
     else {
         document.getElementById("game_stage").innerHTML = "Stage: Error";
