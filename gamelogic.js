@@ -21,7 +21,7 @@ const stages = {
 };
 Object.freeze(stages);
 
-let game_stage = stages.SUMMON;
+let game_stage = stages.IDLE;
 
 function load(){
     //adjust elements to screen size
