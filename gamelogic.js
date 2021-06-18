@@ -400,7 +400,7 @@ function initiate_merge(selected_card) {
 }
 
 function merge_find_target(selected_pos) {
-    if (sacrifice_card !== null && heal_card === null && selected_pos.querySelectorAll(".pl_card").length > 0) {
+    if ((sacrifice_card !== null && sacrifice_card !== selected_pos.children[0]) && heal_card === null && selected_pos.querySelectorAll(".pl_card").length > 0) {
         heal_card = selected_pos.children[0];
         heal_card.style.border = "solid yellow";
         document.getElementById("game_stage").innerHTML = "Heal initiated";
