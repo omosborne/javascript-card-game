@@ -229,7 +229,7 @@ window.addEventListener('resize', screen_size);
 
 //Not used, this is for when a card is clicked on "selected"
 function choose_card(selected_card){
-    if (!has_summoned && selected_card.parentElement.parentElement === document.getElementById("player_hand"))
+    if (game_stage !== stages.DRAW && !has_summoned && selected_card.parentElement.parentElement === document.getElementById("player_hand"))
     {
         let pl_hand = selected_card.parentElement.parentElement;
 
