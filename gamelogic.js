@@ -712,16 +712,22 @@ function generate_king() {
 }
 
 function change_stage(stage) {
+    game_stage = stage;
+    update_stage_text();
+}
 
-    /*card_chosen = false;
+function reset_turn() {
     chosen_card = null;
     attack_card = null;
     target_card = null;
     sacrifice_card = null;
-    heal_card = null;*/
+    heal_card = null;
 
-    game_stage = stage;
-    update_stage_text();
+    has_summoned = false;
+    has_attacked = false;
+    has_merged = false;
+
+    change_stage(stages.IDLE);
 }
 
 function update_stage_text() {
