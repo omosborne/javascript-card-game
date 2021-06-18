@@ -16,6 +16,26 @@
     height: 5vh;
     position: fixed;
     background-color: steelblue;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#profile {
+    background-color: maroon;
+    width: 4vh;
+    height: 4vh;
+    border-radius: 50%;
+    margin: 0.5vh;
+    vertical-align: middle;
+}
+
+#options {
+    width: 4vh;
+    height: 4vh;
+    border-radius: 50%;
+    margin: 0.5vh;
+    background: url("game_options_image.png") no-repeat center;
+    vertical-align: middle;
 }
 
 #board {
