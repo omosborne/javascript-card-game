@@ -67,12 +67,13 @@
                 </div>
 
                 <div class="stage_buttons">
-                    <button class="test_button" id="button_reset" onclick="reset_turn()">Reset Turn</button>
+                    <button class="debug_button" id="button_reset" onclick="reset_turn()">Reset Turn</button>
+                    <button class="debug_button" id="button_draw_5" onclick="load_hand(5)">Draw Hand</button>
                     <h1 id="game_stage">Stage: </h1>
                 </div>
 
-                <div class="card_count" id="pl_deck_count" onclick="load_hand(5)"></div>
-                <div class="card_count" id="pl_discard_count" onclick="load_hand(1)"></div>
+                <div class="card_count" id="pl_deck_count"></div>
+                <div class="card_count" id="pl_discard_count"></div>
             </div>
 
             <div class="board">
