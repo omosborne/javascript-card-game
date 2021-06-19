@@ -38,6 +38,15 @@
     vertical-align: middle;
 }
 
+#rules {
+    width: 4vh;
+    height: 4vh;
+    border-radius: 50%;
+    margin: 0.5vh;
+    background: url("game_rules_image.png") no-repeat center;
+    vertical-align: middle;
+}
+
 #card_inspector {
     left: 2.5vw;
     bottom: 0;
