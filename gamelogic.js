@@ -504,9 +504,9 @@ function inspect_card(card) {
         card_inspector.children[0].style.transform = "rotateY(0deg)";
         card_inspector.children[0].children[0].style.backgroundImage = inspected_card.children[1].children[0].style.backgroundImage;
         card_inspector.children[0].children[1].style.backgroundImage = inspected_card.children[1].children[1].style.backgroundImage;
-        card_inspector.children[0].children[2].style.backgroundImage = inspected_card.children[1].children[2].style.backgroundImage;
+        card_inspector.children[0].children[2].style.backgroundImage = "url('card_attack_image.png')";
         card_inspector.children[0].children[3].innerHTML = inspected_card.children[1].children[3].innerHTML;
-        card_inspector.children[0].children[4].style.backgroundImage = inspected_card.children[1].children[4].style.backgroundImage;
+        card_inspector.children[0].children[4].style.backgroundImage = "url('card_health_image.png')";
         card_inspector.children[0].children[5].innerHTML = inspected_card.children[1].children[5].innerHTML;
         card_inspector.children[0].children[6].innerHTML = inspected_card.children[1].children[6].innerHTML;
         card_inspector.children[0].children[7].innerHTML = inspected_card.children[1].children[7].innerHTML;
