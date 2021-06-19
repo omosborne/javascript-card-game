@@ -612,6 +612,7 @@ function create_card(owner) {
     const card_def_val_div = document.createElement("div");
     const card_name_div = document.createElement("div");
     const card_ability_div = document.createElement("div");
+    const card_rarity_div = document.createElement("div");
 
     card_back_image_div.className = "card_back_image"
 
@@ -623,6 +624,14 @@ function create_card(owner) {
     card_def_val_div.className = "card_def_val";
     card_name_div.className = "card_name";
     card_ability_div.className = "card_ability";
+    card_rarity_div.className = "card_rarity";
+
+    if (is_epic) {
+        card_rarity_div.innerHTML = "Epic";
+    }
+    else {
+        card_rarity_div.innerHTML = "Common";
+    }
 
     card_back_image_div.style.backgroundImage = "url('card_back_1.png')";
 
@@ -679,6 +688,7 @@ function create_card(owner) {
     card_front_div.appendChild(card_def_val_div);
     card_front_div.appendChild(card_name_div);
     card_front_div.appendChild(card_ability_div);
+    card_front_div.appendChild(card_rarity_div);
 
     card_div.appendChild(card_back_div);
     card_div.appendChild(card_front_div);

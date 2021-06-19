@@ -468,6 +468,10 @@
     transform: translate(8px, 217px);
 }
 
+.card_rarity {
+    display: none;
+}
+
 body, html {
     overflow-x: hidden;
     overflow-y: hidden;
