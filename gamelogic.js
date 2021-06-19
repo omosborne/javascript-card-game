@@ -146,6 +146,7 @@ function pl_update_pile_count() {
     document.getElementById("pl_deck_count").innerHTML = document.getElementById("player_deck").children.length.toString();
     document.getElementById("pl_discard_count").innerHTML = document.getElementById("discard_pile").children.length.toString();
 }
+
 //Loads the cards in the hand
 function load_hand(card_count){
     let deck = document.getElementById("player_deck");
