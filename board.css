@@ -58,6 +58,7 @@
 }
 
 #account_area {
+    background-color: #2F3136;
     right: 0;
     width: 25vw;
     max-width: 25vw;
@@ -197,7 +198,7 @@
     max-width: 25vw;
     height: 75vh;
     position: fixed;
-    background-color: purple;
+    background-color: #202225;
 }
 
 #game_info {
@@ -206,7 +207,7 @@
     max-width: 25vw;
     height: 80vh;
     position: fixed;
-    background-color: deeppink;
+    background-color: #202225;
 }
 
 #game_area {
