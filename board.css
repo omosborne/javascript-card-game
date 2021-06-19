@@ -67,6 +67,64 @@
     height: 30vh;
     background-color: olive;
     position: relative;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+#card_details_titles {
+    position: relative;
+    height: 100%;
+    width: 25%;
+}
+
+#card_details_values {
+    position: relative;
+    height: 100%;
+    width: 75%;
+}
+
+#card_details_name {
+    margin-bottom: 1vh;
+}
+
+#card_details_name_val {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 1vh;
+}
+
+#card_details_attack {
+    margin-bottom: 1vh;
+}
+
+#card_details_attack_val {
+    margin-bottom: 1vh;
+}
+
+#card_details_health {
+    margin-bottom: 1vh;
+}
+
+#card_details_health_val {
+    margin-bottom: 1vh;
+}
+
+#card_details_rarity {
+    margin-bottom: 1vh;
+}
+
+#card_details_rarity_val {
+    margin-bottom: 1vh;
+}
+
+#card_details_ability {
+    margin-bottom: 1vh;
+}
+
+#card_details_ability_val {
+    margin-bottom: 1vh;
 }
 
 #board {

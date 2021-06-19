@@ -461,6 +461,7 @@ function unhighlight_pos(selected_pos){
 
 function inspect_card(card) {
     let card_inspector = document.getElementById("inspect_card");
+    let card_details = document.getElementById("card_details");
     inspected_card = card;
     if (inspected_card === null) {
         card_inspector.style.backgroundImage = "url('')";
@@ -472,6 +473,12 @@ function inspect_card(card) {
         card_inspector.children[0].children[5].innerHTML = "";
         card_inspector.children[0].children[6].innerHTML = "";
         card_inspector.children[0].children[7].innerHTML = "";
+
+        card_details.children[0].children[0].innerHTML = "";
+        card_details.children[0].children[1].innerHTML = "";
+        card_details.children[0].children[2].innerHTML = "";
+        card_details.children[0].children[3].innerHTML = "";
+        card_details.children[0].children[4].innerHTML = "";
     }
     else if (inspected_card.classList.contains("flipped") && !(inspected_card.parentElement === document.getElementById("player_deck") || inspected_card.parentElement === document.getElementById("discard_pile"))) {
         card_inspector.style.backgroundImage = inspected_card.style.backgroundImage;
@@ -484,6 +491,18 @@ function inspect_card(card) {
         card_inspector.children[0].children[5].innerHTML = inspected_card.children[1].children[5].innerHTML;
         card_inspector.children[0].children[6].innerHTML = inspected_card.children[1].children[6].innerHTML;
         card_inspector.children[0].children[7].innerHTML = inspected_card.children[1].children[7].innerHTML;
+
+        card_details.children[0].children[0].innerHTML = "Name:";
+        card_details.children[0].children[1].innerHTML = "Attack:";
+        card_details.children[0].children[2].innerHTML = "Health:";
+        card_details.children[0].children[3].innerHTML = "Rarity:";
+        card_details.children[0].children[4].innerHTML = "Ability:";
+
+        card_details.children[1].children[0].innerHTML = inspected_card.children[1].children[6].innerHTML;
+        card_details.children[1].children[1].innerHTML = inspected_card.children[1].children[3].innerHTML;
+        card_details.children[1].children[2].innerHTML = inspected_card.children[1].children[5].innerHTML;
+        card_details.children[1].children[3].innerHTML = "RARITY";
+        card_details.children[1].children[4].innerHTML = inspected_card.children[1].children[7].innerHTML;
     }
 }
 
