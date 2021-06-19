@@ -499,7 +499,7 @@ function inspect_card(card) {
         card_inspector.children[0].children[6].innerHTML = "";
         card_inspector.children[0].children[7].innerHTML = "";
     }
-    else {
+    else if (inspected_card.classList.contains("flipped")) {
         card_inspector.style.backgroundImage = inspected_card.style.backgroundImage;
         card_inspector.children[0].style.transform = "rotateY(0deg)";
         card_inspector.children[0].children[0].style.backgroundImage = inspected_card.children[1].children[0].style.backgroundImage;
