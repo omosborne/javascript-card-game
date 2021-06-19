@@ -188,6 +188,9 @@ function add_flip_animation(){
             card.classList.toggle('flip');
         }, idx * 200)
     });
+    setTimeout(() =>{
+            change_stage(stages.IDLE);
+        },  1800)
 }
 
 function set_keyframes(stylesheet){
@@ -540,7 +543,6 @@ function adjust_hand() {
             }
         }
     }
-    change_stage(stages.IDLE);
 }
 
 function fill_deck(deck_size) {

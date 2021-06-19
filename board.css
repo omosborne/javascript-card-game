@@ -4,7 +4,7 @@
 
 @keyframes move_flip_card {
     0% {transform: rotateY( 0deg ) rotateZ( 0deg );}
-    1% {visibility: visible;}
+    0.4% {visibility: visible;}
     5% {transform: rotateZ( -30deg ); visibility: visible;}
     50% {transform: rotateY( -180deg ); visibility: visible;}
     100% {transform: rotateY( -180deg ) rotateZ( 0deg ); left: 0; visibility: visible;}
