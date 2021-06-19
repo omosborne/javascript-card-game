@@ -502,7 +502,13 @@ function inspect_card(card) {
         card_details.children[1].children[1].innerHTML = inspected_card.children[1].children[3].innerHTML;
         card_details.children[1].children[2].innerHTML = inspected_card.children[1].children[5].innerHTML;
         card_details.children[1].children[3].innerHTML = inspected_card.children[1].children[8].innerHTML;
-        card_details.children[1].children[4].innerHTML = inspected_card.children[1].children[7].innerHTML;
+
+        if (inspected_card.children[1].children[7].innerHTML === "") {
+            card_details.children[1].children[4].innerHTML = "None.";
+        }
+        else {
+            card_details.children[1].children[4].innerHTML = inspected_card.children[1].children[7].innerHTML;
+        }
 
         if (inspected_card.children[1].children[8].innerHTML === "Epic") {
             card_details.children[1].children[3].style.color = "#FBBD1D";
