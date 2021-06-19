@@ -126,8 +126,8 @@ function resize_card(resize_element){
          for (let i = 1; i < resize_element.children.length; i++) {
             resize_element.children[i].style.transform = "scale(" + card_scale +")";
          }
-         set_keyframes(card_scale);
          calc_card_scale = card_scale;
+         set_keyframes(document.styleSheets[0]);
     }
 }
 
@@ -171,61 +171,30 @@ function load_hand(card_count){
         document.getElementById("player_hand").appendChild(new_position);
 
         generate_resize("player_hand");
-        new_position.children[0].style.left = "-" + ((window.innerWidth * .5 - (new_position.children[0].getBoundingClientRect().width / 2 + 5)) / calc_card_scale).toString() + "px";
-        new_position.children[0].style.zIndex = "1";
-        new_position.style.width = "0";
         document.getElementById("player_hand").style.width = new_position.children[0].getBoundingClientRect().width.toString() + "px";
     }
     show();
-    move_cards.forEach((card, idx) => {
-        setTimeout(() =>{
-            card.classList.toggle('flip');
-        }, idx * 200)
-    });
+    add_flip_animation();
+    adjust_hand();
 
-    if (players_cards.length > 1){
-        centre_hand();
-    }
-
-    setTimeout(()=>{
-        add_flip_animation();
-    },1800);
-
-    setTimeout(()=>{
-        adjust_hand();
-    },1800);
-
-    move_cards = [];
-}
-
-function centre_hand(){
-    document.getElementById("player_hand").style.width = move_cards[0].getBoundingClientRect().width.toString() + "px";
-    document.getElementById("pl_buffer_left").style.width = ((window.innerWidth / 2) - (move_cards[0].getBoundingClientRect().width / 2)).toString() + "px";
-    document.getElementById("pl_buffer_right").style.width = document.getElementById("pl_buffer_left").getBoundingClientRect().width.toString() + "px";
-
-    players_cards.forEach((card) => {
-        if (card.parentElement.classList.contains("overlap")){
-            card.parentElement.classList.remove("overlap");
-        }
-            card.parentElement.style.left = "0px";
-    });
+    move_cards = move_cards.filter( ( el ) => !players_cards.includes( el ) );
 }
 
 function add_flip_animation(){
     move_cards.forEach((card, idx) => {
+        card.style.left = "-" + ((window.innerWidth * .5 - (card.getBoundingClientRect().width / 2 + 5)) / calc_card_scale).toString() + "px";
+        card.style.visibility = "hidden";
         setTimeout(() =>{
             card.classList.toggle('flip');
         }, idx * 200)
     });
 }
 
-function set_keyframes(card_scale){
-    let stylesheet = document.styleSheets[0];
-    let fadeOutRule = stylesheet.cssRules[0];
-    let fadeOutRule_0 = fadeOutRule.cssRules[0];
-    /*let fadeOutRule_50 = fadeOutRule.cssRules[1];
-    let fadeOutRule_100 = fadeOutRule.cssRules[2];*/
-    fadeOutRule_0.style.setProperty("left", "-" + ((window.innerWidth * .5 - (document.getElementById("player_deck").getBoundingClientRect().width / 2 + 5)) / card_scale).toString() + "px");
+function set_keyframes(stylesheet){
+    //flip animation
+    let flip = stylesheet.cssRules[0];
+    let flip_0 = flip.cssRules[0];
+    flip_0.style.setProperty("left", "-" + ((window.innerWidth * .5 - (document.getElementById("player_deck").getBoundingClientRect().width / 2 + 5)) / calc_card_scale).toString() + "px");
 }
 
 //an event listener that runs screen size once browser is rescaled
@@ -261,16 +230,17 @@ function summon(selected_pos){
         chosen_card.style.removeProperty("border");
         chosen_card.style.removeProperty("border-radius");
         chosen_card.style.removeProperty("box-shadow");
+        chosen_card.style.visibility = "visible";
         chosen_card.style.left = "8px";
         chosen_card.classList.toggle("flip");
 
         chosen_card.parentElement.remove();
         selected_pos.appendChild(chosen_card);
+        players_cards.splice(chosen_card, 1);
         chosen_card = null;
 
         selected_pos.style.border = "2px solid #9ecaed";
         selected_pos.style.boxShadow = "0 0 10px #9ecaed";
-        players_cards.splice(0, 1);
         adjust_hand();
 
         has_summoned = true;
@@ -540,7 +510,6 @@ function adjust_hand() {
             if (!(card.classList.contains("flipped"))) {
                     card.classList.add("flipped");
             }
-            card.style.left = "0px";
             pos.style.width = "180px";
         }
         set_pl_area(hand, hand_size);
@@ -562,10 +531,12 @@ function adjust_hand() {
         }
         else{
             for (let i = 0; i < (hand_size); i++) {
-                if (hand.children[i].classList.contains("overlap")) {
-                    hand.children[i].classList.remove("overlap");
+                let pos = hand.children[i];
+
+                if (pos.classList.contains("overlap")) {
+                    pos.classList.remove("overlap");
                 }
-                hand.children[i].style.left = (((hand.children[i].getBoundingClientRect().width) * i)).toString() + "px";
+                pos.style.left = (((pos.getBoundingClientRect().width) * i)).toString() + "px";
             }
         }
     }
