@@ -247,6 +247,11 @@ function summon(selected_pos){
         selected_pos.style.boxShadow = "0 0 10px #9ecaed";
         adjust_hand();
 
+        if (!document.getElementById("stage_summon").classList.contains("stage_used")) {
+            document.getElementById("stage_summon").classList.add("stage_used");
+            document.getElementById("stage_summon").children[1].innerHTML = "Already summoned";
+        }
+
         has_summoned = true;
         change_stage(stages.IDLE);
     }
@@ -285,8 +290,12 @@ function attack_find_target(selected_pos) {
         attack_card = null;
         target_card = null;
 
-        has_attacked = true;
+        if (!document.getElementById("stage_attack").classList.contains("stage_used")) {
+            document.getElementById("stage_attack").classList.add("stage_used");
+            document.getElementById("stage_attack").children[1].innerHTML = "Already attacked";
+        }
 
+        has_attacked = true;
         change_stage(stages.IDLE);
     }
 }
@@ -406,8 +415,12 @@ function merge_find_target(selected_pos) {
         sacrifice_card = null;
         heal_card = null;
 
-        has_merged = true;
+        if (!document.getElementById("stage_merge").classList.contains("stage_used")) {
+            document.getElementById("stage_merge").classList.add("stage_used");
+            document.getElementById("stage_merge").children[1].innerHTML = "Already merged";
+        }
 
+        has_merged = true;
         change_stage(stages.IDLE);
 
     }
@@ -782,6 +795,7 @@ function change_stage(stage) {
 }
 
 function reset_turn() {
+
     chosen_card = null;
     attack_card = null;
     target_card = null;
@@ -791,6 +805,21 @@ function reset_turn() {
     has_summoned = false;
     has_attacked = false;
     has_merged = false;
+
+    if (document.getElementById("stage_summon").classList.contains("stage_used")) {
+        document.getElementById("stage_summon").classList.remove("stage_used");
+        document.getElementById("stage_summon").children[1].innerHTML = "Summone remaining";
+    }
+
+    if (document.getElementById("stage_attack").classList.contains("stage_used")) {
+        document.getElementById("stage_attack").classList.toggle("stage_used");
+        document.getElementById("stage_attack").children[1].innerHTML = "Attack remaining";
+    }
+
+    if (document.getElementById("stage_merge").classList.contains("stage_used")) {
+        document.getElementById("stage_merge").classList.toggle("stage_used");
+        document.getElementById("stage_merge").children[1].innerHTML = "Merge remaining";
+    }
 
     change_stage(stages.IDLE);
 }
