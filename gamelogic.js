@@ -651,6 +651,9 @@ function create_card(owner) {
     card_background_div.style.backgroundImage = "url('" + card_backgrounds[Math.floor(Math.random() * card_backgrounds.length)] + "')";
     card_image_div.style.backgroundImage = "url('" + card_images[Math.floor(Math.random() * card_images.length)] + "')";
 
+    card_atk_image_div.style.backgroundImage = "url('card_attack_image.png')";
+    card_def_image_div.style.backgroundImage = "url('card_health_image.png')";
+
     if (owner === 'pl') {
         card_atk_image_div.onclick = function() {initiate_attack(card_div)};
         card_def_image_div.onclick = function() {initiate_merge(card_div)};

@@ -413,21 +413,18 @@
 .card_back_image {
     width: 180px;
     height: 270px;
-    background-image: url("card_back_1.png");
     position: absolute
 }
 
 .card_background {
     width: 180px;
     height: 180px;
-    background-image: url("card_background_2.png");
     position: absolute;
 }
 
 .card_image {
     width: 180px;
     height: 180px;
-    background-image: url("card_image_6.png");
     filter: invert(1);
     position: absolute;
 }
@@ -435,7 +432,6 @@
 .card_atk_image {
     width: 30px;
     height: 30px;
-    background-image: url("card_attack_image.png");
     position: absolute;
     transform: translate(8px, 142px);
 }
@@ -455,7 +451,6 @@
 .card_def_image {
     width: 30px;
     height: 30px;
-    background-image: url("card_health_image.png");
     position: absolute;
     transform: translate(142px, 142px);
 }
