@@ -314,7 +314,9 @@ function calculate_attack () {
         let winner = parseInt(attack_val) > parseInt(target_val) ? attack_card : target_card;
 
         if (winner === attack_card) {
-
+            if (attack_card.children[1].children[2].style.backgroundImage === 'url("card_action_cancel.png")') {
+                attack_card.children[1].children[2].style.backgroundImage = "url('card_attack_image.png')";
+            }
             let player_score = document.getElementById("pl_score").innerHTML;
             document.getElementById("pl_score").innerHTML = (parseInt(player_score) + 1).toString();
         }
