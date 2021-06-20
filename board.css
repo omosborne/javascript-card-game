@@ -109,6 +109,11 @@
     vertical-align: middle;
 }
 
+#options:hover {
+    transform: rotateZ(90deg);
+    transition-duration: 1s;
+}
+
 #rules {
     width: 4vh;
     height: 4vh;
