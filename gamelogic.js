@@ -12,6 +12,9 @@ let attack_card = null;
 let inspected_card = null;
 let has_summoned, has_attacked, has_merged = false;
 
+let pl = null;
+let op = null;
+
 
 const stages = {
     SUMMON: 1,
@@ -42,6 +45,14 @@ function load(){
 
     // Display blank card inspection
     inspect_card(null);
+}
+
+function get_pl() {
+    // get the player reference
+}
+
+function get_op() {
+    // get the opponent reference
 }
 
 function screen_size(){
