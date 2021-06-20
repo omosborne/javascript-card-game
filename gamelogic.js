@@ -28,6 +28,11 @@ Object.freeze(stages);
 let game_stage = stages.IDLE;
 
 function load(){
+
+    // Collect the player and opponent.
+    get_pl();
+    get_op();
+
     //adjust elements to screen size
     screen_size();
 
@@ -215,6 +220,17 @@ function set_keyframes(stylesheet){
 //an event listener that runs screen size once browser is rescaled
 window.addEventListener('resize', screen_size);
 
+function round_won(winner) {
+    if (winner === pl) {
+        let player_score = document.getElementById("pl_score").innerHTML;
+        document.getElementById("pl_score").innerHTML = (parseInt(player_score) + 1).toString();
+    }
+    else if (winner === op) {
+        let opponent_score = document.getElementById("op_score").innerHTML;
+        document.getElementById("op_score").innerHTML = (parseInt(opponent_score) + 1).toString();
+    }
+}
+
 //Not used, this is for when a card is clicked on "selected"
 function choose_card(selected_card){
     if (game_stage !== stages.DRAW && !has_summoned && selected_card.parentElement.parentElement === document.getElementById("player_hand"))
@@ -328,8 +344,12 @@ function calculate_attack () {
             if (attack_card.children[1].children[2].style.backgroundImage === 'url("card_action_cancel.png")') {
                 attack_card.children[1].children[2].style.backgroundImage = "url('card_attack_image.png')";
             }
-            let player_score = document.getElementById("pl_score").innerHTML;
-            document.getElementById("pl_score").innerHTML = (parseInt(player_score) + 1).toString();
+            if (attack_card.classList.contains("pl_card")) {
+                round_won(pl);
+            }
+            else if (attack_card.classList.contains("op_card")) {
+                round_won(op);
+            }
         }
         else if (winner === target_card) {
             card_killed(attack_card);
