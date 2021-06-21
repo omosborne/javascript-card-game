@@ -691,6 +691,14 @@ body, html {
 #player_deck {
     left: 5px;
     transform-origin: top left;
+    background: repeating-linear-gradient(
+      45deg,
+      #335927,
+      #335927 10px,
+      transparent 10px,
+      transparent 20px
+    );
+    border-radius: 10px;
 }
 
 /* Discard Pile (off to the left) */
