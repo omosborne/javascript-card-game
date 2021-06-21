@@ -667,8 +667,10 @@ body, html {
 
 .hand_position.overlap:hover {
     bottom: 20px;
-    z-index: 30;
+    /*z-index: 30;*/
+    margin-right: 45px;
 }
+
 
 .card_count {
     font-size: 12px;
