@@ -696,6 +696,14 @@ body, html {
 /* Discard Pile (off to the left) */
 #discard_pile {
     transform-origin: top left;
+    background: repeating-linear-gradient(
+      45deg,
+      #592424,
+      #592424 10px,
+      transparent 10px,
+      transparent 20px
+    );
+    border-radius: 10px;
 }
 
 /*op hand*/
