@@ -45,6 +45,8 @@ body, html {
     text-align: center;
     line-height: 250%;
     user-select: none;
+    display: flex;
+    flex-direction: column;
 }
 
 .menu_buttons {
