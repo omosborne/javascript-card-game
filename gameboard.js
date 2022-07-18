@@ -295,11 +295,11 @@ function initiate_attack(selected_card) {
     {
         if (attack_card === null) {
             attack_card = selected_card;
-            attack_card.children[1].children[2].style.backgroundImage = "url('card_action_cancel.png')";
+            attack_card.children[1].children[2].style.backgroundImage = "url('images/card_action_cancel.png')";
             change_stage(stages.ATTACK_TARGET);
         }
         else {
-            attack_card.children[1].children[2].style.backgroundImage = "url('card_attack_image.png')";
+            attack_card.children[1].children[2].style.backgroundImage = "url('images/card_attack_image.png')";
             attack_card = null;
             change_stage(stages.IDLE);
         }
@@ -344,8 +344,8 @@ function calculate_attack () {
         let winner = parseInt(attack_val) > parseInt(target_val) ? attack_card : target_card;
 
         if (winner === attack_card) {
-            if (attack_card.children[1].children[2].style.backgroundImage === 'url("card_action_cancel.png")') {
-                attack_card.children[1].children[2].style.backgroundImage = "url('card_attack_image.png')";
+            if (attack_card.children[1].children[2].style.backgroundImage === 'url("images/card_action_cancel.png")') {
+                attack_card.children[1].children[2].style.backgroundImage = "url('images/card_attack_image.png')";
             }
             if (attack_card.classList.contains("pl_card")) {
                 round_won(pl);
@@ -387,11 +387,11 @@ function calculate_attack () {
 }
 
 function card_killed(destroyed_card) {
-    if (destroyed_card.children[1].children[2].style.backgroundImage === 'url("card_action_cancel.png")') {
-        destroyed_card.children[1].children[2].style.backgroundImage = "url('card_attack_image.png')";
+    if (destroyed_card.children[1].children[2].style.backgroundImage === 'url("images/card_action_cancel.png")') {
+        destroyed_card.children[1].children[2].style.backgroundImage = "url('images/card_attack_image.png')";
     }
-    if (destroyed_card.children[1].children[4].style.backgroundImage === 'url("card_action_cancel.png")') {
-        destroyed_card.children[1].children[4].style.backgroundImage = "url('card_health_image.png')";
+    if (destroyed_card.children[1].children[4].style.backgroundImage === 'url("images/card_action_cancel.png")') {
+        destroyed_card.children[1].children[4].style.backgroundImage = "url('images/card_health_image.png')";
     }
     destroyed_card.parentElement.style.border = "solid black";
     destroyed_card.parentElement.style.removeProperty("box-shadow");
@@ -404,7 +404,7 @@ function card_killed(destroyed_card) {
 
 function reset_attack() {
     if (attack_card !== null) {
-        attack_card.children[1].children[2].style.backgroundImage = "url('card_attack_image.png')";
+        attack_card.children[1].children[2].style.backgroundImage = "url('images/card_attack_image.png')";
         attack_card = null;
         change_stage(stages.IDLE);
     }
@@ -412,7 +412,7 @@ function reset_attack() {
 
 function reset_merge() {
     if (sacrifice_card !== null) {
-        sacrifice_card.children[1].children[4].style.backgroundImage = "url('card_health_image.png')";
+        sacrifice_card.children[1].children[4].style.backgroundImage = "url('images/card_health_image.png')";
         sacrifice_card = null;
         change_stage(stages.IDLE);
     }
@@ -426,11 +426,11 @@ function initiate_merge(selected_card) {
     {
         if (sacrifice_card === null) {
             sacrifice_card = selected_card;
-            sacrifice_card.children[1].children[4].style.backgroundImage = "url('card_action_cancel.png')";
+            sacrifice_card.children[1].children[4].style.backgroundImage = "url('images/card_action_cancel.png')";
             change_stage(stages.MERGE_TARGET);
         }
         else {
-            sacrifice_card.children[1].children[4].style.backgroundImage = "url('card_health_image.png')";
+            sacrifice_card.children[1].children[4].style.backgroundImage = "url('images/card_health_image.png')";
             sacrifice_card = null;
             change_stage(stages.IDLE);
         }
@@ -534,9 +534,9 @@ function inspect_card(card) {
         card_inspector.children[0].style.transform = "rotateY(0deg)";
         card_inspector.children[0].children[0].style.backgroundImage = inspected_card.children[1].children[0].style.backgroundImage;
         card_inspector.children[0].children[1].style.backgroundImage = inspected_card.children[1].children[1].style.backgroundImage;
-        card_inspector.children[0].children[2].style.backgroundImage = "url('card_attack_image.png')";
+        card_inspector.children[0].children[2].style.backgroundImage = "url('images/card_attack_image.png')";
         card_inspector.children[0].children[3].innerHTML = inspected_card.children[1].children[3].innerHTML;
-        card_inspector.children[0].children[4].style.backgroundImage = "url('card_health_image.png')";
+        card_inspector.children[0].children[4].style.backgroundImage = "url('images/card_health_image.png')";
         card_inspector.children[0].children[5].innerHTML = inspected_card.children[1].children[5].innerHTML;
         card_inspector.children[0].children[6].innerHTML = inspected_card.children[1].children[6].innerHTML;
         card_inspector.children[0].children[7].innerHTML = inspected_card.children[1].children[7].innerHTML;
@@ -695,13 +695,13 @@ function create_card(owner) {
         card_rarity_div.innerHTML = "Common";
     }
 
-    card_back_image_div.style.backgroundImage = "url('card_back_1.png')";
+    card_back_image_div.style.backgroundImage = "url('images/card_back_1.png')";
 
-    card_background_div.style.backgroundImage = "url('" + card_backgrounds[Math.floor(Math.random() * card_backgrounds.length)] + "')";
-    card_image_div.style.backgroundImage = "url('" + card_images[Math.floor(Math.random() * card_images.length)] + "')";
+    card_background_div.style.backgroundImage = "url('images/" + card_backgrounds[Math.floor(Math.random() * card_backgrounds.length)] + "')";
+    card_image_div.style.backgroundImage = "url('images/" + card_images[Math.floor(Math.random() * card_images.length)] + "')";
 
-    card_atk_image_div.style.backgroundImage = "url('card_attack_image.png')";
-    card_def_image_div.style.backgroundImage = "url('card_health_image.png')";
+    card_atk_image_div.style.backgroundImage = "url('images/card_attack_image.png')";
+    card_def_image_div.style.backgroundImage = "url('images/card_health_image.png')";
 
     if (owner === 'pl') {
         card_atk_image_div.onclick = function() {initiate_attack(card_div)};
@@ -715,24 +715,24 @@ function create_card(owner) {
         card_ability_div.innerHTML = "Privately view the king. If this card is destroyed the king is reset."
     }
 
-    if (!is_epic && card_image_div.style.backgroundImage === 'url("card_image_4.png")') {
+    if (!is_epic && card_image_div.style.backgroundImage === 'url("images/card_image_4.png")') {
         card_name_div.innerHTML = "The night thief";
     }
-    else if (is_epic && card_image_div.style.backgroundImage === 'url("card_image_4.png")') {
+    else if (is_epic && card_image_div.style.backgroundImage === 'url("images/card_image_4.png")') {
         card_name_div.innerHTML = "The night thief";
         card_name_div.style.color = "#FBBD1D";
     }
-    else if (!is_epic &&  card_image_div.style.backgroundImage === 'url("card_image_5.png")') {
+    else if (!is_epic &&  card_image_div.style.backgroundImage === 'url("images/card_image_5.png")') {
         card_name_div.innerHTML = "Plague doctor of death";
     }
-    else if (is_epic && card_image_div.style.backgroundImage === 'url("card_image_5.png")') {
+    else if (is_epic && card_image_div.style.backgroundImage === 'url("images/card_image_5.png")') {
         card_name_div.innerHTML = "Plague doctor of death";
         card_name_div.style.color = "#FBBD1D";
     }
-    else if (!is_epic &&  card_image_div.style.backgroundImage === 'url("card_image_6.png")') {
+    else if (!is_epic &&  card_image_div.style.backgroundImage === 'url("images/card_image_6.png")') {
         card_name_div.innerHTML = "Bandit of the shadows";
     }
-    else if (is_epic && card_image_div.style.backgroundImage === 'url("card_image_6.png")') {
+    else if (is_epic && card_image_div.style.backgroundImage === 'url("images/card_image_6.png")') {
         card_name_div.innerHTML = "Bandit of the shadows";
         card_name_div.style.color = "#FBBD1D";
     }
@@ -787,19 +787,19 @@ function generate_king() {
     card_def_val_div.className = "card_def_val";
     card_name_div.className = "card_name";
 
-    card_background_div.style.backgroundImage = "url('" + card_backgrounds[Math.floor(Math.random() * card_backgrounds.length)] + "')";
-    card_image_div.style.backgroundImage = "url('" + card_images[Math.floor(Math.random() * card_images.length)] + "')";
+    card_background_div.style.backgroundImage = "url('images/" + card_backgrounds[Math.floor(Math.random() * card_backgrounds.length)] + "')";
+    card_image_div.style.backgroundImage = "url('images/" + card_images[Math.floor(Math.random() * card_images.length)] + "')";
 
     card_image_div.style.filter = "invert(79%) sepia(67%) saturate(950%) hue-rotate(340deg) brightness(99%) contrast(99%)";
     card_name_div.style.color = "#FBBD1D";
 
-    if (card_image_div.style.backgroundImage === 'url("card_image_4.png")') {
+    if (card_image_div.style.backgroundImage === 'url("images/card_image_4.png")') {
         card_name_div.innerHTML = "The night thief";
     }
-    else if (card_image_div.style.backgroundImage === 'url("card_image_5.png")') {
+    else if (card_image_div.style.backgroundImage === 'url("images/card_image_5.png")') {
         card_name_div.innerHTML = "Plague doctor of death";
     }
-    else if (card_image_div.style.backgroundImage === 'url("card_image_6.png")') {
+    else if (card_image_div.style.backgroundImage === 'url("images/card_image_6.png")') {
         card_name_div.innerHTML = "Bandit of the shadows";
     }
     else {

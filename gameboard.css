@@ -39,28 +39,28 @@
 }
 
 #stage_surrender_image {
-    background: url("turn_surrender_image.png") no-repeat center;
+    background: url("images/turn_surrender_image.png") no-repeat center;
     vertical-align: middle;
     width: 100%;
     height: 100%;
 }
 
 #stage_summon_image {
-    background: url("turn_summon_image.png") no-repeat center;
+    background: url("images/turn_summon_image.png") no-repeat center;
     vertical-align: middle;
     width: 100%;
     height: 100%;
 }
 
 #stage_attack_image {
-    background: url("turn_attack_image.png") no-repeat center;
+    background: url("images/turn_attack_image.png") no-repeat center;
     vertical-align: middle;
     width: 100%;
     height: 100%;
 }
 
 #stage_merge_image {
-    background: url("turn_merge_image.png") no-repeat center;
+    background: url("images/turn_merge_image.png") no-repeat center;
     vertical-align: middle;
     width: 100%;
     height: 100%;
@@ -114,7 +114,7 @@
     height: 4vh;
     border-radius: 50%;
     margin: 0.5vh;
-    background: url("game_options_image.png") no-repeat center;
+    background: url("images/game_options_image.png") no-repeat center;
     vertical-align: middle;
 }
 
@@ -128,7 +128,7 @@
     height: 4vh;
     border-radius: 50%;
     margin: 0.5vh;
-    background: url("game_rules_image.png") no-repeat center;
+    background: url("images/game_rules_image.png") no-repeat center;
     vertical-align: middle;
 }
 
@@ -333,7 +333,7 @@
 .op_card {
     width: 180px;
     height: 270px;
-    background-image: url("card_base.png");
+    background-image: url("images/card_base.png");
     background-size: cover;
     position: relative;
 }
@@ -341,13 +341,13 @@
 .op_card_back_image {
     width: 100%;
     height: 100%;
-    background-image: url("card_back_1.png");
+    background-image: url("images/card_back_1.png");
     position: absolute;
 }
 
 .king_card {
     width: 180px;
-    background-image: url("card_base.png");
+    background-image: url("images/card_base.png");
     background-size: cover;
     height: 270px;
     user-select: none;
@@ -359,13 +359,13 @@
 .king_card .card_back_image {
     width: 180px;
     height: 270px;
-    background-image: url("king_back_1.png");
+    background-image: url("images/king_back_1.png");
     position: absolute
 }
 
 #inspect_card {
     width: 180px;
-    background-image: url("card_base.png");
+    background-image: url("images/card_base.png");
     background-size: cover;
     height: 270px;
     user-select: none;
@@ -374,7 +374,7 @@
 
 .card {
     width: 180px;
-    background-image: url("card_base.png");
+    background-image: url("images/card_base.png");
     background-size: cover;
     height: 270px;
     user-select: none;
