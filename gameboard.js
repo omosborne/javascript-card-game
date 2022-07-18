@@ -50,6 +50,9 @@ function load(){
 
     // Display blank card inspection
     inspect_card(null);
+
+    // Draw first set of cards for the player.
+    load_hand(5);
 }
 
 function get_pl() {
