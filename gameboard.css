@@ -249,7 +249,6 @@
     position: relative;
     width: 100%;
     height: 10%;
-    background-color: green;
     line-height: 150%;
     text-align: center;
     font-weight: bold;
@@ -528,7 +527,6 @@ body, html {
     position: relative;
     width: 100%;
     height: 10%;
-    background-color: orange;
     display: flex;
     flex-direction: row;
 }
@@ -606,7 +604,14 @@ body, html {
     position: relative;
     width: 100%;
     height: 20%;
-    background-color: blue;
+    transform-origin: top left;
+    background: repeating-linear-gradient(
+      45deg,
+      #36393F,
+      #36393F 10px,
+      transparent 10px,
+      transparent 20px
+    );
 }
 
 #opponent_hand {
