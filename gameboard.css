@@ -245,6 +245,17 @@
     background-color: #202225;
 }
 
+#round_info {
+    position: relative;
+    width: 100%;
+    height: 10%;
+    background-color: green;
+    line-height: 150%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 300%;
+}
+
 #game_area {
     width: 100vw;
     top: 0;
@@ -516,7 +527,7 @@ body, html {
 #match_info {
     position: relative;
     width: 100%;
-    height: 20%;
+    height: 10%;
     background-color: orange;
     display: flex;
     flex-direction: row;
