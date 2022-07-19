@@ -1,6 +1,8 @@
 let deck = new Array(0);
 let move_cards = new Array(0);
 let players_cards = new Array(0);
+let round_number = 1;
+let round_finished = false;
 let calc_card_scale = 0;
 let card_backgrounds = ['card_background_1.png', 'card_background_2.png', 'card_background_3.png'];
 let card_images = ['card_image_4.png', 'card_image_5.png', 'card_image_6.png'];
@@ -232,6 +234,72 @@ function round_won(winner) {
         let opponent_score = document.getElementById("op_score").innerHTML;
         document.getElementById("op_score").innerHTML = (parseInt(opponent_score) + 1).toString();
     }
+    update_round();
+}
+
+function update_round() {
+    round_number++;
+
+    if (document.getElementById("pl_score").innerHTML === "2") {
+        // Game Over
+        document.getElementById("round_info").innerHTML = "You Won!";
+        //setTimeout(() => send_player_to_menu(), 2000);
+        send_player_to_menu();
+    }
+    else if (document.getElementById("op_score").innerHTML === "2") {
+        // Game Over
+        document.getElementById("round_info").innerHTML = "You Lost!";
+        //setTimeout(() => send_player_to_menu(), 2000);
+        send_player_to_menu();
+    }
+
+    document.getElementById("round_info").innerHTML = "Round " + round_number.toString();
+
+    //setTimeout(() => reset_round(), 2000);
+    reset_round();
+}
+
+function reset_round() {
+    reset_king();
+
+    clear_grid();
+
+    reset_turn();
+
+    load_hand(5);
+
+    round_finished = true;
+}
+
+function clear_grid() {
+    for (let i = 1; i <= 9; i++) {
+        if (i === 5) continue;
+
+        let card_to_clear = document.getElementById("position_" + i).children[0];
+
+        if (card_to_clear === undefined) continue;
+
+        if (card_to_clear.classList.contains("pl_card")) {
+            card_killed(card_to_clear);
+        }
+        else if (card_to_clear.classList.contains("op_card")) {
+            card_to_clear.parentElement.style.border = "solid black";
+            card_to_clear.parentElement.style.removeProperty("box-shadow");
+            card_to_clear.style.left = "0px";
+            card_to_clear.remove();
+        }
+    }
+}
+
+function reset_king() {
+    if (document.getElementById("king_position").children[0].children[1].classList.contains("card_front")) {
+        document.getElementById("king_position").children[0].classList.toggle("flip");
+        document.getElementById("king_position").children[0].children[1].remove();
+    }
+}
+
+function send_player_to_menu() {
+    window.location.href = "menu.html";
 }
 
 //Not used, this is for when a card is clicked on "selected"
@@ -310,27 +378,35 @@ function initiate_attack(selected_card) {
 function attack_find_target(selected_pos) {
     if ((attack_card !== null && target_card === null) && (selected_pos.querySelectorAll(".op_card").length > 0 || selected_pos.querySelectorAll(".king_card").length > 0)) {
         target_card = selected_pos.children[0];
-        target_card.style.border = "solid yellow";
 
         calculate_attack();
 
-        attack_card.style.removeProperty("border");
-        target_card.style.removeProperty("border");
+        console.log("round finished: " + round_finished);
+        console.log("has attacked: " + has_attacked);
 
-        attack_card = null;
-        target_card = null;
+        //attack_card.style.removeProperty("border");
+        //target_card.style.removeProperty("border");
 
-        if (!document.getElementById("stage_attack").classList.contains("stage_used")) {
-            document.getElementById("stage_attack").classList.add("stage_used");
-            document.getElementById("stage_attack").children[1].innerHTML = "Already attacked";
+        if (!round_finished) {
+            attack_card = null;
+            target_card = null;
+
+            if (!document.getElementById("stage_attack").classList.contains("stage_used")) {
+                document.getElementById("stage_attack").classList.add("stage_used");
+                document.getElementById("stage_attack").children[1].innerHTML = "Already attacked";
+            }
+
+            has_attacked = true;
+            change_stage(stages.IDLE);
         }
-
-        has_attacked = true;
-        change_stage(stages.IDLE);
+        else {
+            round_finished = false;
+        }
     }
 }
 
 function calculate_attack () {
+    target_card.parentElement.style.removeProperty("border");
     if (target_card.parentElement.id === "king_position") {
 
         if (!(target_card.classList.contains('flip'))) {
@@ -441,7 +517,6 @@ function initiate_merge(selected_card) {
 function merge_find_target(selected_pos) {
     if ((sacrifice_card !== null && sacrifice_card !== selected_pos.children[0]) && heal_card === null && selected_pos.querySelectorAll(".pl_card").length > 0) {
         heal_card = selected_pos.children[0];
-        heal_card.style.border = "solid yellow";
 
         calculate_heal();
 
